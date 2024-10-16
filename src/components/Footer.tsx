@@ -10,61 +10,22 @@ const Footer = () => {
                         <div>
                             {/*<img className="max-h-28 max-w-xs" src={logo} alt="Holo"></img>*/}
                             <p className="text-black opacity-70 text-sm mt-5 ">
-                                A stunning and minimal<br></br> personalized website starter
-                                theme
-                                <br></br>
-                                built with Gatsby.
+                              Contenuto footer
                             </p>
                             <p className="text-white text-lg font-bold mt-20">
                 <span className="text-black font-montserrat font-semibold mt-20">
-                  &copy; {new Date().getFullYear()}. All Rights Reserved.
+                  &copy; {new Date().getFullYear()} CodyRoby
                 </span>
                             </p>
-                            <div className="text-black font-bold block-inline">
+                            <div className="text-slate-400 hover:text-black block-inline">
                                 <p>
-                                    <a className="text-black font-bold block-inline" href="/">
-                                        Holo
-                                    </a>
-
-                                    <a
-                                        className="text-black font-semibold ml-1"
-                                        target="_blank"
-                                        href="https://travislord.xyz"
-                                    >
-                                        By TL
-                                    </a>
-                                    <a
-                                        href="https://github.com/lilxyzz/holo-theme"
-                                        target="_blank"
-                                    >
-                                        <img
-                                            className="w-5 h-5 mt-1"
-                                            src="/img/Github-Logo.png"
-                                            alt="GitHub"
-                                        ></img>
-                                    </a>
+                                   <Link to={'/privacy-policy'}>Privacy Policy</Link>
                                 </p>
                             </div>
                         </div>
 
                         <div className="place-self-end self-center xxs:hidden lg:block">
-                            <ul className="text-xl font-montserrat font-medium">
-                                <li>
-                                    <Link to="/">Home</Link>
-                                </li>
-                                <li>
-                                    <Link to="/about">About</Link>
-                                </li>
-                                <li>
-                                    <Link to="/gallery">Gallery</Link>
-                                </li>{" "}
-                                <li>
-                                    <Link to="/blog">Blog</Link>
-                                </li>
-                                <li>
-                                    <Link to="/contact">Contact</Link>
-                                </li>
-                            </ul>
+                            <p>Contenuto footer</p>
                         </div>
                     </div>
                 </div>

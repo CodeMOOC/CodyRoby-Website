@@ -1,7 +1,7 @@
 import React from 'react';
 const Contact = () => {
     return (
-        <p>Contacts page</p>
+        <p>Contact page</p>
     )
 }
 
