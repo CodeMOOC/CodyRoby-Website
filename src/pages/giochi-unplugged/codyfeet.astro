@@ -1,0 +1,291 @@
+---
+import Layout from '../../layouts/PageLayout.astro';
+import AnimateText from '~/components/ui/AnimateText.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Button from '~/components/ui/Button.astro';
+import { Image } from 'astro:assets';
+
+import banner from '../../assets/images/codyfeet/banner.png';
+import ButtonSelection from '~/components/ui/ButtonsSelection';
+
+import ahead from '~/assets/images/codyfeet/CodyFeet-WoC-ahead-150x150.png';
+import left from '~/assets/images/codyfeet/CodyFeet-WoC-left-150x150.png';
+import right from '~/assets/images/codyfeet/CodyFeet-WoC-right-150x150.png';
+import start from '~/assets/images/codyfeet/CodyFeet-WoC-start-150x150.png';
+import stop from '~/assets/images/codyfeet/CodyFeet-WoC-stop-150x150.png';
+import path from '~/assets/images/codyfeet/CodyFeet-path.png';
+import braccialetti from '~/assets/images/codyfeet/codyfeet-braccialetti-e1538470494342-768x484.jpg';
+import freeAhead from '~/assets/images/codyfeet/CodyFeet-free-ahead-150x150.png';
+import freeStop from '~/assets/images/codyfeet/CodyFeet-free-stop-150x150.png';
+import freeStart from '~/assets/images/codyfeet/CodyFeet-free-start-150x150.png';
+import free from '~/assets/images/codyfeet/CodyFeet-free-768x384.png';
+
+import codyFeetGame from '~/../public/codyfeet/codyFeetGame.pdf';
+
+const metadata = {
+  title: 'CodyFeet',
+  subtitle: 'Metodo di Coding Unplugged per l’Età Prescolare',
+};
+
+const buttons = [
+  {
+    color: 'Ahead',
+    image: ahead,
+    text: '(dritto): colore grigio, punto d’uscita sul lato opposto a quello d’ingresso, impronte lungo la direzione ingresso-uscita.',
+  },
+  {
+    color: 'Left',
+    image: left,
+    text: '(sinistra): colore giallo, punto d’uscita sul lato sinistro della tessera rispetto al punto di ingresso, impronte ruotate di 90 gradi a sinistra rispetto al punto di ingresso.',
+  },
+  {
+    color: 'Right',
+    image: right,
+    text: '(destra): colore rosso, punto d’uscita sul lato destro della tessera rispetto al punto di ingresso, impronte ruotate di 90 gradi a destra rispetto al punto di ingresso.',
+  },
+  {
+    color: 'Start',
+    image: start,
+    text: "(partenza): colore azzurro, nessun punto di ingresso, triangolo al centro orientato verso il lato d'uscita.",
+  },
+  {
+    color: 'Stop',
+    image: stop,
+    text: '(arrivo): colore azzurro, nessun punto di uscita, cerchietto al centro.',
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Giochi Unplugged"
+    image={{
+      src: banner,
+      alt: 'banner CodyFeet',
+    }}
+  >
+    <Fragment slot="title"> {metadata.title} </Fragment>
+
+    <Fragment slot="subtitle"> {metadata.subtitle} </Fragment>
+  </Hero>
+  <div class="prose-page">
+    <AnimateText>
+      <p>
+        <strong>CodyFeet</strong> è un metodo di coding unplugged per età prescolare, propedeutico all’uso di CodyRoby e
+        alla programmazione visuale a blocchi. Il metodo consente di costruire percorsi a tessere quadrate che rappresentano
+        in modo intuitivo le istruzioni necessarie a percorrerli. CodyFeet nasce dall’esigenza, diffusa nella scuola dell’infanzia,
+        di rappresentare direttamente sul percorso le istruzioni da eseguire per percorrerlo, scaturisce da un’idea di Annalisa
+        Albano, concepita per le sue bimbe e maturata durante scambi in chat, è frutto dell’analisi critica e della rielaborazione
+        effettuata a Urbino con i partecipanti alla Summer School 2018.
+      </p>
+
+      <p>
+        La caratteristica peculiare di <strong>CodyFeet</strong> è quella di conciliare l’estrema semplificazione, che lo
+        rende <strong>intuitivo e corretto per costruzione</strong>, con i principi base del coding e i paradigmi di
+        programmazione visuale a blocchi e coding unplugged, che i bambini incontreranno negli anni successivi.
+        <br />
+        <br />
+        La <strong>genesi del gioco</strong> e il confronto da cui è scaturito sono documentati dai video riportati in fondo
+        a questa pagina, mentre qui di seguito può essere seguito il <strong>webinar di presentazione</strong>.
+      </p>
+      <div class="flex justify-center">
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/JYEW8ImW2Cg?si=tjKZhVQyi_aHNu5g"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen></iframe>
+      </div>
+    </AnimateText>
+
+    <AnimateText>
+      <h2>Il senso del gioco</h2>
+
+      <p>
+        Il coding si basa sulla separazione di ruoli tra chi programma e chi esegue, che richiede una convenzione basata
+        su un repertorio di istruzioni e su regole sintattiche ben precise. Molte attività di coding unplugged prevedono
+        che un bambino o una bambina si muova su una scacchiera come un robot, eseguendo semplici istruzioni di
+        movimento impartite dai compagni. In CodyRoby la separazione di ruoli è già nel nome: Cody è il programmatore,
+        Roby il robot. il Robot non si limita ad eseguire le istruzioni, ma le deve anche leggere ed interpretare. E’
+        così che si comportano anche i computer: leggono le istruzioni ad una ad una dalla memoria e le eseguono. In
+        CodyRoby le istruzioni sono rappresentate da carte da gioco, che Cody mostra o consegna a Roby affinchè le
+        esegua.
+      </p>
+
+      <p>
+        In CodyFeet le istruzioni sono direttamente rappresentate sulle tessere quadrate che compongono il percorso, una
+        per tessera. <strong
+          >E’ come se il protagonista del gioco fosse un robottino che legge le istruzioni con i piedi</strong
+        >: solo quando arriva su una tessera legge l’istruzione corrispondente, la interpreta e la esegue, poi passa
+        alla successiva, spostandosi sulla tessera di fronte a sè. Quindi <strong
+          >lo spostamento in avanti è implicito</strong
+        >, perchè rappresenta il passaggio all’istruzione successiva, mentre le mosse rappresentate sulle tessere
+        corrispondono a rotazioni sul posto: <strong>sinistra</strong> (rotazione in senso antiorario di 90 gradi), <strong
+          >destra</strong
+        > (rotazione in senso orario di 90 gradi) e <strong>diritto</strong> (nessuna rotazione rispetto alla direzione già
+        assunta).
+      </p>
+    </AnimateText>
+    <AnimateText>
+      <h2>Le tessere</h2>
+      <p>
+        Le tessere sono quadrate. In analogia ai blocchi della programmazione visuale, ogni tessera ha un incavo e una
+        protuberanza tra loro complementari, che ne suggeriscono i possibili incastri con altre tessere. L’incavo
+        rappresenta il punto d’ingresso in una tessera, mentre la protuberanza ne rappresenta il punto d’uscita.
+        L’incastro garantisce che il punto d’uscita da una tessera corrisponda al punto di ingresso nella successiva. In
+        tal modo la naturale disposizione delle tessere a formare il percorso corrisponde alla sequenza di istruzioni da
+        eseguire per percorrerlo.
+      </p>
+      <AnimateText>
+        <ButtonSelection buttons={buttons} client:load />
+      </AnimateText>
+    </AnimateText>
+    <AnimateText>
+      <h2>Kit fai da te</h2>
+      <p>
+        Le tessere possono essere liberamente scaricate da questa pagina, stampate e ritagliate. Ne vengono fornite tre
+        versioni: CodyFeet-WoC, con simboli bianchi su sfondo colorato; CodyFeet-CoW, con sinboli colorati su sfondo
+        bianco; CodyFeet-W, senza colorazione, per risparmiare inchiostro in fase di stampa e permettere la
+        personalizzazione dei colori. Di seguito è possibile scaricare il file pdf vettoriale con tutte le tessere, o le
+        singole tessere ad una ad una.
+      </p>
+
+      <p>
+        Le tessere hanno un bordo che serve a far rientrate in una forma quadrata la protuberanza necessari a agli
+        incastri. Se decidete di ritagliare le tessere in modo da mantenere il bordo avete due vantaggi: tutte le
+        tessere hanno forma perfettamente quadrata, potete inventare giochi a tessere coperte dove la forma non svela
+        l’istruzione. Per contro, gli incastri tra le tessere non saranno effettivi. Se invece decidete di ritagliarle
+        lungo il bordo interno sagomato, gli incastri diventeranno effettivi, ma le tessere diventeranno riconoscibili
+        anche se a faccia in giù.
+      </p>
+    </AnimateText>
+    <div class="flex justify-center">
+      <Button variant="primary" text="Scarica ora" href={codyFeetGame} target="_blank" icon="tabler:download" />
+    </div>
+    <AnimateText>
+      <h2>Modalità di gioco</h2>
+
+      <p>
+        Avendo a disposizione le tessere, si possono costruire percorsi coerenti rispettando un’unica regola: affiancare
+        tessere solo lungo lati che si incastrano. In tal modo il percorso si snoderà secondo la fantasia dei bambini
+        dalla tessera di start alla tessera di stop. Queste due tessere terminali non sono strettamente necessarie, ma
+        ritengo che favoriscano l’ordine, la comprensione e l’analogia con la programmazione.
+      </p>
+
+      <p>
+        L’esempio mostra 4 versioni dello stesso percorso: con tessere WoC con bordo, con tessere CoW con bordo, con
+        tessere WoC senza bordo, e con tessere CoW senza bordo.
+      </p>
+      <Image src={path} alt="giochi" />
+      <p>
+        Una volta costruito il percorso, le regole di percorrenza sono semplici e intuitive: si parte dalla tessera di
+        Start e si fa un balzo in avanti; ad ogni passo si osserva la tessera su cui ci si trova e la si esegue,
+        effettuando la corrispondente rotazione, quindi si fa un balzo in avanti.
+      </p>
+
+      <p>
+        Con queste semplici regole, che caratterizzano CodyFeet, è possibile inventare molti giochi diversi per
+        coinvolgere i bambini in attività di coding unplugged.
+      </p>
+    </AnimateText>
+
+    <AnimateText>
+      <h2>Consigli</h2>
+
+      <p>
+        Al fine di dare piena consapevolezza ai bambini delle azioni che compiono e del significato dell’attività, le
+        prime volte il percorso potrebbe essere scandito dalle seguenti frasi, pronunciate su ogni tessera dal bambino o
+        dalla bambina che si muove sul percorso come un robottino:
+      </p>
+
+      <ol>
+        <li><em>Leggo l’istruzione:</em> giallo, sinistra (oppure rosso, destra, oppure grigio, diritto)</li>
+        <li><em>Eseguo l’istruzione:</em> mi giro a sinistra (oppure mi giro a destra, oppure proseguo diritto)</li>
+        <li><em>Passo all’istruzione successiva</em> (e qui passa sulla tessera successiva e ricomincia)</li>
+      </ol>
+
+      <p>
+        Nel caso in cui la classe partecipi osservando attivamente, le frasi, a titolo di esempio, potrebbero essere
+        modificate come segue, intendendo che le parti in corsivo siano pronunciate in coro dai compagni:
+      </p>
+
+      <ol>
+        <li>
+          <em>Leggi l’istruzione:</em> giallo, girati a sinistra (oppure rosso, girati a destra, oppure grigio, prosegui
+          diritto)
+        </li>
+        <li><em>Esegui l’istruzione:</em> mi giro a sinistra (oppure mi giro a destra, oppure proseguo diritto)</li>
+        <li>
+          <em>Passo all’istruzione successiva</em> (il bambino o la bambina si muove in avanti e ricomincia il ciclo)
+        </li>
+      </ol>
+
+      <p>
+        Per favorire la familiarizzazione dei bambini con la destra e la sinistra, Annalisa suggerisce di dotare i
+        bambini di braccialetti gialli e rossi.
+      </p>
+      <Image src={braccialetti} alt="braccialetti" />
+    </AnimateText>
+    <AnimateText>
+      <h2>Estensione: CodyFeet Free</h2>
+
+      <p>
+        Le attività didattiche che prevedono l’uso di percorsi sono spesso contestualizzate in modo tale che al percorso
+        sia associata una narrazione o un’attività che prevede altre azioni, oltre agli spostamenti lungo il percorso.
+        Il paradigma di CodyFeet si presta ad offrire supporto alla <strong>narrazione</strong> e alle <strong
+          >azioni specifiche</strong
+        > da compiere lungo il percorso senza compromettere la rappresentazione delle istruzioni necessarie a seguire il
+        percorso stesso. L’opportunità è data innanzitutto dalle tessere neutre, di colore grigio, che dicono di proseguire
+        diritto senza alcuna rotazione. Tali tessere possono essere sostituite da tessere che, pur senza presupporre alcuna
+        rotazione, prevedano di compiere azioni funzionali al gioco, alla narrazione o all’attività didattica in corso. <strong
+          >Per essere compatibile con CodyFeet, l’azione deve</strong
+        >:
+        <ul>
+          <li>
+            <strong>essere elementare </strong>(cioè associata ad una sola istruzione rappresentata sulla tessera
+            stessa),
+          </li>
+          <li>
+            <strong>non comportare spostamenti </strong>(in modo da non interferire con la percorrenza del tracciato),
+          </li>
+          <li>
+            <strong>non comportare rotazioni</strong> (cioè avere punto di uscita dalla tessera sul lato opposto al punto
+            di entrata).
+          </li>
+        </ul>
+        Dal punto di vista del bimbo-robot che incontra la tessera speciale, si tratta di compiere l’azione codificata dall’istruzione
+        prima di passare alla tessera successiva per leggere una nuova istruzione.<br /><br />
+        gradi di libertà lasciati aperti da questi semplici requisiti sono talmente ampi da chiamare queste tessere "<strong
+          >free</strong
+        >", lasciando alla fantasia di bambini e insegnanti la definizione e la rappresentazione delle istruzioni utili
+        alle loro attività.<br /><br />
+        Volendo, è possibile generalizzare anche le tessere di inizio e fine percorso (start e stop), che pur mantenendo
+        la sagoma esterna di quelle standard possono essere decorate e personalizzate in modo da rappresentare più efficacemente
+        le situazioni di partenza e di arrivo e la codifica di eventuali azioni da compiere all’inizio e alla fine.<br
+        /><br />
+        Ecco le tre tessere <strong>CodyFeet-Free</strong>:
+      </p>
+      <div class="flex justify-center gap-6">
+        <Image src={freeAhead} alt="freeAhead" />
+        <Image src={freeStop} alt="freeStop" />
+        <Image src={freeStart} alt="freeStart" />
+      </div>
+      <p>
+        Qui di seguito, le tessere libere sono state utilizzate per comporre la parola CODING lungo il percorso.
+        Nell’esempio, volutamente, le tessere libere sono usate insieme a quelle neutre, per sottolineare che il loro
+        utilizzo non è esclusivo e che il comportamento del bimbo-robot che si muove lungo il percorso è coerente.
+      </p>
+      <Image src={free} alt="free" />
+      <h2>Riflessioni metodologiche e applicazioni</h2>
+
+      <p>
+        CodyFeet offre un modo divertente e coinvolgente per avvicinare i bambini in età prescolare ai principi del
+        coding, attraverso semplici giochi intuitivi che stimolano il pensiero critico, il lavoro di squadra e la
+        risoluzione di problemi.
+      </p>
+    </AnimateText>
+  </div>
+</Layout>

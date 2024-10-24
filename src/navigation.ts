@@ -1,6 +1,9 @@
 import { getPermalink, getBlogPermalink, getAsset, getHomePermalink } from './utils/permalinks';
 
+const basePath = '/giochi-unplugged';
+
 export const headerData = {
+  
   links: [
     {
       text: 'Home',
@@ -15,15 +18,15 @@ export const headerData = {
         },
         {
           text: 'CodyColor',
-          href: getPermalink('/codycolor'),
+          href: getPermalink(`${basePath}/codycolor`),
         },
         {
           text: 'CodyFeet',
-          href: getPermalink('/codyfeet'),
+          href: getPermalink(`${basePath}/codyfeet`),
         },
         {
           text: 'CodyMaze',
-          href: getPermalink('/codymaze'),
+          href: getPermalink(`${basePath}/codymaze`),
         },
         {
           text: 'CodeHunting Games',
@@ -32,7 +35,7 @@ export const headerData = {
         },
         {
           text: 'CodyWay',
-          href: getPermalink('/codyway'),
+          href: getPermalink(`${basePath}/codyway`),
         },
       ],
     },

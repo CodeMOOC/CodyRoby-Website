@@ -1,0 +1,278 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../../layouts/PageLayout.astro';
+
+import banner from '../../assets/images/codycolor/banner.png';
+
+import ButtonSelection from '../../components/ui/ButtonsSelection';
+import AnimateText from '~/components/ui/AnimateText.astro';
+import Hero from '~/components/widgets/Hero.astro';
+
+import yellow from '~/assets/images/codycolor/yellow-150x150.png';
+import red from '~/assets/images/codycolor/red-150x150.png';
+import grey from '~/assets/images/codycolor/grey-150x150.png';
+import start from '~/assets/images/codycolor/start-150x150.png';
+import target from '~/assets/images/codycolor/target-150x150.png';
+
+const metadata = {
+  title: 'CodyColor',
+  subtitle: 'Il gioco di coding a colori che sfida la tua logica',
+};
+
+const buttons = [
+  {
+    color: 'grey',
+    image: grey,
+    text: 'Ahead (diritto): colore grigio, la tessera viene attraversata da Roby senza alcuna rotazione, uscendo dal lato opposto a quello di ingresso. [stamparne 25 per giocare su una scacchiera 5×5]',
+  },
+  {
+    color: 'red',
+    image: red,
+    text: 'Right (destra): colore rosso, impone a Roby una rotazione di 90 gradi in senso orario, così che Roby esce dalla casella sul lato che vede alla propria destra entrando. [stamparne 25 per giocare su una scacchiera 5×5]',
+  },
+  {
+    color: 'yellow',
+    image: yellow,
+    text: 'Left (sinistra): colore giallo, impone a Roby una rotazione di 90 gradi in senso antiorario, così che Roby esce dalla casella sul lato che vede alla propria sinistra entrando. [stamparne 25 per giocare su una scacchiera 5×5]',
+  },
+  {
+    color: 'start',
+    image: start,
+    text: 'Start (partenza): colore azzurro. Tessera da disporre all’esterno della scacchiera, con la freccia rivolta verso una casella del bordo della scacchiera. Indica il punto di ingresso di Roby nella scacchiera. [non è indispensabile, si consiglia di stamparne 2]',
+  },
+  {
+    color: 'target',
+    image: target,
+    text: 'Target (arrivo): colore azzurro. Tessera da disporre all’esterno della scacchiera, in corrispondenza del punto da cui si prevede (o si chiede) che Roby esca dalla scacchiera dopo averla percorsa. [non è indispensabile, si consiglia di stamparne 2]',
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Giochi Unplugged"
+    image={{
+      src: banner,
+      alt: 'banner codycolor',
+    }}
+  >
+    <Fragment slot="title"> {metadata.title} </Fragment>
+    <Fragment slot="subtitle">{metadata.subtitle}</Fragment>
+  </Hero>
+  <div class="prose prose-xl mx-auto">
+    <AnimateText>
+      <p>
+        <strong>CodyColor</strong> è un metodo di coding unplugged che si presta a concepire giochi e attività adatti ad
+        ogni età. Può essere proposto fin dalla scuola dell’infanzia come naturale estensione di CodyFeet, poiché le regole
+        di percorrenza della griglia e l’associazione tra colori e rotazioni sono le stesse, ma l’assenza di vincoli sulla
+        direzione di ingresso e il passaggio da percorso a griglia creano situazioni difficili da prevedere e offrono l’opportunità
+        di creare giochi avvincenti anche da adulti.
+      </p>
+
+      <p>
+        CodyColor è stato proposto durante la Summer School 2018 (una registrazione informale della presentazione
+        originale è riportata in fondo alla pagina). La dinamica del gioco è stata messa a punto coinvolgendo Cristian e
+        Elena, del Liceo scientifico “Laurana” di Urbino, durante il loro periodo di Alternanza Scuola Lavoro. Il gioco
+        è stato presentato al pubblico l’8 ottobre 2018, durante un webinar interattivo a cui hanno partecipato più di
+        8000 bambini, collegati dalle rispettive scuole.
+      </p>
+    </AnimateText>
+    <AnimateText>
+      <h2>Le regole base</h2>
+      <p>
+        Il robot (Roby) si muove su una griglia, le cui caselle possono assumere tre colori: giallo, rosso e grigio,
+        corrispondenti a tre diverse rotazioni. Il robot percorre la griglia restando su ogni tessera solo il tempo
+        necessario a guardarne il colore, interpretarlo e compiere la rotazione corrispondente:
+      </p>
+
+      <ul>
+        <li>
+          Se la tessera è <strong>gialla</strong>, il robot ruota di 90 gradi in senso antiorario, girandosi verso
+          sinistra.
+        </li>
+        <li>
+          Se la tessera è <strong>rossa</strong>, il robot ruota di 90 gradi in senso orario, girandosi verso destra.
+        </li>
+        <li>Se la tessera è <strong>grigia</strong>, il robot prosegue diritto.</li>
+      </ul>
+
+      <p>
+        Effettuata la rotazione, passa alla casella successiva, che è quella che trova di fronte a sé dopo la rotazione.
+      </p>
+    </AnimateText>
+    <AnimateText>
+      <h2>Il materiale</h2>
+      <p>
+        Questa è tra le attività unplugged più semplici da realizzare, poiché utilizza solo tessere di colore omogeneo.
+        Pertanto, possono essere ricavate da fogli di carta colorata o di qualsiasi altro materiale che abbia già il
+        colore desiderato. Le tessere proposte di seguito sono quindi solo esemplificative. Possono essere stampate e,
+        volendo, plastificate per poterle riusare. Il gioco si può sviluppare su scacchiere di qualsiasi dimensione, ma
+        già una scacchiera 5×5 offre sufficienti gradi di libertà.
+      </p>
+
+      <p>
+        Per un utilizzo su scacchiera 5×5, per ridurre la quantità di tessere senza limitarne la scelta, è possibile
+        stamparne 25 fronte-retro con un colore sul fronte (ad esempio il giallo) e un colore diverso sul retro (ad
+        esempio il rosso). Le 25 tessere del colore restante (grigio) potranno essere stampate solo fronte, lasciando
+        bianco il retro per eventuali personalizzazioni.
+      </p>
+
+      <p>
+        Le dimensioni delle tessere dipendono dall’uso che se ne vuole fare. Immaginando che la scacchiera sia a terra e
+        che debba essere percorsa fisicamente da bambini o bambine che impersonano Roby, ogni scacco dovrà avere almeno
+        un lato di 40 cm. Le tessere possono essere grandi quanto gli scacchi, o essere disposte al loro interno per
+        rappresentare la rotazione da effettuare. In questo caso possono avere anche dimensione sensibilmente inferiore
+        a quella della casella su cui vengono collocate (ad esempio 20×20 cm).
+      </p>
+    </AnimateText>
+    <AnimateText>
+      <ButtonSelection buttons={buttons} client:load />
+    </AnimateText>
+    <AnimateText>
+      <h2>Il progetto Scratch</h2>
+      <p>
+        Questo progetto Scratch, sviluppato in occasione del webinar interattivo dell’8 ottobre 2018, a cui hanno preso
+        parte più di 8000 bambini, è utile per prendere confidenza con CodyColor, studiarne la dinamica ed esplorarne le
+        potenzialità al fine di ideare nuovi giochi basati su queste semplici regole.
+      </p>
+    </AnimateText>
+    <AnimateText>
+      <h3>Ecco come usarlo:</h3>
+      <ol>
+        <li>Premere la <strong>bandierina verde</strong> per lanciare l’esecuzione, il pulsante rosso per bloccarla</li>
+        <li>
+          Premere il <strong>tasto R</strong> per fare il reset della scacchiera, portando tutte le tessere al colore neutro
+          GRIGIO
+        </li>
+        <li>Premere il <strong>tasto S</strong> per ottenere una colorazione casuale di ogni tessera</li>
+        <li>
+          <strong>Cliccare</strong> su una delle tre tessere a sinistra dello schermo per <strong
+            >selezionare un colore</strong
+          >
+        </li>
+        <li>
+          <strong>Cliccare</strong> su una qualunque delle tessere della griglia per farle <strong
+            >cambiare colore</strong
+          > portandola al colore selezionato
+        </li>
+        <li>
+          <strong>Cliccare</strong> su una delle lettere disposte lungo il bordo per indicare il <strong
+            >punto di ingresso</strong
+          > di Roby nella griglia
+        </li>
+        <li>Premere il tasto <strong>SPAZIO</strong> per far entrare Roby nella griglia e osservarne il percorso</li>
+        <li>
+          <strong>Osservare</strong> il <strong>punto di uscita</strong> e il <strong>numero di tessere</strong> (tiles)
+          percorse
+        </li>
+      </ol>
+
+      <p>
+        Gli ultimi tre passi possono essere ripetuti per provare a percorrere la griglia iniziando da punti diversi. Ad
+        ogni esecuzione si consiglia di provare a prevedere il punto di uscita e la lunghezza del percorso per rendersi
+        conto della difficoltà e del livello di comprensione della dinamica. Questi semplici esperimenti possono essere
+        utili a decidere come proporre l’attività unplugged ai propri alunni: quante tessere utilizzare, che gioco
+        proporre, quanto tempo offrire. Si vedano a tal fine la registrazione del webinar interattivo dell’8 ottobre
+        2018 e le proposte di gioco nel paragrafo seguente.
+      </p>
+
+      <iframe
+        src="//scratch.mit.edu/projects/embed/250921166/?autostart=false"
+        width="485"
+        height="402"
+        frameborder="0"
+        allowfullscreen="allowfullscreen"></iframe>
+    </AnimateText>
+    <AnimateText>
+      <h2>Proposte di gioco</h2>
+      <p>
+        In questo paragrafo sono descritte alcune possibili modalità di gioco coerenti con le regole base di CodyColor,
+        a puro scopo esemplificativo, senza entrare nei dettagli.
+      </p>
+
+      <ul>
+        <li>
+          <strong>Serpenti a colori</strong>. Due squadre iniziano con la scacchiera vuota e le proprie pedine pronte ad
+          entrare da due lati opposti (indicati dalle rispettive tessere azzurre di Start). Ad ogni turno dispongono una
+          tessera di fronte al proprio robot, che avanza sulla scacchiera ed esegue la rotazione eventualmente indicata
+          dalla tessera. Quando un robot incontra caselle con tessere già disposte le usa senza poterle sostituire.
+          Vince la squadra che mantiene più a lungo il proprio robot sulla scacchiera.
+        </li>
+        <li>
+          <strong>Forza N</strong>. Le due squadre, a turno, piazzano le tessere su caselle vuote della scacchiera, una
+          alla volta. Si stabilisce il valore di N (ad esempio 7). Lo scopo del gioco è formare un percorso che
+          attraversi la scacchiera visitando almeno 7 (N) tessere. Ha diritto di valutare la presenza del percorso la
+          squadra che ha in mano il gioco. La squadra che vince si aggiudica N punti e si procede incrementando il
+          valore di N.
+        </li>
+        <li>
+          <strong>Trova l’ingresso</strong>. Si dispongono le tessere colorate sulla scacchiera, in modo casuale o per
+          formare un disegno. Quindi si piazza il target lungo il bordo della scacchiera e si sfidano le squadre a
+          trovare il punto da cui deve entrare Roby per raggiungere il target. Vince la squadra che propone il punto
+          giusto per prima.
+        </li>
+        <li>
+          <strong>Trova l’uscita</strong>. Si dispongono le tessere colorate sulla scacchiera, come prima. Quindi si
+          piazza lo start lungo il bordo della scacchiera e si sfidano le squadre a trovare il punto da cui uscirà Roby.
+          Vince la squadra che propone il punto giusto per prima.
+        </li>
+        <li>
+          <strong>Cammino più lungo</strong>. Si dispongono le tessere sulla scacchiera, come prima. Si sfidano le
+          squadre ad individuare il punto d’ingresso da cui intraprendere il cammino più lungo esistente sulla
+          scacchiera. Vince la squadra che trova il cammino più lungo.
+        </li>
+        <li>
+          <strong>Ricolora</strong>. Si dispongono le tessere sulla scacchiera, come prima. Si individuano un punto
+          d’ingresso e un punto d’uscita non già collegati da un cammino. Si sfidano le squadre a sostituire il minor
+          numero di tessere sulla scacchiera per collegare i due punti. Vince la squadra che trova la soluzione minima
+          per prima.
+        </li>
+        <li>
+          <strong>Intrappola Roby in un loop</strong>. Modalità di gioco “dinamica” illustrata nel seguente video
+          attraverso il progetto Scratch.
+        </li>
+      </ul>
+
+      <div class="video-container flex justify-center">
+        <iframe
+          src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2F100000665857116%2Fvideos%2F2140822639283244%2F&show_text=0&width=560"
+          width="560"
+          height="315"
+          style="border:none;overflow:hidden"
+          scrolling="no"
+          frameborder="0"
+          allowfullscreen="true"
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+        >
+        </iframe>
+      </div>
+
+      <p><em>La genesi del gioco</em></p>
+      <p>Registrazioni effettuate da Adriana Cosentino durante la Summer School 2018.</p>
+      <div class="flex flex-col justify-center items-center gap-8">
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/gJiQY88KkE0?start=1"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        >
+        </iframe>
+
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/Z3ELEaziYyQ?si=FQ-g_ZKDZfOumOTv"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        >
+        </iframe>
+      </div>
+    </AnimateText>
+  </div>
+</Layout>

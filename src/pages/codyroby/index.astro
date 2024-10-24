@@ -2,10 +2,13 @@
 import Layout from '../../layouts/PageLayout.astro';
 import Hero from '../../components/widgets/Hero.astro';
 import { YouTube } from 'astro-embed';
-import Button from "../../components/ui/Button.astro";
+import Button from '~/components/ui/Button.astro';
+import { Image } from 'astro:assets';
 
 const banner = '~/assets/images/codyroby/banner.jpg';
-const codyRobyCard = 'CodyRobyCards.pdf'
+import duello from '~/assets/images/codyroby/giochi/duel-300x202.png';
+import gara from '~/assets/images/codyroby/giochi/race1-1024x990.png';
+const codyRobyCard = 'CodyRobyCards.pdf';
 
 const metadata = {
   title: 'CodyRoby',
@@ -18,71 +21,97 @@ const metadata = {
     title="CodyRoby"
     image={{
       src: banner,
-      alt: 'Caos Image',
+      alt: 'banner CodyRoby',
     }}
   >
-    <Fragment slot="subtitle">
-     
-    </Fragment>
+    <Fragment slot="subtitle"> </Fragment>
   </Hero>
-  <div>
-    CodyRoby [Formato gigante][English version]
+  <div class="prose-page">
+    <p>
+      <strong>Cody</strong> è un coder, <strong>Roby</strong> è un robot. Cody concatena istruzioni che Roby esegue.
+    </p>
 
-    <div class="prose prose-lg mx-auto">
-      <p>
-        <strong>Cody</strong> è un coder, <strong>Roby</strong> è un robot. Cody concatena istruzioni che Roby esegue.
-      </p>
+    <p>
+      <strong>CodyRoby</strong> è un metodo fai-da-te di programmazione unplugged (senza computer). Le istruzioni sono carte
+      da gioco che contengono semplici simboli associati a tre azioni elementari: vai avanti, girati a sinistra, girati a
+      destra. Ogni giocatore veste i panni di Cody e usa le carte per dare istruzioni a Roby, rappresentato da una pedina
+      da muovere sulla scacchiera.
+    </p>
 
-      <p>
-        <strong>CodyRoby</strong> è un metodo fai-da-te di programmazione unplugged (senza computer). Le istruzioni sono
-        carte da gioco che contengono semplici simboli associati a tre azioni elementari: vai avanti, girati a sinistra,
-        girati a destra. Ogni giocatore veste i panni di Cody e usa le carte per dare istruzioni a Roby, rappresentato da
-        una pedina da muovere sulla scacchiera.
-      </p>
+    <p>
+      CodyRoby è stato ideato nel novembre del 2014, per offrire a tutti la possibilità di partecipare alla European
+      Robotics Week anche all’ultimo momento e senza alcun costo. Lo <strong>starter kit</strong> di CodyRoby può essere
+      scaricato, stampato e ritagliato per comporre il mazzo di carte, la scacchiera, le pedine e la scatola in cui tutto
+      può essere riposto.
+    </p>
 
-      <p>
-        CodyRoby è stato ideato nel novembre del 2014, per offrire a tutti la possibilità di partecipare alla European
-        Robotics Week anche all’ultimo momento e senza alcun costo. Lo <strong>starter kit</strong> di CodyRoby può essere
-        scaricato, stampato e ritagliato per comporre il mazzo di carte, la scacchiera, le pedine e la scatola in cui tutto
-        può essere riposto.
-      </p>
+    <p>
+      Dal 2014 ad oggi lo starter kit è stato distribuito in molte versioni, dedicate, tra l’altro, a Europe Code Week,
+      a Africa Code Week e alla European Robotics Week. Lo starter kit permette di giocare con il coding in tanti modi
+      diversi. Alcuni sono documentati da semplici video-tutorial autoesplicativi, ma dopo aver giocato ai giochi base
+      proposti vi suggerisco di inventarne di nuovi.
+    </p>
 
-      <p>
-        Dal 2014 ad oggi lo starter kit è stato distribuito in molte versioni, dedicate, tra l’altro, a Europe Code
-        Week, a Africa Code Week e alla European Robotics Week. Lo starter kit permette di giocare con il coding in
-        tanti modi diversi. Alcuni sono documentati da semplici video-tutorial autoesplicativi, ma dopo aver giocato ai
-        giochi base proposti vi suggerisco di inventarne di nuovi.
-      </p>
+    <p>
+      In Agosto 2016 lo Starter Kit si è arricchito delle carte speciali che alle istruzioni elementari aggiungono le
+      ripetizioni e le condizioni. Il <strong>nuovo starter kit</strong> è stato creato per CodeMOOC ed è distribuito ufficialmente
+      e gratuitamente in questa pagina. Il kit è anche allegato al libro di CodeMOOC, con diversa impaginazione. Il nuovo
+      kit permette di svolgere in modalità unplugged tutte le attività tipiche dell’ora del codice, come spiegato in questo
+      video e in queste slide.
+    </p>
 
-      <p>
-        In Agosto 2016 lo Starter Kit si è arricchito delle carte speciali che alle istruzioni elementari aggiungono le
-        ripetizioni e le condizioni. Il <strong>nuovo starter kit</strong> è stato creato per CodeMOOC ed è distribuito ufficialmente
-        e gratuitamente in questa pagina. Il kit è anche allegato al libro di CodeMOOC, con diversa impaginazione. Il nuovo
-        kit permette di svolgere in modalità unplugged tutte le attività tipiche dell’ora del codice, come spiegato in questo
-        video e in queste slide.
-      </p>
-
-      <p>
-        Accanto al link che permette di scaricare il file pdf di ogni pagina del kit sono riportate le opzioni di stampa
-        consigliate. La stampa del retro delle carte da gioco è opzionale e richiede il controllo dell’allineamento per
-        una resa ottimale.
-      </p>
-       <Hero
-        actions={[
-          {
-            variant: 'primary',
-            text: 'Scarica ora',
-            href: codyRobyCard,
-            target: '_blank',
-            icon: 'tabler:download',
-          }
-        ]}
-        />
+    <p>
+      Accanto al link che permette di scaricare il file pdf di ogni pagina del kit sono riportate le opzioni di stampa
+      consigliate. La stampa del retro delle carte da gioco è opzionale e richiede il controllo dell’allineamento per
+      una resa ottimale.
+    </p>
+    <Hero
+      actions={[
+        {
+          variant: 'primary',
+          text: 'Scarica ora',
+          href: codyRobyCard,
+          target: '_blank',
+          icon: 'tabler:download',
+        },
+      ]}
+    />
+    <div class="flex flex-col gap-4 justify-center">
+      <h2>Video Tutorial</h2>
+      <h3>Preparazione del kit</h3>
       <YouTube id="https://www.youtube.com/embed/k-tzLwbTOFg?start=114" />
-      <YouTube id="https://www.youtube.com/embed/izpB0Cvl0tk?start=19" />
-      <YouTube id="https://www.youtube.com/embed/JiGjrOwOz6Y" />
-      <YouTube id="https://www.youtube.com/embed/th0nbgo0PBs" />
-      <YouTube id="https://www.youtube.com/embed/XqWRDab5GDw" />
+      <h2>I giochi</h2>
+      <div class="flex gap-4 justify-between">
+        <Button text="Seguimi" href={'codyroby/giochi/seguimi'} target="_blank" class="self-center" />
+        <div class="flex flex-col justify-center items-center">
+          <Image src={duello} alt="duello" class="max-w-[300px] max-h-[300px]" />
+          <Button text="Il Duello" href={'codyroby/giochi/il-duello'} target="_blank" />
+        </div>
+      </div>
+      <div class="flex gap-4 justify-between">
+        <div class="flex flex-col justify-center items-center">
+          <Image src={gara} alt="corsa" class="max-w-[300px] max-h-[300px]" />
+          <Button text="La Corsa" href={'codyroby/giochi/la-corsa'} target="_blank" />
+        </div>
+        <Button text="La Turista" href={'codyroby/giochi/la-turista'} target="_blank" class="self-center" />
+      </div>
+      <!-- <h2>I video tutorial</h2>
+
+      <div class="flex flex-col gap-4">
+        <div>
+          <h3>Preparazione del kit base</h3>
+          <YouTube id="https://www.youtube.com/embed/izpB0Cvl0tk?start=19" />
+        </div>
+        <div>
+          <YouTube id="https://www.youtube.com/embed/JiGjrOwOz6Y" />
+        </div>
+        <div>
+          <YouTube id="https://www.youtube.com/embed/th0nbgo0PBs" />
+        </div>
+        <div>
+          <YouTube id="https://www.youtube.com/embed/XqWRDab5GDw" />
+        </div>
+      </div> -->
     </div>
   </div>
 </Layout>

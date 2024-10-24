@@ -90,3 +90,7 @@
 .dd *:first-child {
   margin-top: 0;
 }
+
+.prose-page {
+  @apply prose prose-lg mx-auto mb-10 md:mb-16;
+}
