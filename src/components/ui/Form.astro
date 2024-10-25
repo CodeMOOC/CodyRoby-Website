@@ -71,11 +71,31 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
     button && (
       <div class="mt-10 grid">
         <Button variant="primary" type="submit">
-          {button}
+          {button} niojiiojoij
         </Button>
+        <button id="unique">Send</button>
       </div>
     )
   }
+  <script>
+    document.querySelector('#unique')?.addEventListener('click', async (event) => {
+      event.preventDefault(); // Prevent form from submitting and refreshing the page
+
+      await fetch('/api/sendEmail.json', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          from: 'miriam.petrocchi94@learnastro.dev',
+          to: 'miriam.petrocchi94@learnastro.dev',
+          subject: 'Test Email',
+          html: '<p>Hi</p>',
+          text: 'This is a test email sent from my Astro project.',
+        }),
+      });
+    });
+  </script>
 
   {
     description && (
