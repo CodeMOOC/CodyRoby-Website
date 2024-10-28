@@ -1,6 +1,7 @@
 import { getPermalink, getBlogPermalink, getAsset, getHomePermalink } from './utils/permalinks';
 
-const basePath = import.meta.env.REPO_BASE;
+// const basePath = import.meta.env.REPO_BASE;
+const basePath = '/CodyRoby-Website';
 const gamePath = '/giochi-unplugged';
 
 export const headerData = {

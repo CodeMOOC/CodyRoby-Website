@@ -2,6 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   # Trigger the workflow every time you push to the `main` branch
+  # Using a different branch name? Replace `main` with your branch’s name
   push:
     branches: [ main ]
   # Allows you to run this workflow manually from the Actions tab on GitHub.
@@ -19,20 +20,12 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
-
       - name: Install, build, and upload your site
         uses: withastro/action@v3
-        env:
-          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
-          DEPLOY_SITE: ${{ secrets.DEPLOY_SITE }}
-          REPO_BASE: ${{ secrets.REPO_BASE }}
         with:
+          # path: . # The root location of your Astro project inside the repository. (optional)
+          # node-version: 20 # The specific version of Node that should be used to build your site. Defaults to 20. (optional)
           package-manager: npm@latest 
-        # Optional configurations:
-        # with:
-        #   path: . # The root location of your Astro project inside the repository (if different)
-        #   node-version: 20 # Node.js version to use (defaults to 20)
-        #   package-manager: pnpm@latest # Specify package manager, if needed
 
   deploy:
     needs: build
