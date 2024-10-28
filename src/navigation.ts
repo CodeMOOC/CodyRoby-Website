@@ -1,32 +1,32 @@
 import { getPermalink, getBlogPermalink, getAsset, getHomePermalink } from './utils/permalinks';
 
-const basePath = '/giochi-unplugged';
+const basePath = import.meta.env.GITHUB_BASE;
+const gamePath = '/giochi-unplugged';
 
 export const headerData = {
-  
   links: [
     {
       text: 'Home',
-      href: getPermalink(),
+      href: getPermalink(basePath),
     },
     {
       text: 'Giochi Unplugged',
       links: [
         {
           text: 'CodyRoby',
-          href: getPermalink('/codyroby'),
+          href: getPermalink(`${basePath}/codyroby`),
         },
         {
           text: 'CodyColor',
-          href: getPermalink(`${basePath}/codycolor`),
+          href: getPermalink(`${basePath}${gamePath}/codycolor`),
         },
         {
           text: 'CodyFeet',
-          href: getPermalink(`${basePath}/codyfeet`),
+          href: getPermalink(`${basePath}${gamePath}/codyfeet`),
         },
         {
           text: 'CodyMaze',
-          href: getPermalink(`${basePath}/codymaze`),
+          href: getPermalink(`${basePath}${gamePath}/codymaze`),
         },
         {
           text: 'CodeHunting Games',
@@ -35,7 +35,7 @@ export const headerData = {
         },
         {
           text: 'CodyWay',
-          href: getPermalink(`${basePath}/codyway`),
+          href: getPermalink(`${basePath}${gamePath}/codyway`),
         },
       ],
     },
@@ -46,15 +46,15 @@ export const headerData = {
     },
     {
       text: 'Dove acquistare',
-      href: getPermalink('/dove-acquistare'),
+      href: getPermalink(`${basePath}/dove-acquistare`),
     },
     {
       text: 'Chi siamo',
-      href: getPermalink('/about'),
+      href: getPermalink(`${basePath}/about`),
     },
     {
       text: 'Contatti',
-      href: getPermalink('/contact'),
+      href: getPermalink(`${basePath}/contact`),
     },
   ],
   /*actions: [{text: 'Download', href: 'https://github.com/onwidget/astrowind', target: '_blank'}],*/
