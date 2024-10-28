@@ -27,7 +27,7 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
 
 export default defineConfig({
   site: 'https://CodeMOOC.github.io',
-
+  base: '/CodyRoby-Website/',
   integrations: [
     tailwind({
       applyBaseStyles: false,
