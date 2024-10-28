@@ -22,6 +22,7 @@ jobs:
 
       - name: Build project
         env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           DEPLOY_SITE: ${{ secrets.DEPLOY_SITE }}
           REPO_BASE: ${{ secrets.REPO_BASE }}
         run: npm run build
