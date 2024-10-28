@@ -1,6 +1,6 @@
 import { getPermalink, getBlogPermalink, getAsset, getHomePermalink } from './utils/permalinks';
 
-const basePath = import.meta.env.GITHUB_BASE;
+const basePath = import.meta.env.REPO_BASE;
 const gamePath = '/giochi-unplugged';
 
 export const headerData = {

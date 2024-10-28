@@ -27,8 +27,8 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
 
 export default defineConfig({
   output: 'hybrid',
-  site: import.meta.env.GITHUB_SITE || 'https://CodeMOOC.github.io',
-  base: import.meta.env.GITHUB_BASE || '/',
+  site: import.meta.env.DEPLOY_SITE || 'https://CodeMOOC.github.io',
+  base: import.meta.env.REPO_BASE || '/',
   integrations: [
     tailwind({
       applyBaseStyles: false,
