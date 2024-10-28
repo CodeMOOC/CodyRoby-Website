@@ -26,8 +26,8 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
   hasExternalScripts ? (Array.isArray(items) ? items.map((item) => item()) : [items()]) : [];
 
 export default defineConfig({
-  site: 'https://CodeMOOC.github.io',
-  base: '/CodyRoby-Website',
+  site: 'https://CodeMOOC.github.io/CodyRoby-Website',
+  base: '',
   integrations: [
     tailwind({
       applyBaseStyles: false,
