@@ -1,37 +1,37 @@
-name: Deploy Astro to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
+  # Trigger the workflow every time you push to the `main` branch
   push:
-    branches:
-      - main 
+    branches: [ main ]
+  # Allows you to run this workflow manually from the Actions tab on GitHub.
+  workflow_dispatch:
+
+# Allow this job to clone the repo and create a page deployment
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Checkout your repository using git
+        uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '18'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build project
+      - name: Install, build, and upload your site
+        uses: withastro/action@v3
         env:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           DEPLOY_SITE: ${{ secrets.DEPLOY_SITE }}
           REPO_BASE: ${{ secrets.REPO_BASE }}
-        run: npm run build
+        # Optional configurations:
+        # with:
+        #   path: . # The root location of your Astro project inside the repository (if different)
+        #   node-version: 20 # Node.js version to use (defaults to 20)
+        #   package-manager: pnpm@latest # Specify package manager, if needed
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist  # Adjust if output directory is different
   deploy:
     needs: build
     runs-on: ubuntu-latest
