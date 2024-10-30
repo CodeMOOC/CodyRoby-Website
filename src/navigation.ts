@@ -2,7 +2,8 @@ import { getPermalink, getBlogPermalink, getAsset, getHomePermalink } from './ut
 
 // const basePath = import.meta.env.REPO_BASE;
 const basePath = '/';
-const gamePath = '/giochi-unplugged';
+const metodiPath = '/metodi';
+const appPath = '/applicazioni';
 
 export const headerData = {
   links: [
@@ -11,7 +12,7 @@ export const headerData = {
       href: getPermalink(basePath),
     },
     {
-      text: 'Giochi Unplugged',
+      text: 'Metodi',
       links: [
         {
           text: 'CodyRoby',
@@ -19,15 +20,28 @@ export const headerData = {
         },
         {
           text: 'CodyColor',
-          href: getPermalink(`${basePath}${gamePath}/codycolor`),
+          href: getPermalink(`${basePath}${metodiPath}/codycolor`),
         },
         {
           text: 'CodyFeet',
-          href: getPermalink(`${basePath}${gamePath}/codyfeet`),
+          href: getPermalink(`${basePath}${metodiPath}/codyfeet`),
+        },
+      ],
+    },
+    {
+      text: 'Applicazioni',
+      links: [
+        {
+          text: 'Toolkit infanzia',
+          href: getPermalink(`${basePath}${appPath}/toolkit-infanzia`),
+        },
+        {
+          text: 'Toolkit primaria',
+          href: getPermalink(`${basePath}${appPath}/toolkit-primaria`),
         },
         {
           text: 'CodyMaze',
-          href: getPermalink(`${basePath}${gamePath}/codymaze`),
+          href: getPermalink(`${basePath}${appPath}/codymaze`),
         },
         {
           text: 'CodeHunting Games',
@@ -36,26 +50,23 @@ export const headerData = {
         },
         {
           text: 'CodyWay',
-          href: getPermalink(`${basePath}${gamePath}/codyway`),
+          href: getPermalink(`${basePath}${appPath}/codyway`),
         },
       ],
     },
+    { text: 'Community', href: getPermalink(`${basePath}/community`) },
     {
-      text: 'CodyRoby Academy',
+      text: 'Academy',
       href: 'https://academy.codyroby.it/',
       target: '_blank',
     },
     {
-      text: 'Dove acquistare',
-      href: getPermalink(`${basePath}/dove-acquistare`),
+      text: 'Prodotti',
+      href: getPermalink(`${basePath}/prodotti`),
     },
     {
-      text: 'Chi siamo',
+      text: 'About',
       href: getPermalink(`${basePath}/about`),
-    },
-    {
-      text: 'Contatti',
-      href: getPermalink(`${basePath}/contact`),
     },
   ],
   /*actions: [{text: 'Download', href: 'https://github.com/onwidget/astrowind', target: '_blank'}],*/

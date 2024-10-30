@@ -5,11 +5,12 @@ import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
   title: 'seguimi',
+  tagline: 'Metodi',
 };
 ---
 
 <Layout metadata={metadata}>
-  <Hero tagline="giochi unplugged" title="CodyRoby – Seguimi">
+  <Hero tagline={metadata.tagline} title="CodyRoby – Seguimi">
     <Fragment slot="subtitle"> </Fragment>
   </Hero>
 

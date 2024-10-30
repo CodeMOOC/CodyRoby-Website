@@ -12,12 +12,13 @@ const codyRobyCard = 'CodyRobyCards.pdf';
 
 const metadata = {
   title: 'CodyRoby',
+  tagline: 'Metodi',
 };
 ---
 
 <Layout metadata={metadata}>
   <Hero
-    tagline="giochi unplugged"
+    tagline={metadata.tagline}
     title="CodyRoby"
     image={{
       src: banner,

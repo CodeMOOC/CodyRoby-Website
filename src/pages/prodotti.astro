@@ -1,0 +1,142 @@
+---
+import Layout from '../layouts/PageLayout.astro';
+import Grid from '~/components/blog/Grid.astro';
+import ProductItem from '~/components/common/ProductItem.astro';
+import type { Product } from '~/types';
+
+import beeBot from '~/assets/images/prodotti/beeBot.jpg';
+import codycolorPuzzle from '~/assets/images/prodotti/codycolorPuzzle.jpeg';
+import codyRobySetCompletoCarteGiganti from '~/assets/images/prodotti/CodyRobySetCompletoCarteGiganti.jpeg';
+import codyRobyQR from '~/assets/images/prodotti/CodyRobyQR.jpeg';
+import codyRobyDaTavoloPerClasse from '~/assets/images/prodotti/codyRobyDaTavoloPerClasse.jpeg';
+import codyRobyBaseQR from '~/assets/images/prodotti/codyRobyBaseQR.jpeg';
+import codyRobyGigante from '~/assets/images/prodotti/codyRobyGigante.jpg';
+import codyRobyDaTavolo from '~/assets/images/prodotti/codyRobyDaTavolo.jpeg';
+import codyRobyWordMath from '~/assets/images/prodotti/codyRobyWordMath.jpeg';
+import codyFeetCodyColorTappeto from '~/assets/images/prodotti/codyFeetCodyColorTappeto.jpg';
+import codyRobyBook from '~/assets/images/prodotti/codyRobyBook.jpg';
+
+const metadata = {
+  title: 'prodotti',
+};
+
+const products: Product[] = [
+  {
+    id: '1',
+    image: beeBot,
+    title: 'Kit CodyRoby con Bee-Bot',
+    url: 'https://www.campustore.it/kit-codyroby-con-bee-bot.html',
+    tags: [{ slug: '', title: '' }],
+    content:
+      'Il kit ideato da Alessandro Bogliolo e CampuStore coniuga le apette robotiche e il metodo CodyRoby per moltiplicare il potenziale didattico di coding unplugged e robotica educativa.',
+  },
+  {
+    id: '2',
+    image: codycolorPuzzle,
+    title: 'Clementoni @School - CodyColor Puzzle',
+    url: 'https://www.campustore.it/clementoni-school-codycolor-puzzle.html',
+    tags: [{ slug: '', title: '' }],
+    content:
+      'Con CodyColor Puzzule si possono proporre attività di coding componendo forme, percorsi, disegni e giochi utili allo sviluppo del pensiero computazionale',
+  },
+  {
+    id: '3',
+    image: codyRobySetCompletoCarteGiganti,
+    title: 'CodyRoby - Set completo per la scuola con carte da tavolo, carte giganti e tappeto',
+    url: 'https://www.campustore.it/codyroby-set-completo-per-la-scuola-con-carte-da-tavolo-carte-giganti-e-tappeto.html',
+    tags: [{ slug: '', title: '' }],
+    content:
+      'CodyRoby è il nuovo metodo per divertirsi con la programmazione a qualsiasi età anche senza computer. Questo set completo contiene tutti gli elementi necessari per portare a scuola il metodo CodyRoby: il set da tavolo, le carte giganti e il tappeto',
+  },
+  {
+    id: '4',
+    image: codyRobyQR,
+    title: 'CodyRoby Set tappeto completo con tasselli QR Code',
+    url: 'https://www.campustore.it/codyroby-set-tappeto-completo-con-tasselli-qr-code.html',
+    tags: [{ slug: '', title: '' }],
+    content: '',
+  },
+  {
+    id: '5',
+    image: codyRobyDaTavoloPerClasse,
+    title: 'Carte CodyRoby - Set per la classe',
+    url: 'https://www.campustore.it/carte-codyroby-set-per-la-classe.html',
+    tags: [{ slug: '', title: '' }],
+    content:
+      "Partendo da un'idea di Alessandro Bogliolo, CampuStore offre alle scuole italiane il set perfetto per il coding unplugged conforme al metodo CodyRoby!",
+  },
+  {
+    id: '6',
+    image: codyRobyBaseQR,
+    title: 'CodyRoby | Set base tappeto con tasselli QR Code',
+    url: 'https://www.campustore.it/set-base-tappeto-codyroby-con-tasselli-qr-code.html',
+    tags: [{ slug: '', title: '' }],
+    content:
+      "Da un'idea di Alessandro Bogliolo, il set perfetto per il coding unplugged: il tappeto CodyRoby con tasselli intercambiabili",
+  },
+  {
+    id: '7',
+    image: codyRobyGigante,
+    title: 'Carte CodyRoby - Formato gigante',
+    url: 'https://www.campustore.it/carte-codyroby-formato-gigante.html',
+    tags: [{ slug: '', title: '' }],
+    content:
+      'Partendo da un’idea di Alessandro Bogliolo, CampuStore offre alle scuole italiane il set perfetto per il coding unplugged conforme al metodo CodyRoby!',
+  },
+  {
+    id: '8',
+    image: codyRobyDaTavolo,
+    title: 'Carte CodyRoby - Set da tavolo',
+    url: 'https://www.campustore.it/carte-codyroby-set-da-tavolo.html',
+    tags: [{ slug: '', title: '' }],
+    content:
+      'Partendo da un’idea di Alessandro Bogliolo, CampuStore offre alle scuole italiane il set perfetto per il coding unplugged conforme al metodo CodyRoby!',
+  },
+  {
+    id: '9',
+    image: codyRobyWordMath,
+    title: 'CodyRoby | Set CodyMath e CodyWord per tappeto',
+    url: 'https://www.campustore.it/set-codymath-e-codyword.html',
+    tags: [{ slug: '', title: '' }],
+    content: 'in Polymat Light 10mm stampa fronte/retro',
+  },
+  {
+    id: '10',
+    image: codyFeetCodyColorTappeto,
+    title: 'CodyRoby | Set CodyFeet e CodyColor per tappeto',
+    url: 'https://www.campustore.it/set-codyfeet-e-codycolor-349355.html',
+    tags: [{ slug: '', title: '' }],
+    content:
+      "Questo set è un'estensione aggiuntiva al tappeto CodyRoby. Contiene 69 tasselli che da un lato riportano le illustrazioni per giocare a CodyFeet, dall'altro i colori per giocare a CodyColor.",
+  },
+  {
+    id: '11',
+    image: codyRobyBook,
+    title: 'A scuola con CodyRoby',
+    url: 'https://www.campustore.it/a-scuola-con-codyroby.html',
+    tags: [{ slug: '', title: '' }],
+    content: 'Il coding come il gioco di ruolo, un libro del prof. Alessandro Bogliolo',
+  },
+  {
+    id: '',
+    image: '',
+    title: '',
+    url: '',
+    tags: [{ slug: '', title: '' }],
+    content: '',
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <div class="prose-page">
+    <p>
+      Dai metodi ideati dal Professore Alessandro Bogliolo sono stati tratti dei prodotti per consentire alle scuole di
+      avere prodotti validi e durevoli.<br />
+      Qui sotto è presente l'elenco dei prodotti disponibili che rimandano ai vari store:
+    </p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {products.map((product) => <ProductItem product={product} />)}
+    </div>
+  </div>
+</Layout>

@@ -44,6 +44,24 @@ export interface Post {
   readingTime?: number;
 }
 
+export interface Product {
+  id: string;
+
+  url: string;
+
+  title: string;
+
+  image?: ImageMetadata | string;
+
+  category?: Taxonomy;
+
+  tags?: Taxonomy[];
+
+  metadata?: MetaData;
+
+  content?: string;
+}
+
 export interface Taxonomy {
   slug: string;
   title: string;
