@@ -3,14 +3,14 @@ import { getPermalink, getBlogPermalink, getAsset, getHomePermalink } from './ut
 // const basePath = import.meta.env.REPO_BASE;
 const basePath = '/';
 const metodiPath = '/metodi';
-const appPath = '/applicazioni';
+const appPath = '/risorse';
 
 export const headerData = {
   links: [
-    {
-      text: 'Home',
-      href: getPermalink(basePath),
-    },
+    // {
+    //   text: 'Home',
+    //   href: getPermalink(basePath),
+    // },
     {
       text: 'Metodi',
       links: [
@@ -26,19 +26,24 @@ export const headerData = {
           text: 'CodyFeet',
           href: getPermalink(`${basePath}${metodiPath}/codyfeet`),
         },
+        {
+          text: 'Altri metodi',
+          links: [
+            {
+              text: 'CodyWay',
+              href: getPermalink(`${basePath}${metodiPath}/codycolor`),
+            },
+            {
+              text: 'Dress Code',
+              href: getPermalink(`${basePath}${metodiPath}/codyfeet`),
+            },
+          ],
+        },
       ],
     },
     {
-      text: 'Applicazioni',
+      text: 'Risorse',
       links: [
-        {
-          text: 'Toolkit infanzia',
-          href: getPermalink(`${basePath}${appPath}/toolkit-infanzia`),
-        },
-        {
-          text: 'Toolkit primaria',
-          href: getPermalink(`${basePath}${appPath}/toolkit-primaria`),
-        },
         {
           text: 'CodyMaze',
           href: getPermalink(`${basePath}${appPath}/codymaze`),
@@ -49,8 +54,29 @@ export const headerData = {
           target: '_blank',
         },
         {
-          text: 'CodyWay',
-          href: getPermalink(`${basePath}${appPath}/codyway`),
+          text: 'CodyColor Game',
+          href: getPermalink(`${basePath}${appPath}/codycolor-game`),
+        },
+        {
+          text: 'Applicazioni online',
+          href: getPermalink(`${basePath}${appPath}/applicazioni-online`),
+        },
+
+        {
+          text: 'Coding in famiglia',
+          href: getPermalink(`${basePath}${appPath}/coding-in-famiglia`),
+        },
+        {
+          text: 'Videolezioni',
+          href: getPermalink(`${basePath}${appPath}/videolezioni`),
+        },
+        {
+          text: 'Attività in diretta',
+          href: getPermalink(`${basePath}${appPath}/attivita-in-diretta`),
+        },
+        {
+          text: 'CodyTrip',
+          href: getPermalink(`${basePath}${appPath}/codytrip`),
         },
       ],
     },
@@ -61,12 +87,8 @@ export const headerData = {
       target: '_blank',
     },
     {
-      text: 'Prodotti',
-      href: getPermalink(`${basePath}/prodotti`),
-    },
-    {
-      text: 'About',
-      href: getPermalink(`${basePath}/about`),
+      text: 'Prodotti e pubblicazioni',
+      href: getPermalink(`${basePath}/prodotti-e-pubblicazioni`),
     },
   ],
   /*actions: [{text: 'Download', href: 'https://github.com/onwidget/astrowind', target: '_blank'}],*/

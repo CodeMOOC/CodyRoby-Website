@@ -1,0 +1,59 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Card from '~/components/ui/Card.astro';
+import { type CardProps } from '~/types';
+import beeBot from '~/assets/images/prodotti/beeBot.jpg';
+import Hero from '~/components/widgets/Hero.astro';
+
+const metadata = {
+  title: 'Videolezioni',
+  tagline: 'Risorse',
+};
+
+const sezioniVideolezioni: CardProps[] = [
+  {
+    image: { beeBot },
+    slug: '/mooc',
+    title: 'MOOC',
+    content:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+  },
+  {
+    image: { beeBot },
+    slug: '/rai-scuola',
+    title: 'RAI Scuola',
+    content:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+  },
+  {
+    image: { beeBot },
+    slug: '/registrazioni-summer-school',
+    title: 'Registrazioni di summer school',
+    content:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+  },
+  {
+    image: { beeBot },
+    slug: '/webinar',
+    title: 'Webinar',
+    content:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <Hero tagline={metadata.tagline} title={metadata.title}>
+    <Fragment slot="subtitle"> </Fragment>
+  </Hero>
+  <div class="prose-page">
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat.
+    </p>
+    <div class="grid grid-cols-2 gap-5">
+      {sezioniVideolezioni.map((videolezione) => <Card card={videolezione} />)}
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,23 @@
+---
+import Hero from '~/components/widgets/Hero.astro';
+import Layout from '../../layouts/PageLayout.astro';
+import banner from '~/assets/images/coding-in-famiglia/coding-in-famiglia.png';
+
+const metadata = {
+  title: 'Coding in famiglia',
+  tagline: 'Risorse',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline={metadata.tagline}
+    title={metadata.title}
+    image={{
+      src: banner,
+      alt: 'banner CodyRoby',
+    }}
+  >
+    <Fragment slot="subtitle"> </Fragment>
+  </Hero>
+</Layout>

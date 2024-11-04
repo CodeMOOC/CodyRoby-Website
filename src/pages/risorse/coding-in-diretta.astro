@@ -1,0 +1,24 @@
+---
+import Hero from '~/components/widgets/Hero.astro';
+import Layout from '../../layouts/PageLayout.astro';
+
+import banner from '~/assets/images/codymaze/banner.jpg';
+
+const metadata = {
+  title: 'Coding in diretta',
+  tagline: 'Risorse',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline={metadata.tagline}
+    title={metadata.title}
+    image={{
+      src: banner,
+      alt: metadata.title,
+    }}
+  >
+    <Fragment slot="subtitle"> </Fragment>
+  </Hero></Layout
+>
