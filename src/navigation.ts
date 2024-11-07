@@ -1,4 +1,4 @@
-import { getPermalink, getBlogPermalink, getAsset, getHomePermalink } from './utils/permalinks';
+import { getPermalink, getAsset } from './utils/permalinks';
 
 // const basePath = import.meta.env.REPO_BASE;
 const basePath = '/';

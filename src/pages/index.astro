@@ -1,9 +1,18 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
+import { Image } from 'astro:assets';
 
 import Hero from '~/components/widgets/Hero.astro';
 import Button from '~/components/ui/Button.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
+
+import kindergardern from '~/assets/images/home/kindergarden.webp';
+import primaria from '~/assets/images/home/primaria.webp';
+import medie from '~/assets/images/home/medie.webp';
+
+// import banner from '~/assets/images/banner.png';
+// import banner from '~/assets/images/home/arrows.webp';
+import banner from '~/assets/images/home/arrows.png';
 
 const metadata = {
   title: 'CodyRoby',
@@ -26,11 +35,11 @@ const codyRobyCard = 'CodyRobyCards.pdf';
       },
       { text: 'Scopri di più', href: '/codyroby' },
     ]}
-    image={{ src: '~/assets/images/banner.png', alt: 'CodyRoby' }}
+    image={{ src: banner, alt: 'CodyRoby' }}
   >
     <Fragment slot="title">
-      <span class="text-[#01B3E6] highlight">Cody</span> è un coder<br />
-      <span class="text-[#FB6221]">Roby</span> è un robot
+      <span class="text-[#477DFD] highlight">Cody</span> è un coder<br />
+      <span class="text-[#477DFD]">Roby</span> è un robot
     </Fragment>
 
     <Fragment slot="subtitle">
@@ -42,29 +51,62 @@ const codyRobyCard = 'CodyRobyCards.pdf';
     </Fragment>
   </Hero>
 
-<div class="flex justify-center gap-4">
-  <Button
-  class={`md:px-3 px-3 `}
-  href={'/toolkit/infanzia'}
->
-  <p>Toolkit Infanzia</p>
-</Button>
-<Button
-class={`md:px-3 px-3 `}
-href={'/toolkit/primaria'}
->
-<p>Toolkit Primaria</p>
-</Button>
-<Button
-class={`md:px-3 px-3 `}
-href={'/toolkit/secondaria'}
->
-<p>Toolkit Secondaria</p>
-</Button>
-</div>
+  <div class="flex justify-center items-center gap-4 mx-24">
+    <div class="flex flex-col justify-center gap-4">
+      <a href={'/toolkit/infanzia'}>
+        <Image
+          src={kindergardern}
+          class="w-full md:h-full rounded shadow-lg bg-gray-400 dark:bg-slate-700"
+          widths={[400, 900]}
+          width={400}
+          sizes="(max-width: 900px) 400px, 900px"
+          alt={'infanzia'}
+          loading="lazy"
+          decoding="async"
+        />
+        <Button class={`md:px-3 px-3 bg-[#eee9c36b] border-[#f7c656]`}>
+          <p class="text-[#f7c656]">Toolkit Infanzia</p>
+        </Button>
+      </a>
+    </div>
+    <div class="flex flex-col justify-center gap-4">
+      <a href={'/toolkit/primaria'}>
+        <Image
+          src={primaria}
+          class="w-full md:h-full rounded shadow-lg bg-gray-400 dark:bg-slate-700"
+          widths={[400, 900]}
+          width={400}
+          sizes="(max-width: 900px) 400px, 900px"
+          alt={'infanzia'}
+          loading="lazy"
+          decoding="async"
+        />
+        <Button class={`md:px-3 px-3 bg-[#c8eec36b] border-[#06d6a0]`}>
+          <p class="text-[#06d6a0]">Toolkit Primaria</p>
+        </Button>
+      </a>
+    </div>
+    <div class="flex flex-col justify-center gap-4">
+      <a href={'/toolkit/secondaria'}>
+        <Image
+          src={medie}
+          class="w-full md:h-full rounded shadow-lg bg-gray-400 dark:bg-slate-700"
+          widths={[400, 900]}
+          width={400}
+          sizes="(max-width: 900px) 400px, 900px"
+          alt={'infanzia'}
+          loading="lazy"
+          decoding="async"
+        />
+        <Button class={`md:px-3 px-3 bg-[#eecbc36b] border-[#ef476f]`}>
+          <p class="text-[#ef476f]">Toolkit Secondaria</p>
+        </Button>
+      </a>
+    </div>
+  </div>
 
   <!-- FAQs Widget ******************* -->
-<!-- 
+  <!-- 
   <FAQs
     title="Frequently Asked Questions"
     subtitle="Dive into the following questions to gain insights into the powerful features that AstroWind offers and how it can elevate your web development journey."
@@ -103,5 +145,4 @@ href={'/toolkit/secondaria'}
       },
     ]}
   /> -->
-
 </Layout>

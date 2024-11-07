@@ -47,3 +47,5 @@ coverage/
 # Optional: If using any custom configuration or cache
 .cache/
 .temp/
+
+./src/config.yaml
