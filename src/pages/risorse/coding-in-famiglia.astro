@@ -342,6 +342,7 @@ const videolezioni = [
             scrolling="no"
             frameborder="0"
             allowfullscreen="true"
+            loading="lazy"
             allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
         </div>
       </div>
@@ -356,6 +357,7 @@ const videolezioni = [
             scrolling="no"
             frameborder="0"
             allowfullscreen="true"
+            loading="lazy"
             allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
         </div>
       </div>
@@ -374,7 +376,7 @@ const videolezioni = [
               </p>
             )}
             <p>{lesson.description}</p>
-            <iframe src={lesson.videoUrl} width="560" height="314" frameborder="0" allowfullscreen />
+            <iframe src={lesson.videoUrl} width="560" height="314" frameborder="0" allowfullscreen loading="lazy" />
             <ul>
               {lesson.questions.map((question) => (
                 <li>- {question}</li>
