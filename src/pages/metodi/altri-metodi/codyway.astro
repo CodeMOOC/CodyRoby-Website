@@ -1,0 +1,114 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Button from '~/components/ui/Button.astro';
+import AnimateText from '~/components/ui/AnimateText.astro';
+
+import dressCodeComponenti from '~/assets/pdf/metodi/altri-metodi/dresscode/dressCode-componenti.pdf';
+import dressCodeGioco from '~/assets/pdf/metodi/altri-metodi/dresscode/dressCode-gioco.pdf';
+
+import banner from '~/assets/images/metodi/altri-metodi/codyway/banner.jpg';
+import Hero from '~/components/widgets/Hero.astro';
+
+const metadata = {
+  title: 'CodyWay',
+  tagline: 'Altri Metodi',
+  subtitle: '',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline={metadata.tagline}
+    image={{
+      src: banner,
+      alt: 'banner codyway',
+    }}
+  >
+    <Fragment slot="title"> {metadata.title} </Fragment>
+    <Fragment slot="subtitle">{metadata.subtitle}</Fragment>
+  </Hero>
+  <AnimateText>
+    <div class="prose-page">
+      <h2>Premessa</h2>
+      <p>
+        Questa attività è stata sperimentata oggi all’interno della sede del MIUR di Viale Trastevere a Roma, dove 10
+        alunni di V elementare dell’I.C. “Da Vinci – Rodari” di Latina hanno programmato il percorso che dall’ingresso
+        principale porta alla Sala Comunicazione dove si svolgeva <a
+          href="https://www.codeweek.it/wp-content/uploads/2015/10/Programma_CodeWeek-14ottobre2015.pdf"
+          target="_blank">coding@MIUR</a
+        >.
+      </p>
+
+      <h2>Requisiti</h2>
+      <p>
+        Nessuno. La preparazione comporta solo la stampa e il ritaglio dei blocchi, che, a discrezione degli
+        organizzatori e in base all’età dei partecipanti, può essere intesa come preparazione o come parte integrante
+        dell’attività. È inoltre opportuno avere un percorso “da programmare” (interno all’aula, interno al palazzo, nel
+        quartiere, o su una mappa).
+      </p>
+
+      <h2>Età</h2>
+      <p>Dai 10 anni in su.</p>
+
+      <h2>Scopo</h2>
+      <p>Applicare i principi base della programmazione in un contesto reale senza l’ausilio di un computer.</p>
+
+      <h2>Materiale</h2>
+      <ul>
+        <li>
+          Fogli con i blocchi elementari e con le etichette colorate (stampare e ritagliare tutti quelli necessari)
+        </li>
+        <li>Fogli bianchi su cui incollare i blocchi</li>
+        <li>Colla (meglio se riposizionabile)</li>
+        <li>Pasta adesiva per attaccare le etichette colorate su pavimenti e pareti</li>
+      </ul>
+
+      <p><em>actions</em> <em>controls</em> <em>functions</em> <em>targets</em></p>
+
+      <p>
+        Una semplice <a
+          href="https://docs.google.com/presentation/d/1wgibNptuspaiLjwNtpszQaBOPM5TMeUUYNJfQOp-wjA/edit#slide=id.p3"
+          target="_blank">presentazione condivisa</a
+        > su Google Drive permette di:
+      </p>
+      <ul>
+        <li>personalizzare i blocchi</li>
+        <li>impaginare i blocchi da stampare in base alle proprie esigenze</li>
+        <li>comporre i blocchi su un foglio di lavoro stampabile in formato A4</li>
+      </ul>
+      <p>
+        La <a
+          href="https://docs.google.com/presentation/d/1wgibNptuspaiLjwNtpszQaBOPM5TMeUUYNJfQOp-wjA/edit#slide=id.p3"
+          target="_blank">presentazione</a
+        > è accessibile a tutti in lettura. Farne una copia su Google Drive o scaricarla nel formato preferito per poterla
+        modificare e utilizzare come foglio di lavoro. Per utilizzare il file come strumento di lavoro non aprirlo in modalità
+        presentazione, ma con un qualsiasi editor che permetta di spostare, copiare e incollare i blocchi e aggiungere testo.
+      </p>
+      <h2>Attività</h2>
+      <p>
+        Si tratta di utilizzare i blocchi per comporre il programma che conduce alla meta un robot che conosce solo le
+        azioni elementari (azzurre) e i controlli elementari (gialli). Tutto il resto va programmato. Le etichette
+        colorate servono come “target intermedi” per spezzare il percorso in tratti che possono essere facilmente
+        descritti come azioni ripetute. Scegliere dove posizionare i target è importantissimo e determina l’efficacia
+        delle istruzioni da comporre. I blocchi blu consentono di definire nuove azioni più complesse, che una volta
+        definite potranno essere utilizzate nel programma principale.
+      </p>
+
+      <p>
+        Nella definizione delle azioni complesse, i nomi evidenziati in rosa sono i parametri, che le rendono più
+        generali. Ad esempio, il parametro “colore” nell’azione complessa “vai avanti fino a …” assumerà di volta in
+        volta il valore del colore scelto come target quando si usa l’azione complessa. Negli esempi del MIUR, il colore
+        utilizzato per i target era il giallo, e pertanto l’azione complessa veniva chiamata “vai avanti fino a giallo”.
+      </p>
+
+      <h2>Esempio</h2>
+      <p>
+        Di seguito trovate l’esempio del MIUR a cui si riferisce il video iniziale che ne illustra il funzionamento. La
+        soluzione proposta utilizza l’azione complessa “vai avanti fino a …” che è definita da un’apposita procedura in
+        termini di istruzioni più semplici. Mostra anche una semplice definizione dell’azione complessa “vai in
+        ascensore al …” e la condizione che potrebbe determinarne l’utilizzo nel programma principale in alternativa
+        alle scale.
+      </p>
+    </div>
+  </AnimateText>
+</Layout>

@@ -1,0 +1,94 @@
+---
+import Hero from '~/components/widgets/Hero.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import Button from '~/components/ui/Button.astro';
+import AnimateText from '~/components/ui/AnimateText.astro';
+
+import dressCodeComponenti from '~/assets/pdf/metodi/altri-metodi/dresscode/dressCode-componenti.pdf';
+import dressCodeGioco from '~/assets/pdf/metodi/altri-metodi/dresscode/dressCode-gioco.pdf';
+
+const metadata = {
+  title: 'DressCode',
+  tagline: 'Altri Metodi',
+  subtitle: '',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero tagline={metadata.tagline}>
+    <Fragment slot="title"> {metadata.title} </Fragment>
+    <Fragment slot="subtitle">{metadata.subtitle}</Fragment>
+  </Hero>
+  <AnimateText>
+    <div class="prose-page">
+      <p>
+        <strong>DressCode</strong> è il nuovo gioco di CodeMOOC, concepito per abbassare ancora le barriere di accesso al
+        coding unplugged. È ispirato al classico gioco di vestire una bambola con sagome di carta, già collegato al coding
+        dai bellissimi disegni di Linda Liukas. Ma in questo caso il focus non è tanto sulla scelta dei vestiti, quanto sulla
+        sequenza da utilizzare per indossarli, e come al solito abbiamo carte da gioco per esprimerla.
+      </p>
+
+      <p>
+        Babbo Natale indossa tanti indumenti. Per vestirsi deve indossarli in ordine per non fare pasticci e per
+        svestirsi deve toglierli in ordine inverso. Non è facile e spesso si confonde. Per aiutarlo ora abbiamo le carte
+        DressCode.
+      </p>
+
+      <p>
+        Ogni carta rappresenta un indumento da indossare (carta verde) o da togliere (carta grigia). Le carte vanno
+        disposte in sequenza (da sinistra a destra o dall’alto al basso), per indicare la sequenza di indumenti da
+        indossare o da togliere.
+      </p>
+      <div class="video-container">
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/3ieNzRfNJW8?si=zLPNC47BriDKLGNS"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; compute-pressure"
+          allowfullscreen
+        >
+        </iframe>
+      </div>
+      <p>
+        Le carte chiamate <strong>SFIDA</strong> non rappresentano istruzioni, ma condizioni iniziali e finali. Le sfide
+        rosse rappresentano fasi della vestizione corretta di Babbo Natale. Le sfide color petrolio rappresentano combinazioni
+        improbabili da correggere. Si gioca scegliendo due carte sfida che rappresenteranno la vestizione iniziale e la vestizione
+        finale. Lo scopo del gioco è programmare la sequenza di azioni che Babbo Natale deve compiere per passare dall’una
+        all’altra.
+      </p>
+    </div>
+    <div class="download-button-div">
+      <div class="flex w-full sm:w-auto">
+        <Button
+          class="w-full sm:mb-0"
+          variant="primary"
+          text="Scarica ora"
+          href={dressCodeGioco}
+          target="_blank"
+          icon="tabler:download"
+        />
+      </div>
+    </div>
+    <div class="prose-page">
+      <p>
+        Il tabellone e le sagome dei vestiti possono essere usati per verificare la correttezza delle mosse. Possono
+        essere stampati in formato A4 o A3. Il tabellone può essere stampato su cartoncino. È possibile stamparlo due
+        volte per ottenere una base e una sagoma rialzata (in negativo) utile a contenere le sagome dei vestiti
+        mantenendoli nella giusta posizione.
+      </p>
+    </div>
+    <div class="download-button-div">
+      <div class="flex w-full sm:w-auto">
+        <Button
+          class="w-full sm:mb-0"
+          variant="primary"
+          text="Scarica il materiale"
+          href={dressCodeComponenti}
+          target="_blank"
+          icon="tabler:download"
+        />
+      </div>
+    </div>
+  </AnimateText>
+</Layout>

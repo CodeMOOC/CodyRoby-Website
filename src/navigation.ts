@@ -4,6 +4,7 @@ import { getPermalink, getAsset } from './utils/permalinks';
 const basePath = '/';
 const metodiPath = '/metodi';
 const appPath = '/risorse';
+const otherMethods = '/altri-metodi'
 
 export const headerData = {
   links: [
@@ -31,11 +32,11 @@ export const headerData = {
           links: [
             {
               text: 'CodyWay',
-              href: getPermalink(`${basePath}${metodiPath}/codycolor`),
+              href: getPermalink(`${basePath}${metodiPath}${otherMethods}/codyway`),
             },
             {
               text: 'Dress Code',
-              href: getPermalink(`${basePath}${metodiPath}/codyfeet`),
+              href: getPermalink(`${basePath}${metodiPath}${otherMethods}/dresscode`),
             },
           ],
         },
