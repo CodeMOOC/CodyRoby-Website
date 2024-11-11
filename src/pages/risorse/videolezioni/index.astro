@@ -13,28 +13,28 @@ const metadata = {
 const sezioniVideolezioni: CardProps[] = [
   {
     image: { beeBot },
-    slug: '/mooc',
+    slug: '/risorse/videolezioni/mooc',
     title: 'MOOC',
     content:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
   },
   {
     image: { beeBot },
-    slug: '/rai-scuola',
+    slug: '/risorse/videolezioni/rai-scuola',
     title: 'RAI Scuola',
     content:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
   },
   {
     image: { beeBot },
-    slug: '/registrazioni-summer-school',
+    slug: '/risorse/videolezioni/registrazioni-summer-school',
     title: 'Registrazioni di summer school',
     content:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
   },
   {
     image: { beeBot },
-    slug: '/webinar',
+    slug: '/risorse/videolezioni/webinar',
     title: 'Webinar',
     content:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
@@ -52,7 +52,7 @@ const sezioniVideolezioni: CardProps[] = [
       magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
       consequat.
     </p>
-    <div class="grid grid-cols-2 gap-5">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
       {sezioniVideolezioni.map((videolezione) => <Card card={videolezione} />)}
     </div>
   </div>

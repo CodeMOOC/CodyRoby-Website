@@ -35,7 +35,7 @@ const ButtonSelection: React.FC<ButtonSelectionProps> = ({ buttons }) => {
 
   return (
     <>
-      <div className="flex gap-4">
+      <div className="flex justify-center gap-4">
         {buttons.map((button) => (
           <button
             key={button.color}
@@ -53,7 +53,7 @@ const ButtonSelection: React.FC<ButtonSelectionProps> = ({ buttons }) => {
         ))}
       </div>
 
-      <div className="mt-4">
+      <div className="mt-4 prose-page">
         {buttons.map(
           (button) =>
             active === button.color && (

@@ -20,7 +20,7 @@ const metadata = {
   tagline: 'Metodi',
 };
 
-const buttons = [
+const cardsSymbols = [
   {
     color: 'grey',
     image: grey,
@@ -126,9 +126,14 @@ const buttons = [
         a quella della casella su cui vengono collocate (ad esempio 20×20 cm).
       </p>
     </AnimateText>
-    <AnimateText>
-      <ButtonSelection buttons={buttons} client:load />
-    </AnimateText>
+  </div>
+
+  <AnimateText>
+    <div class="border border-black mx-4 p-4 rounded-lg bg-slate-100">
+      <ButtonSelection buttons={cardsSymbols} client:load />
+    </div>
+  </AnimateText>
+  <div class="prose-page">
     <AnimateText>
       <h2>Il progetto Scratch</h2>
       <p>
@@ -252,28 +257,29 @@ const buttons = [
       <p><em>La genesi del gioco</em></p>
       <p>Registrazioni effettuate da Adriana Cosentino durante la Summer School 2018.</p>
       <div class="flex flex-col justify-center items-center gap-8">
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/gJiQY88KkE0?start=1"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; compute-pressure"
-          allowfullscreen
-        >
-        </iframe>
-
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/Z3ELEaziYyQ?si=FQ-g_ZKDZfOumOTv"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; compute-pressure"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen
-        >
-        </iframe>
+        <div class="video-container">
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/gJiQY88KkE0?start=1&width=560"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; compute-pressure"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+        <div class="video-container">
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/Z3ELEaziYyQ?si=FQ-g_ZKDZfOumOTv"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; compute-pressure"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
       </div>
     </AnimateText>
   </div>

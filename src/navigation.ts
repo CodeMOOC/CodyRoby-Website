@@ -58,13 +58,16 @@ export const headerData = {
           href: getPermalink(`${basePath}${appPath}/codycolor-game`),
         },
         {
-          text: 'Applicazioni online',
-          href: getPermalink(`${basePath}${appPath}/applicazioni-online`),
+          text: 'CodyTrip',
+          href: getPermalink(`${basePath}${appPath}/codytrip`),
         },
-
         {
           text: 'Coding in famiglia',
           href: getPermalink(`${basePath}${appPath}/coding-in-famiglia`),
+        },
+        {
+          text: 'Applicazioni online',
+          href: getPermalink(`${basePath}${appPath}/applicazioni-online`),
         },
         {
           text: 'Videolezioni',
@@ -73,10 +76,6 @@ export const headerData = {
         {
           text: 'Attività in diretta',
           href: getPermalink(`${basePath}${appPath}/attivita-in-diretta`),
-        },
-        {
-          text: 'CodyTrip',
-          href: getPermalink(`${basePath}${appPath}/codytrip`),
         },
       ],
     },

@@ -163,9 +163,21 @@ const buttons = [
         anche se a faccia in giù.
       </p>
     </AnimateText>
-    <div class="flex justify-center">
-      <Button variant="primary" text="Scarica ora" href={codyFeetGame} target="_blank" icon="tabler:download" />
+    <div
+      class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+    >
+      <div class="flex w-full sm:w-auto text-white no-underline">
+        <Button
+          class="w-full sm:mb-0"
+          variant="primary"
+          text="Scarica ora"
+          href={codyFeetGame}
+          target="_blank"
+          icon="tabler:download"
+        />
+      </div>
     </div>
+
     <AnimateText>
       <h2>Modalità di gioco</h2>
 

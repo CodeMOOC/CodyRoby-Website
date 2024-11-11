@@ -7,17 +7,382 @@ const metadata = {
   title: 'Coding in famiglia',
   tagline: 'Risorse',
 };
+
+const videolezioni = [
+  {
+    id: 'lesson-1',
+    title: '1. L’esploratore',
+    diretta: '',
+    description:
+      'Materiale: scacchiera, tessere con impronte Approfondimento su CodyFeet e gioco da pavimento: http://codemooc.org/codyfeet',
+    videoUrl:
+      'https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fcoding4parents%2Fvideos%2F3139601986264232%2F&show_text=false&width=560&t=0',
+    questions: [
+      'Q1. Con le posizioni di partenza e arrivo mostrata nel video, è possibile portare l’esploratore a visitare tutte le caselle della scacchiera?',
+      'Q2. Quali sono le posizioni di partenza e di arrivo che impediscono all’esploratore di visitare il maggior numero di caselle della scacchiera?',
+    ],
+  },
+  {
+    id: 'lesson-2',
+    title: '2. Destra e sinistra',
+    diretta: '',
+    description: 'Materiale: lo stesso del precedente video.',
+    videoUrl:
+      'https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fcoding4parents%2Fvideos%2F223884825409627%2F&show_text=false&width=560&t=0',
+    questions: [
+      'Q1. Con partenza e arrivo disposti come nello schema iniziale, è possibile che una delle due squadre prevalga?',
+      'Q2. Con partenza e arrivo disposti come nella partita vinta da Elena, è possibile il pareggio?',
+      'Q3. Ci sono disposizioni di partenza e arrivo che favoriscono una delle due squadre?',
+      'Q4. Data la disposizione di partenza e arrivo, sapete prevedere con quale scarto tra le due squadre finirà la partita?',
+    ],
+  },
+  {
+    id: 'lesson-3',
+    title: '3. Passo a due',
+    diretta: '',
+    description: 'Materiale: lo stesso del primo appuntamento.',
+    videoUrl:
+      'https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fcoding4parents%2Fvideos%2F223884825409627%2F&show_text=false&width=560&t=0',
+    questions: [
+      'Q1. Esistono punti di partenza che favoriscono una delle due squadre?',
+      'Q2. Esiste la possibilità di un pareggio?',
+      'Q3. Chi fa la prima mossa è avvantaggiato?',
+      'Q4. Esiste una strategia di gioco infallibile che il giocatore che muove per primo può adottare per essere certo di non perdere mai?',
+    ],
+  },
+  {
+    id: 'lesson-4',
+    title: '4. Tiro alla fune',
+    diretta: '',
+    description: 'Materiale: ancora quello del primo appuntamento.',
+    videoUrl:
+      'https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fcoding4parents%2Fvideos%2F602854673633932%2F&show_text=false&width=560&t=0',
+    questions: [
+      'Q1. Esiste una strategia vincente infallibile indipendentemente dalla bravura dell’avversario?',
+      'Q2. Chi fa la prima mossa è avvantaggiato?',
+      'Q3. Se i due giocatori sono ugualmente attenti, la partita finisce sempre pari, cioè al centro?',
+    ],
+  },
+  {
+    id: 'lesson-5',
+    title: '5. L’esploratrice senza impronte',
+    diretta: '',
+    description:
+      'Materiale: ancora quello del primo appuntamento, ma questa volta servono sia le tessere con le impronte che i pennarelli (o le matite) di colore rosso, giallo e grigio.',
+    videoUrl:
+      'https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fcoding4parents%2Fvideos%2F190779145586315%2F&show_text=false&width=560&t=0',
+    questions: [
+      'Q1. Che differenza notate tra la scacchiera piena di impronte colorate e quella con i soli colori?',
+      'Q2. Quale delle due scacchiere offre più libertà di movimento, pur rispettando le stesse regole per associare le rotazioni ai colori?',
+      'Q3. Ci sono percorsi possibili nella scacchiera con i colori, che non sarebbero ammessi nella scacchiera con le impronte colorate?',
+      'Q4. Ci sono percorsi possibili nella schacchiera con le impronte colorate, che non sarebbero ammessi nella schacchiera con i colori?',
+    ],
+  },
+  {
+    id: 'lesson-6',
+    title: '6. Passo a due senza impronte',
+    diretta: '',
+    description:
+      'Materiale: scacchiera, tessere da colorare, pennarelli (o matite) rosse, gialle, grigie. Approfondimento su CodyColor e gioco da pavimento: https://codemmoc.org/codycolor',
+    videoUrl:
+      'https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fcoding4parents%2Fvideos%2F195299898391899%2F&show_text=false&width=560&t=0',
+    questions: [
+      'Q1. Quando i due percorsi si “scontrano” si bloccano a vicenda?',
+      'Q2. Ho chiamato questo gioco passo a due. Sapresti inventare un passo a 3, o un passo a 4, con le stesse regole?',
+    ],
+  },
+  {
+    id: 'lesson-7',
+    title: '7. Ada, Charles e Roby',
+    diretta: 'Diretta streaming venerdì 6 marzo, ore 11:00 https://youtu.be/DxcZlxjw8ME',
+    description: 'Materiale: pasta per modellare (anche fatta in casa) e matita',
+    videoUrl:
+      'https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fcoding4parents%2Fvideos%2F513807462654456%2F&show_text=false&width=560&t=0',
+    questions: [
+      'Q1. Prova ad immaginare che il robottino che hai costruito con la pasta per modellare e la matita sia in grado di muoversi sulla scacchiera per raggiungere qualunque posizione e, volendo, tracciare il percorso. Che istruzioni useresti per programmarlo?',
+    ],
+  },
+  {
+    id: 'lesson-8',
+    title: '8. Io Cody e tu Roby',
+    diretta: 'Diretta streaming lunedì 9 marzo, ore 16:00 https://youtu.be/3krMvbQdFIY',
+    description:
+      'Materiale: scacchiera con etichette, carte vai Avanti, carte girati a Sinistra, carte girati a Destra, pedine qualsiasi da posizionare sulla scacchiera. Approfondimento su CodyRoby e kit completo: http://codemooc.org/codyroby',
+    videoUrl:
+      'https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fcoding4parents%2Fvideos%2F246551629696173%2F&show_text=false&width=560&t=0',
+    questions: [
+      'Q1. Dove arriva Roby se, partendo dalla posizione C,2,Sud, esegue l’ultima sequenza di istruzioni mostrata nel video?',
+      'Q2. Gli spostamenti che Roby effettua eseguendo l’ultima sequenza di istruzioni mostrata nel video, potrebbero essere descritti disponendo sulla scacchiera le istruzioni di CodyFeet o di CodyColor?',
+      'Q3. I tre tipi di istruzioni introdotti nel video, rappresentati dalle carte verde, rossa e gialla, costituiscono un “repertorio di istruzioni” in grado di portare Roby in qualsiasi punto della scacchiera. Sapresti concepire un repertorio con meno di 3 istruzioni per fare altrettanto?',
+    ],
+  },
+  {
+    id: 'lesson-9',
+    title: '9. La turista',
+    diretta: 'Diretta streaming martedì 10 marzo, ore 16:00 https://youtu.be/xnGCoYQK1mQ',
+    description:
+      'Materiale: oltre a quello dell’appuntamento precedente, ora servono due pedine aggiuntive e le carte numerate.',
+    videoUrl:
+      'https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fcoding4parents%2Fvideos%2F290745715212716%2F&show_text=false&width=560&t=0',
+    questions: [
+      'Q1. Il repertorio di istruzioni mostrato nel video è sufficiente a portare la turista in tutti i punti della scacchiera?',
+      'Q2. Se posizioni sulla scacchiera due pedine, puoi ideare un percorso che attraversi tutti i punti e termini in un punto dal quale è possibile riportare la turista alla posizione di partenza?',
+    ],
+  },
+  {
+    id: 'lesson-10',
+    title: '10. I percorsi',
+    diretta: 'Diretta streaming mercoledì 11 marzo, ore 11:00 https://youtu.be/vEKy-EMOYjE',
+    description: 'Materiale: scacchiera, pedine, carte CodyRoby, carte numerate e pedine turistiche.',
+    videoUrl:
+      'https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fcoding4parents%2Fvideos%2F234269920989930%2F&show_text=false&width=560&t=0',
+    questions: [
+      'Q1. Quanti percorsi possibili può attraversare la pedina turistica partendo dalla posizione iniziale e terminando nella posizione finale prevista nel video?',
+    ],
+  },
+  {
+    id: 'lesson-11',
+    title: '11. Il serpente solitario',
+    diretta: 'Diretta streaming giovedì 12 marzo, ore 16:00 https://youtu.be/Rc9ZA2_2G6E',
+    description:
+      'Materiale: oltre al materiale di ieri, servono 24 pezzetti di carta da appoggiare sulle caselle già visitate. In alternativa al mazzo di carte, è possibile utilizzare le icone delle carte disposte su questo foglio, come spiegato nel video.',
+    videoUrl:
+      'https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fcoding4parents%2Fvideos%2F1538066873015982%2F&show_text=false&width=560&t=0',
+    questions: [
+      'Q1. Ci sono punti di partenza che rendono impossibile visitare tutte la caselle senza mordere la coda del serpente?',
+    ],
+  },
+  {
+    id: 'lesson-12',
+    title: '12. Il filo della storia',
+    diretta: 'Diretta streaming venerdì 13 marzo, ore 16:00 https://youtu.be/xpIv1ntzwOA',
+    description:
+      'Materiale: non introduciamo nuovo materiale, se non i piccoli disegni che ognuno può fare in autonomia per rappresentare gli elementi della storia che intende raccontare. Quelli usati nel video sono qui. Per il resto usiamo le carte di CodyRoby, o le tessere di CodyFeet o quelle di CodyColor. L’argomento di oggi è lo storytelling!',
+    videoUrl:
+      'https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fcoding4parents%2Fvideos%2F1871391299657738%2F&show_text=false&width=560&t=0',
+    questions: [
+      'Q1. Qual è il più versatile dei tre strumenti con cui guidare Roby alla ricerca degli elementi della storia?',
+      'Q2. Riesci a disporre sulla scacchiera gli elementi della storia che vuoi raccontare in posizioni tali da rendere impossibile recuperarli tutti con CodyFeet?',
+    ],
+  },
+  {
+    id: 'lesson-13',
+    title: '13. I due serpenti',
+    diretta: 'Diretta streaming lunedì 16 marzo, ore 16:00 https://youtu.be/gfHGYiE130w',
+    description:
+      'Materiale: non serve materiale nuovo, solo le carte di CodyRoby, una scacchiera 5×5, due pedine e dei pezzetti di carta da utilizzare per indicare le caselle già visitate.',
+    videoUrl:
+      'https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fcoding4parents%2Fvideos%2F574990973227403%2F&show_text=false&width=560&t=0',
+    questions: [
+      'Q1. Nella configurazione iniziale mostrata nel video, se i due giocatori non estraggono carte gialle per girare a sinistra, che carte devono sperare di estrarre?',
+    ],
+  },
+  {
+    id: 'lesson-14',
+    title: '14. Andata e ritorno',
+    diretta: 'Diretta streaming martedì 17 marzo, ore 16:00 https://youtu.be/JWIWp0XDirg',
+    description: 'Materiale: lo stesso di ieri.',
+    videoUrl:
+      'https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fcoding4parents%2Fvideos%2F1489070087923752%2F&show_text=false&width=560&t=0',
+    questions: [
+      'Q1. È possibile che il programma che riporta Roby al punto di partenza sia più breve (cioè composto da meno istruzioni) di quello d’andata?',
+    ],
+  },
+  {
+    id: 'lesson-15',
+    title: '15. Punto d’incontro',
+    diretta: 'Diretta streaming mercoledì 18 marzo, ore 11:00 https://youtu.be/kAWU0y9qqXY',
+    description: 'Materiale: Anche oggi il materiale non cambia, ma si gioca con due pedine.',
+    videoUrl:
+      'https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fcoding4parents%2Fvideos%2F806039279903734%2F&show_text=false&width=560&t=0',
+    questions: [
+      'Q1. Se pensi che sia possibile che i due robot non si incontrino mai, inventa regole di gioco che contemplino tutte le possibili situazioni.',
+    ],
+  },
+  {
+    id: 'lesson-16',
+    title: '16. Segui la musica',
+    diretta: 'Diretta streaming giovedì 19 marzo, ore 16:00 https://youtu.be/BZ319i7INFE',
+    description:
+      'Materiale: oltre alle carte di CodyRoby, alla scacchiera e alla pedina, oggi ci servono tre suoni diversi. Io uso tre bicchieri riempiti in modo diverso, e tu?',
+    videoUrl:
+      'https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fcoding4parents%2Fvideos%2F2833964506682721%2F&show_text=false&width=560&t=0',
+    questions: [
+      'Q1. Prova a seguire il video facendoti guidare dai suoni che producono i bicchieri, senza guardare le carte. Riesci a riconoscere ed eseguire le istruzioni?',
+      'Q2. Scegli tre suoni da associare alle tre istruzioni elementari. Inventa una sequenza di suoni che potresti ripetere all’infinito senza fare mai uscire Roby dalla scacchiera…',
+    ],
+  },
+  {
+    id: 'lesson-17',
+    title: '17. Colora tutto',
+    diretta: 'Diretta streaming venerdì 20 marzo, ore 10:00 https://youtu.be/uO-ohgm-Qxg',
+    description:
+      'Materiale: carte CodyRoby, scacchiera e pedina. Per colorare le caselle puoi usare pezzetti di carta da appoggiare sulle caselle, o pennarelli.',
+    videoUrl:
+      'https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fcoding4parents%2Fvideos%2F540143366638835%2F&show_text=false&width=560&t=0',
+    questions: [
+      'Q1. È possibile colorare i due cuori proposti nella parte finale del video guidando il robot su tutte le caselle da colorare senza mai passare due volte sulla stessa?',
+    ],
+  },
+  {
+    id: 'lesson-18',
+    title: '18. RobyPlotter e RobyPrinter',
+    diretta: 'Diretta streaming mercoledì 25 marzo, ore 16:00 https://youtu.be/57ZxSRLiVyw',
+    description:
+      'Materiale: oltre al kit CodyRoby, oggi uso un pennarello verde e un nuovo robottino di pasta modellabile, ma non sono strettamente necessari.',
+    videoUrl:
+      'https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fcoding4parents%2Fvideos%2F842796746225021%2F&show_text=false&width=560&t=0',
+    questions: [
+      'Q1. Sapresti spiegare qual è la differenza tra un plotter e una stampante?',
+      'Q2. Che disegno produrrebbe RobyPrinter percorrendo le righe della scacchiera, se eseguisse la sequenza di comandi dettata alla fine del video?',
+    ],
+  },
+  {
+    id: 'lesson-19',
+    title: '19. Che noia questi PIXEL!',
+    diretta: 'Diretta streaming giovedì 26 marzo, ore 16:00 https://youtu.be/PxWqogVgFUw',
+    description:
+      'Materiale: quaderno a quadretti, o scacchiera 5×5 disegnata su un foglio, pennarello. Per rappresentare il codice del disegno potete usare carta e penna.',
+    videoUrl:
+      'https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fcoding4parents%2Fvideos%2F3056760591034637%2F&show_text=false&width=560&t=0',
+    questions: [
+      'Q1. Prova a fare un disegno a quadretti e a rappresentarlo con la codifica RLE. La dimensione del disegno è pari al numero di quadretti, ma qual è la dimensione della sua rappresentazione RLE?',
+    ],
+  },
+  {
+    id: 'lesson-20',
+    title: '20. Ti detto un disegno',
+    diretta: 'Diretta streaming venerdì 27 marzo, ore 16:00 https://youtu.be/X3JQNH5FEIE',
+    description:
+      'Materiale: carta, meglio se già a quadretti, e penna. Approfondimento: webinar interattivo su pixel art esadecimale',
+    videoUrl:
+      'https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fcoding4parents%2Fvideos%2F883344568776881%2F&show_text=false&width=560&t=0',
+    questions: ['Q1. Prova a decodificare e a disegnare le immagini che detto alla fine del video.'],
+  },
+  {
+    id: 'lesson-21',
+    title: '21. La conquista',
+    diretta: 'Diretta streaming venerdì 3 aprile, ore 16:00 https://youtu.be/zGWPBY1L0-Y',
+    description:
+      'Materiale: scacchiera, carte e pedine di CodyRoby. 24 quadratini di carta, a due facce di colore diverso, da disporre sulla scacchiera. Approfondimento: puntata di CodyGames su RAI Scuola',
+    videoUrl:
+      'https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fcoding4parents%2Fvideos%2F262650921408042%2F&show_text=false&width=560&t=0',
+    questions: [
+      'Q1. Riesci a immaginare una situazione di gioco in cui, avendo di fronte l’ultima casella libera, non ti convenga andarci?',
+    ],
+  },
+  {
+    id: 'lesson-22',
+    title: '22. Bersaglio mobile',
+    diretta: 'Diretta streaming lunedì 6 marzo, ore 16:00 https://youtu.be/hsgs1rui99I',
+    description:
+      'Materiale: oltre a scacchiera, carte e pedine di CodyRoby, serve un pezzetto di carta che funga da bersaglio. Può essere un disegno a vostro piacimento, ma deve essere orientato in modo che, dicendogli di spostarsi avanti, si sappia come spostarlo. Approfondimento: la dinamica del gioco è propedeutica al Competence CodyGame.',
+    videoUrl:
+      'https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fcoding4parents%2Fvideos%2F2440437522934761%2F&show_text=false&width=560&t=0',
+    questions: ['Q1. Può capitare di avere in mano carte che non consentano di muovere né la pedina né il bersaglio?'],
+  },
+  {
+    id: 'lesson-23',
+    title: '23. Competenze in gioco',
+    diretta: 'Diretta streaming giovedì 16 marzo, ore 16:00 https://youtu.be/Jm2Su1kx014',
+    description:
+      'Materiale: scacchiera, carte di CodyRoby e pedine. Il gioco oggi si concentra sull’uso strategico delle carte per risolvere sfide più complesse.',
+    videoUrl: '',
+    questions: [],
+  },
+];
 ---
 
 <Layout metadata={metadata}>
-  <Hero
-    tagline={metadata.tagline}
-    title={metadata.title}
-    image={{
-      src: banner,
-      alt: 'banner CodyRoby',
-    }}
-  >
-    <Fragment slot="subtitle"> </Fragment>
-  </Hero>
+  <div class="mx-0 md:mx-56">
+    <Hero
+      tagline={metadata.tagline}
+      title={metadata.title}
+      image={{
+        src: banner,
+        alt: 'banner CodyRoby',
+      }}
+    >
+      <Fragment slot="subtitle"> </Fragment>
+    </Hero>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+    <!-- Sidebar with responsive sticky behavior -->
+    <aside class="col-span-1 bg-slate-200 p-4 md:sticky md:top-0 md:h-screen">
+      <h2>Contenuto</h2>
+      <ul>
+        {
+          videolezioni.map((lesson) => (
+            <li>
+              <a href={`#${lesson.id}`} class="text-blue-500 hover:underline">
+                {lesson.title}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </aside>
+    <div class="prose-page col-span-4">
+      <p>
+        <strong>Brevi video</strong>, <strong>materiali fai da te</strong>, <strong>enigmi</strong>, <strong
+          >giochi</strong
+        > e <strong>sfide di coding</strong> proposti online per creare nuove occasioni di contatto tra casa e scuola, tra
+        alunni e insegnanti, al di fuori degli orari e degli spazi scolastici. <a
+          href="https://www.raicultura.it/speciali/codinginfamiglia"
+          target="_blank">– SPECIALE DI RAI CULTURA –</a
+        >
+      </p>
+      <div class="coding-in-famiglia-video">
+        <div class="video-container">
+          <iframe
+            src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fcoding4parents%2Fvideos%2F626412751543957%2F&show_text=false&width=560&t=0"
+            width="560"
+            height="314"
+            style="border:none;overflow:hidden"
+            scrolling="no"
+            frameborder="0"
+            allowfullscreen="true"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+        </div>
+      </div>
+      <h3>Il contesto</h3>
+      <div class="coding-in-famiglia-video">
+        <div class="video-container">
+          <iframe
+            src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fcoding4parents%2Fvideos%2F352290018652672%2F&show_text=false&width=560&t=0"
+            width="560"
+            height="314"
+            style="border:none;overflow:hidden"
+            scrolling="no"
+            frameborder="0"
+            allowfullscreen="true"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+        </div>
+      </div>
+      <p>
+        Chi volesse conoscere il contesto, potrebbe seguire “Coding per genitori“, dieci video da 2 minuti che
+        raccontano cos’è il coding e perchè viene praticato a scuola: http://codemooc.org/codyparentsmooc
+      </p>
+
+      {
+        videolezioni.map((lesson) => (
+          <div id={lesson.id} class="mb-8">
+            <h3 class="text-2xl font-semibold">{lesson.title}</h3>
+            {lesson.diretta && (
+              <p>
+                <strong>Diretta:</strong> {lesson.diretta}
+              </p>
+            )}
+            <p>{lesson.description}</p>
+            <iframe src={lesson.videoUrl} width="560" height="314" frameborder="0" allowfullscreen />
+            <ul>
+              {lesson.questions.map((question) => (
+                <li>- {question}</li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </div>
 </Layout>
