@@ -136,6 +136,7 @@ export interface Headline {
   title?: string;
   subtitle?: string;
   tagline?: string;
+  taglineLink?: string;
   classes?: Record<string, string>;
 }
 

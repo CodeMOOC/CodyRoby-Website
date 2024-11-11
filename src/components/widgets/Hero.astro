@@ -8,11 +8,10 @@ const {
   title = await Astro.slots.render('title'),
   subtitle = await Astro.slots.render('subtitle'),
   tagline,
-
+  taglineLink,
   content = await Astro.slots.render('content'),
   actions = await Astro.slots.render('actions'),
   image = await Astro.slots.render('image'),
-
   id,
   bg = await Astro.slots.render('bg'),
 } = Astro.props;
@@ -29,13 +28,22 @@ const {
     <div class="pt-12">
       <div class="text-center pb-6 md:pb-4 max-w-5xl mx-auto">
         {
-          tagline && (
-            <p
-              class="text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
-              set:html={tagline}
-            />
-          )
+          tagline &&
+            (taglineLink ? (
+              <a href={taglineLink}>
+                <span
+                  class="text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+                  set:html={tagline}
+                />
+              </a>
+            ) : (
+              <p
+                class="text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+                set:html={tagline}
+              />
+            ))
         }
+
         {
           title && (
             <h1

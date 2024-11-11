@@ -2,21 +2,23 @@
 import AnimateText from '~/components/ui/AnimateText.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Layout from '~/layouts/PageLayout.astro';
+import RemoveCodyrobyGames from '~/components/widgets/RemoveCodyrobyGames.astro';
 
 const metadata = {
-  title: 'seguimi',
-  tagline: 'Metodi',
+  title: 'Seguimi',
+  tagline: 'Metodi - CodyRoby',
+  taglineLink: '/codyroby',
 };
 ---
 
 <Layout metadata={metadata}>
-  <Hero tagline={metadata.tagline} title="CodyRoby – Seguimi">
+  <Hero {...metadata}>
     <Fragment slot="subtitle"> </Fragment>
   </Hero>
 
   <AnimateText>
     <div class="prose-page">
-      <h1>Descrizione del Gioco</h1>
+      <h2>Descrizione del Gioco</h2>
       <p>
         Gioco a squadre con Cody&Roby. Ogni squadra è composta da un giocatore nel ruolo di Roby e da uno o più
         giocatori nel ruolo di Cody.
@@ -57,6 +59,12 @@ const metadata = {
         Al termine della prova si invertono i ruoli delle due squadre. Vince la squadra con il punteggio più alto o, a
         parità di punteggio, quella che ha impiegato meno tempo.
       </p>
+      <h3>Gli altri giochi</h3>
+      <div class="flex flex-col gap-4">
+        <RemoveCodyrobyGames name="la turista" link="/codyroby/giochi/la-turista" />
+        <RemoveCodyrobyGames name="la corsa" link="/codyroby/giochi/la-corsa" />
+        <RemoveCodyrobyGames name="il duello" link="/codyroby/giochi/il-duello" />
+      </div>
     </div>
   </AnimateText>
 </Layout>

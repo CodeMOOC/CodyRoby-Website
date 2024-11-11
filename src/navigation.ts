@@ -87,7 +87,7 @@ export const headerData = {
       target: '_blank',
     },
     {
-      text: 'Prodotti e pubblicazioni',
+      text: 'Prodotti e Pubblicazioni',
       href: getPermalink(`${basePath}/prodotti-e-pubblicazioni`),
     },
   ],

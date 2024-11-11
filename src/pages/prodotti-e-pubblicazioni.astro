@@ -15,9 +15,12 @@ import codyRobyDaTavolo from '~/assets/images/prodotti/codyRobyDaTavolo.jpeg';
 import codyRobyWordMath from '~/assets/images/prodotti/codyRobyWordMath.jpeg';
 import codyFeetCodyColorTappeto from '~/assets/images/prodotti/codyFeetCodyColorTappeto.jpg';
 import codyRobyBook from '~/assets/images/prodotti/codyRobyBook.jpg';
+import Hero from '~/components/widgets/Hero.astro';
 
 const metadata = {
-  title: 'prodotti',
+  title: 'Prodotti e Pubblicazioni',
+  subtitle: '',
+  tagline: '',
 };
 
 const products: Product[] = [
@@ -117,18 +120,14 @@ const products: Product[] = [
     tags: [{ slug: '', title: '' }],
     content: 'Il coding come il gioco di ruolo, un libro del prof. Alessandro Bogliolo',
   },
-  {
-    id: '',
-    image: '',
-    title: '',
-    url: '',
-    tags: [{ slug: '', title: '' }],
-    content: '',
-  },
 ];
 ---
 
 <Layout metadata={metadata}>
+  <Hero tagline={metadata.tagline}>
+    <Fragment slot="title"> {metadata.title} </Fragment>
+    <Fragment slot="subtitle">{metadata.subtitle}</Fragment>
+  </Hero>
   <div class="prose-page">
     <p>
       Dai metodi ideati dal Professore Alessandro Bogliolo sono stati tratti dei prodotti per consentire alle scuole di

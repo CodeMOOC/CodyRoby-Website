@@ -1,17 +1,23 @@
 ---
 import AnimateText from '~/components/ui/AnimateText.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import RemoveCodyrobyGames from '~/components/widgets/RemoveCodyrobyGames.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'La turista',
+  title: 'La Turista',
+  tagline: 'Metodi - CodyRoby',
+  taglineLink: '/codyroby',
 };
 ---
 
 <Layout metadata={metadata}>
-  <AnimateText>
-    <div class="prose max-w-full mx-auto p-4">
-      <h1>CodyRoby – La turista</h1>
+  <Hero {...metadata}>
+    <Fragment slot="subtitle"> </Fragment>
+  </Hero>
 
+  <div class="prose-page">
+    <AnimateText>
       <h2>Descrizione</h2>
       <p>
         La turista è un gioco a squadre della serie CodyRoby. Una turista (potrebbe essere addirittura una principessa)
@@ -25,7 +31,8 @@ const metadata = {
           Carte: servono cody-cards di ogni tipo, in numero almeno doppio rispetto a quelle necessarie a comporre la
           soluzione. I tipi di carte devono comprendere almeno <strong>VAI AVANTI</strong>, <strong
             >GIRA A SINISTRA</strong
-          > e <strong>GIRA A DESTRA</strong>. Altri tipi di carte (RIPETI e SE) potranno essere inseriti in base alle
+          >
+          e <strong>GIRA A DESTRA</strong>. Altri tipi di carte (RIPETI e SE) potranno essere inseriti in base alle
           finalità didattiche e al livello di preparazione dei giocatori.
         </li>
         <li>
@@ -38,7 +45,8 @@ const metadata = {
           monumenti della tua città) e appoggiato alla fine del percorso.
         </li>
       </ul>
-
+    </AnimateText>
+    <AnimateText>
       <h2>Regole del gioco</h2>
       <p>
         Le due squadre compongono il percorso sul pavimento appoggiando i riquadri (tappeti morbidi o fogli) a turno uno
@@ -79,6 +87,12 @@ const metadata = {
         Per rendere il gioco più dinamico, il percorso può essere arricchito con esercizi motori. Quando la turista ha
         raggiunto il monumento, per festeggiare invita tutti i bambini a seguirla e tutti fanno il percorso.
       </p>
-    </div>
-  </AnimateText>
+      <h3>Gli altri giochi</h3>
+      <div class="flex flex-col gap-4">
+        <RemoveCodyrobyGames name="la corsa" link="/codyroby/giochi/la-corsa" />
+        <RemoveCodyrobyGames name="il duello" link="/codyroby/giochi/il-duello" />
+        <RemoveCodyrobyGames name="seguimi" link="/codyroby/giochi/seguimi" />
+      </div>
+    </AnimateText>
+  </div>
 </Layout>
