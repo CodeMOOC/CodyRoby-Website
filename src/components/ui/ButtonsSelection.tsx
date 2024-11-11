@@ -31,7 +31,7 @@ const ButtonSelection: React.FC<ButtonSelectionProps> = ({ buttons }) => {
 
   // Define a function to determine button class
   const buttonClass = (color: string) =>
-    `border-2 p-2 rounded-xl ${active === color ? 'border-slate-500' : 'border-transparent'}`;
+    `border-2 p-1 md:p-2 rounded-xl ${active === color ? 'border-slate-500' : 'border-transparent'}`;
 
   return (
     <>

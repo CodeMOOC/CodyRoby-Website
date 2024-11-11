@@ -28,7 +28,7 @@ const metadata = {
   tagline: 'Metodi',
 };
 
-const buttons = [
+const cardsSymbols = [
   {
     color: 'Ahead',
     image: ahead,
@@ -140,10 +140,15 @@ const buttons = [
         tal modo la naturale disposizione delle tessere a formare il percorso corrisponde alla sequenza di istruzioni da
         eseguire per percorrerlo.
       </p>
-      <AnimateText>
-        <ButtonSelection buttons={buttons} client:load />
-      </AnimateText>
     </AnimateText>
+  </div>
+
+  <AnimateText>
+    <div class="border border-black mx-4 p-4 rounded-lg bg-slate-100">
+      <ButtonSelection buttons={cardsSymbols} client:load />
+    </div>
+  </AnimateText>
+  <div class="prose-page">
     <AnimateText>
       <h2>Kit fai da te</h2>
       <p>
@@ -163,21 +168,22 @@ const buttons = [
         anche se a faccia in giù.
       </p>
     </AnimateText>
-    <div
-      class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
-    >
-      <div class="flex w-full sm:w-auto text-white no-underline">
-        <Button
-          class="w-full sm:mb-0"
-          variant="primary"
-          text="Scarica ora"
-          href={codyFeetGame}
-          target="_blank"
-          icon="tabler:download"
-        />
-      </div>
+  </div>
+  <div
+    class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+  >
+    <div class="flex w-full sm:w-auto text-white no-underline">
+      <Button
+        class="w-full sm:mb-0"
+        variant="primary"
+        text="Scarica ora"
+        href={codyFeetGame}
+        target="_blank"
+        icon="tabler:download"
+      />
     </div>
-
+  </div>
+  <div class="prose-page">
     <AnimateText>
       <h2>Modalità di gioco</h2>
 
@@ -204,7 +210,6 @@ const buttons = [
         coinvolgere i bambini in attività di coding unplugged.
       </p>
     </AnimateText>
-
     <AnimateText>
       <h2>Consigli</h2>
 
@@ -240,8 +245,8 @@ const buttons = [
         Per favorire la familiarizzazione dei bambini con la destra e la sinistra, Annalisa suggerisce di dotare i
         bambini di braccialetti gialli e rossi.
       </p>
-      <Image src={braccialetti} alt="braccialetti" />
     </AnimateText>
+    <Image src={braccialetti} alt="braccialetti" />
     <AnimateText>
       <h2>Estensione: CodyFeet Free</h2>
 
@@ -281,11 +286,15 @@ const buttons = [
         /><br />
         Ecco le tre tessere <strong>CodyFeet-Free</strong>:
       </p>
-      <div class="flex justify-center gap-6">
-        <Image src={freeAhead} alt="freeAhead" />
-        <Image src={freeStop} alt="freeStop" />
-        <Image src={freeStart} alt="freeStart" />
-      </div>
+    </AnimateText>
+  </div>
+  <div class="mt-6 flex flex-col items-center md:flex-row justify-center gap-6">
+    <Image src={freeAhead} alt="freeAhead" />
+    <Image src={freeStop} alt="freeStop" />
+    <Image src={freeStart} alt="freeStart" />
+  </div>
+  <div class="prose-page">
+    <AnimateText>
       <p>
         Qui di seguito, le tessere libere sono state utilizzate per comporre la parola CODING lungo il percorso.
         Nell’esempio, volutamente, le tessere libere sono usate insieme a quelle neutre, per sottolineare che il loro
