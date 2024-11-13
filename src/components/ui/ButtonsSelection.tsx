@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
 // Import full metadata object
-import yellow from '~/assets/images/codycolor/yellow-150x150.png';
-import red from '~/assets/images/codycolor/red-150x150.png';
-import grey from '~/assets/images/codycolor/grey-150x150.png';
-import start from '~/assets/images/codycolor/start-150x150.png';
-import target from '~/assets/images/codycolor/target-150x150.png';
+import yellow from '~/assets/images/metodi/codycolor/yellow-150x150.png';
+import red from '~/assets/images/metodi/codycolor/red-150x150.png';
+import grey from '~/assets/images/metodi/codycolor/grey-150x150.png';
+import start from '~/assets/images/metodi/codycolor/start-150x150.png';
+import target from '~/assets/images/metodi/codycolor/target-150x150.png';
 
 interface ButtonData {
   color: string;

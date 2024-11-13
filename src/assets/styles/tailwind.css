@@ -129,3 +129,11 @@
 .download-button-div {
   @apply max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4 motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade
 }
+
+body {
+  background: #f3f4f6 url('../images/group.png') no-repeat;
+  background-position: top left;
+  background-size: contain;
+}
+
+
