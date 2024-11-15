@@ -42,6 +42,7 @@ const ButtonSelection: React.FC<ButtonSelectionProps> = ({ buttons }) => {
             className={buttonClass(button.color)}
             onClick={() => changeTextToView(button.color)}
           >
+            <div className="not-prose">
             <img
               src={button.image.src}
               alt={button.color}
@@ -49,6 +50,7 @@ const ButtonSelection: React.FC<ButtonSelectionProps> = ({ buttons }) => {
               height={button.image.height}
               className="my-0"
             />
+            </div>
           </button>
         ))}
       </div>

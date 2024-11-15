@@ -129,8 +129,10 @@ const cardsSymbols = [
   </div>
 
   <AnimateText>
-    <div class="border border-black mx-4 p-4 rounded-lg bg-slate-100">
-      <ButtonSelection buttons={cardsSymbols} client:load />
+    <div class="prose-page">
+      <div class="border border-black mx-4 p-4 rounded-lg bg-slate-100 dark:bg-slate-700">
+        <ButtonSelection buttons={cardsSymbols} client:load />
+      </div>
     </div>
   </AnimateText>
   <div class="prose-page">
