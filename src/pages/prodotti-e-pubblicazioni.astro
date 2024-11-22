@@ -14,7 +14,10 @@ import codyRobyGigante from '~/assets/images/prodotti/codyRobyGigante.jpg';
 import codyRobyDaTavolo from '~/assets/images/prodotti/codyRobyDaTavolo.jpeg';
 import codyRobyWordMath from '~/assets/images/prodotti/codyRobyWordMath.jpeg';
 import codyFeetCodyColorTappeto from '~/assets/images/prodotti/codyFeetCodyColorTappeto.jpg';
-import codyRobyBook from '~/assets/images/prodotti/codyRobyBook.jpg';
+import codyRobyBook from '~/assets/images/prodotti/codyRobyBook.png';
+import CodingInYouClassroom from '~/assets/images/prodotti/CodingInYouClassroom.png';
+import diarioDelCoding from '~/assets/images/prodotti/diarioDelCoding.png';
+
 import Hero from '~/components/widgets/Hero.astro';
 
 const metadata = {
@@ -120,6 +123,23 @@ const products: Product[] = [
     tags: [{ slug: '', title: '' }],
     content: 'Il coding come il gioco di ruolo, un libro del prof. Alessandro Bogliolo',
   },
+  {
+    id: '12',
+    image: CodingInYouClassroom,
+    title: 'Coding in Your Classroom, Now!',
+    url: 'https://www.giuntiscuola.it/volumi/coding-in-your-classroom-now-76224u',
+    tags: [{ slug: '', title: '' }],
+    content: 'Per proporre il coding a scuola fin dalla primaria',
+  },
+  {
+    id: '13',
+    image: diarioDelCoding,
+    title: 'Il diario del Coding',
+    url: 'https://www.giuntiscuola.it/volumi/il-diario-del-coding-80132h',
+    tags: [{ slug: '', title: '' }],
+    content:
+      'Il diario del coding è una porta aperta su un mondo fatto di idee, di linguaggi per esprimerle e di strumenti per realizzarle.',
+  },
 ];
 ---
 
@@ -134,7 +154,9 @@ const products: Product[] = [
       avere prodotti validi e durevoli.<br />
       Qui sotto è presente l'elenco dei prodotti disponibili che rimandano ai vari store:
     </p>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  </div>
+  <div class="max-w-3xl mx-auto">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
       {products.map((product) => <ProductItem product={product} />)}
     </div>
   </div>
