@@ -20,7 +20,46 @@ import freeStop from '~/assets/images/metodi/codyfeet/CodyFeet-free-stop-150x150
 import freeStart from '~/assets/images/metodi/codyfeet/CodyFeet-free-start-150x150.png';
 import free from '~/assets/images/metodi/codyfeet/CodyFeet-free-768x384.png';
 
+import free768 from '~/assets/images/metodi/codyfeet/CodyFeet-free-768x384.png';
+import freeAhead150 from '~/assets/images/metodi/codyfeet/CodyFeet-free-ahead-150x150.png';
+import freeStart150 from '~/assets/images/metodi/codyfeet/CodyFeet-free-start-150x150.png';
+import freeStop150 from '~/assets/images/metodi/codyfeet/CodyFeet-free-stop-150x150.png';
+
+import cowAhead from '~/assets/images/metodi/codyfeet/CodyFeet-CoW-ahead.png';
+import cowAhead150 from '~/assets/images/metodi/codyfeet/CodyFeet-CoW-ahead-150x150.png';
+import cowLeft from '~/assets/images/metodi/codyfeet/CodyFeet-CoW-left.png';
+import cowLeft150 from '~/assets/images/metodi/codyfeet/CodyFeet-CoW-left-150x150.png';
+import cowRight from '~/assets/images/metodi/codyfeet/CodyFeet-CoW-right.png';
+import cowRight150 from '~/assets/images/metodi/codyfeet/CodyFeet-CoW-right-150x150.png';
+import cowStart from '~/assets/images/metodi/codyfeet/CodyFeet-CoW-start.png';
+import cowStart150 from '~/assets/images/metodi/codyfeet/CodyFeet-CoW-start-150x150.png';
+import cowStop from '~/assets/images/metodi/codyfeet/CodyFeet-CoW-stop.png';
+import cowStop150 from '~/assets/images/metodi/codyfeet/CodyFeet-CoW-stop-150x150.png';
+
+import wAhead from '~/assets/images/metodi/codyfeet/CodyFeet-W-ahead.png';
+import wAhead150 from '~/assets/images/metodi/codyfeet/CodyFeet-W-ahead-150x150.png';
+import wLeft from '~/assets/images/metodi/codyfeet/CodyFeet-W-left.png';
+import wLeft150 from '~/assets/images/metodi/codyfeet/CodyFeet-W-left-150x150.png';
+import wRight from '~/assets/images/metodi/codyfeet/CodyFeet-W-right.png';
+import wRight150 from '~/assets/images/metodi/codyfeet/CodyFeet-W-right-150x150.png';
+import wStart from '~/assets/images/metodi/codyfeet/CodyFeet-W-start.png';
+import wStart150 from '~/assets/images/metodi/codyfeet/CodyFeet-W-start-150x150.png';
+import wStop from '~/assets/images/metodi/codyfeet/CodyFeet-W-stop.png';
+import wStop150 from '~/assets/images/metodi/codyfeet/CodyFeet-W-stop-150x150.png';
+
+import wocAhead from '~/assets/images/metodi/codyfeet/CodyFeet-WoC-ahead.png';
+import wocAhead150 from '~/assets/images/metodi/codyfeet/CodyFeet-WoC-ahead-150x150.png';
+import wocLeft from '~/assets/images/metodi/codyfeet/CodyFeet-WoC-left.png';
+import wocLeft150 from '~/assets/images/metodi/codyfeet/CodyFeet-WoC-left-150x150.png';
+import wocRight from '~/assets/images/metodi/codyfeet/CodyFeet-WoC-right.png';
+import wocRight150 from '~/assets/images/metodi/codyfeet/CodyFeet-WoC-right-150x150.png';
+import wocStart from '~/assets/images/metodi/codyfeet/CodyFeet-WoC-start.png';
+import wocStart150 from '~/assets/images/metodi/codyfeet/CodyFeet-WoC-start-150x150.png';
+import wocStop from '~/assets/images/metodi/codyfeet/CodyFeet-WoC-stop.png';
+import wocStop150 from '~/assets/images/metodi/codyfeet/CodyFeet-WoC-stop-150x150.png';
+
 import codyFeetGame from '~/../public/codyfeet/codyFeetGame.pdf';
+import CodyFeetCC from '~/../public/codyfeet/CodyFeet-CC.pdf';
 
 const metadata = {
   title: 'CodyFeet',
@@ -53,6 +92,44 @@ const cardsSymbols = [
     color: 'Stop',
     image: stop,
     text: '(arrivo): colore azzurro, nessun punto di uscita, cerchietto al centro.',
+  },
+];
+const CodyFeetWoC = [
+  { src: wocAhead, alt: 'wocAhead', thumbnail: wocAhead150 },
+  { src: wocLeft, alt: 'wocLeft', thumbnail: wocLeft150 },
+  { src: wocRight, alt: 'wocRight', thumbnail: wocRight150 },
+  { src: wocStart, alt: 'wocStart', thumbnail: wocStart150 },
+  { src: wocStop, alt: 'wocStop', thumbnail: wocStop150 },
+];
+
+const CodyFeetCoW = [
+  { src: cowAhead, alt: 'cowAhead', thumbnail: cowAhead150 },
+  { src: cowLeft, alt: 'cowLeft', thumbnail: cowLeft150 },
+  { src: cowRight, alt: 'cowRight', thumbnail: cowRight150 },
+  { src: cowStart, alt: 'cowStart', thumbnail: cowStart150 },
+  { src: cowStop, alt: 'cowStop', thumbnail: cowStop150 },
+];
+
+const CodyFeetW = [
+  { src: wAhead, alt: 'wAhead', thumbnail: wAhead150 },
+  { src: wLeft, alt: 'wLeft', thumbnail: wLeft150 },
+  { src: wRight, alt: 'wRight', thumbnail: wRight150 },
+  { src: wStart, alt: 'wStart', thumbnail: wStart150 },
+  { src: wStop, alt: 'wStop', thumbnail: wStop150 },
+];
+
+const videolezioni = [
+  {
+    videoUrl:
+      'https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fgiolandi%2Fvideos%2F10216562182517686%2F&show_text=0&width=560',
+  },
+  {
+    videoUrl:
+      'https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fgiolandi%2Fvideos%2F10216562216558537%2F&show_text=0&width=560',
+  },
+  {
+    videoUrl:
+      'https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fgiolandi%2Fvideos%2F10216561647544312%2F&show_text=0&width=560',
   },
 ];
 ---
@@ -154,10 +231,10 @@ const cardsSymbols = [
       <h2>Kit fai da te</h2>
       <p>
         Le tessere possono essere liberamente scaricate da questa pagina, stampate e ritagliate. Ne vengono fornite tre
-        versioni: CodyFeet-WoC, con simboli bianchi su sfondo colorato; CodyFeet-CoW, con sinboli colorati su sfondo
+        versioni: CodyFeet-WoC, con simboli bianchi su sfondo colorato; CodyFeet-CoW, con simboli colorati su sfondo
         bianco; CodyFeet-W, senza colorazione, per risparmiare inchiostro in fase di stampa e permettere la
-        personalizzazione dei colori. Di seguito è possibile scaricare il file pdf vettoriale con tutte le tessere, o le
-        singole tessere ad una ad una.
+        personalizzazione dei colori. Di seguito è possibile scaricare il file <a href={CodyFeetCC}>pdf vettoriale</a> con
+        tutte le tessere, o le singole tessere ad una ad una.
       </p>
 
       <p>
@@ -170,7 +247,50 @@ const cardsSymbols = [
       </p>
     </AnimateText>
   </div>
-  <div
+  <AnimateText>
+    <div class="flex flex-col gap-4">
+      <div class="flex justify-center gap-x-1 max-w-full items-center">
+        <p>WoC:</p>
+        {
+          CodyFeetWoC.map((el) => {
+            console.log(el.src);
+            return (
+              <a target="_blank" href={el.src.src}>
+                <Image src={el.thumbnail} alt={el.alt} />
+              </a>
+            );
+          })
+        }
+      </div>
+      <div class="flex justify-center gap-x-1 max-w-full items-center">
+        <p>CoW:</p>
+        {
+          CodyFeetCoW.map((el) => {
+            console.log(el.src);
+            return (
+              <a target="_blank" href={el.src.src}>
+                <Image src={el.thumbnail} alt={el.alt} />
+              </a>
+            );
+          })
+        }
+      </div>
+      <div class="flex justify-center gap-x-1 max-w-full items-center">
+        <p>W:</p>
+        {
+          CodyFeetW.map((el) => {
+            console.log(el.src);
+            return (
+              <a target="_blank" href={el.src.src}>
+                <Image src={el.thumbnail} alt={el.alt} />
+              </a>
+            );
+          })
+        }
+      </div>
+    </div>
+  </AnimateText>
+  <!-- <div
     class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
   >
     <div class="flex w-full sm:w-auto text-white no-underline">
@@ -183,7 +303,7 @@ const cardsSymbols = [
         icon="tabler:download"
       />
     </div>
-  </div>
+  </div> -->
   <div class="prose-page">
     <AnimateText>
       <h2>Modalità di gioco</h2>
@@ -309,6 +429,15 @@ const cardsSymbols = [
         coding, attraverso semplici giochi intuitivi che stimolano il pensiero critico, il lavoro di squadra e la
         risoluzione di problemi.
       </p>
+      <h2>Genesi del gioco e discussione</h2>
+      <p>Video-registrazioni informali effettuate da Giovanna Landi a Urbino durante la Summer School 2018.</p>
     </AnimateText>
+    <div class="flex flex-col gap-4 justify-center items-center">
+      {
+        videolezioni.map((lesson) => (
+          <iframe src={lesson.videoUrl} width="560" height="314" allowfullscreen loading="lazy" />
+        ))
+      }
+    </div>
   </div>
 </Layout>

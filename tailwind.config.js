@@ -52,6 +52,7 @@ export default {
             code: {
               color: theme('colors.default'),
             },
+        
             
           },
         },

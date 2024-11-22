@@ -11,15 +11,65 @@ import infanzia from '~/assets/images/home/toolkit-infanzia-b.png';
 import primaria from '~/assets/images/home/toolkit-primaria-b.png';
 import secondaria from '~/assets/images/home/toolkit-secondaria-b.png';
 
+import codyroby from '~/assets/images/home/metodo-codyroby-bg.png';
+import codycolor from '~/assets/images/home/metodo-codycolor-bg.png';
+import codyfeet from '~/assets/images/home/metodo-codyfeet-bg.png';
+
 const metadata = {
   title: 'CodyRoby',
   tagline: 'Metodi',
   ignoreTitleTemplate: true,
 };
 
-const pixels = decode('LTJt^__No}bF%~oxadtS?axbg3Ri', 32, 32);
+const metodiPath = '/metodi';
+const toolkitPath = '/toolkit';
 
-const codyRobyCard = 'CodyRobyCards.pdf';
+const metodi = [
+  {
+    src: codyroby,
+    alt: 'codyroby',
+    link: `${metodiPath}/codyroby`,
+    description:
+      'È il più versatile degli strumenti di coding unplugged su scacchiera. Esiste nella versione base e nella versione avanzata, con costrutti di programmazione.',
+  },
+  {
+    src: codycolor,
+    alt: 'codycolor',
+    link: `${metodiPath}/codycolor`,
+    description:
+      'È il più semplice e intuitivo degli strumenti di coding unplugged, particolarmente adatto per proporre attività in età prescolare e nei primi anni della primaria.',
+  },
+  {
+    src: codyfeet,
+    alt: 'codyfeet',
+    link: `${metodiPath}/codyfeet`,
+    description:
+      'È il più intrigante degli strumenti di coding lineare. Le istruzioni sono rappresentate da tessere colorate disposte a terra. Con regole semplicissime, permette di creare attività avvincenti a ogni età',
+  },
+];
+const toolkit = [
+  {
+    src: infanzia,
+    alt: 'infanzia',
+    link: `${toolkitPath}/infanzia`,
+    description:
+      'Segui questo link se ti interessa introdurre il coding unplugged in età pre-scolare. Scoprirai come usare intuitivamente CodyFeet, il più semplice degli strumenti, e come metterlo in relazione con CodyColor e CodyRoby svolgendo attività motorie a terra',
+  },
+  {
+    src: primaria,
+    alt: 'primaria',
+    link: `${toolkitPath}/primaria`,
+    description:
+      'Segui questo link se vuoi applicare il coding unplugged nella scuola primaria. Scoprirai che CodyRoby e CodyColor sono gli strumenti più adatti e che possono essere utilizzati per introdurre concetti sempre più evoluti e concepire attività sempre nuove.',
+  },
+  {
+    src: secondaria,
+    alt: 'secondaria',
+    link: `${toolkitPath}/secondaria`,
+    description:
+      'Segui questo link per scoprire in quanti modi il coding unplugged possa essere applicato nella scuola secondaria, per dare rigore alla descrizione di procedimenti evoluti che sfruttano i costrutti di programmazione di CodyRoby strutturato.',
+  },
+];
 ---
 
 <Layout metadata={metadata}>
@@ -36,14 +86,62 @@ const codyRobyCard = 'CodyRobyCards.pdf';
     </Fragment>
   </Hero>
   <div class="prose-page">
-    <p>Testo presentazione principali metodi e risorse</p>
+    <p>
+      Questo sito è il principale riferimento per i <strong>metodi</strong> e gli <strong>strumenti</strong> di <strong
+        >coding unplugged fai-da-te</strong
+      > ideati dal
+      <strong>Prof. Alessandro Bogliolo</strong> a partire dal 2014 per favorire la diffusione del pensiero computazionale
+      nelle scuole senza fare uso di dispositivi elettronici. Il sito prende nome dal <strong>primo</strong> e dal più versatile
+      dei metodi,
+      <strong>CodyRoby</strong>, che sintetizza l’essenza di ogni attività di coding: la separazione di ruoli tra chi
+      programma (Cody) e chi esegue (Roby).
+      <br /><br />
+      La struttura del sito è interamente navigabile attraverso il menu gerarchico, ma la home page offre <strong
+        >percorsi</strong
+      > alle sezioni dedicate ai <strong>tre ordini di scuola</strong> (infanzia, primaria e secondaria di primo grado) e
+      ai <strong>tre principali metodi di coding unplugged</strong> (CodyRoby, CodyFeet e CodyColor).
+    </p>
+    <h2>Scorciatoie per ordini di scuola</h2>
+    <p>
+      I Toolkit per insegnanti offrono una chiavi di lettura e approcci al sito specificatamente concepiti per infanzia,
+      primaria e secondaria di primo grado.
+    </p>
   </div>
-  <div class="flex justify-center items-end gap-8 mx-4 md:mx-24 mt-10">
-    <Image src={infanzia} class="max-w-[400px]" alt={'infanzia'} loading="lazy" decoding="async" />
-    <Image src={primaria} class="max-w-[400px]" alt={'primaria'} loading="lazy" decoding="async" />
-    <Image src={secondaria} class="max-w-[400px]" alt={'secondaria'} loading="lazy" decoding="async" />
+  <div class="max-w-[70ch] m-auto px-12">
+    <div class="flex justify-center items-end gap-8 mx-4 md:mx-24 mt-10">
+      {
+        toolkit.map((toolkit) => (
+          <a href={toolkit.link}>
+            <Image src={toolkit.src} class="max-w-[400px]" alt={toolkit.alt} loading="lazy" decoding="async" />
+            <p class="text-md">{toolkit.description}</p>
+          </a>
+        ))
+      }
+    </div>
   </div>
-  <!-- <div class="max-w-[1200px] flex flex-col md:flex-row gap-6">
+  <div class="prose-page">
+    <h2>Metodi e strumenti</h2>
+    <p>
+      I tre metodi di coding unplugged proposti in questo sito offrono alle scuole l’opportunità di costruire percorsi
+      verticali coerenti che permettono di familiarizzare in modo graduale e spontaneo con i principi che sono alla base
+      della programmazione.
+    </p>
+  </div>
+  <div class="max-w-[70ch] m-auto px-12">
+    <div class="flex justify-center gap-8 mx-4 md:mx-24 mt-10">
+      {
+        metodi.map((metodo) => (
+          <a href={metodo.link}>
+            <Image src={metodo.src} class="max-w-[400px]" alt={metodo.alt} loading="lazy" decoding="async" />
+            <p class="text-md">{metodo.description}</p>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</Layout>
+
+<!-- <div class="max-w-[1200px] flex flex-col md:flex-row gap-6">
       <AnimateText>
         <div
           class="flex flex-col justify-center gap-4 bg-[#fff3c4] hover:bg-[#FFFF00] hover:transition-all rounded-lg drop-shadow-xl border border-black"
@@ -110,7 +208,6 @@ const codyRobyCard = 'CodyRobyCards.pdf';
         </div>
       </AnimateText>
     </div> -->
-</Layout>
 
 <!-- FAQs Widget ******************* -->
 <!-- 

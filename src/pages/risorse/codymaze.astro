@@ -4,7 +4,9 @@ import Layout from '../../layouts/PageLayout.astro';
 
 import banner from '~/assets/images/codymaze/banner.jpg';
 import AnimateText from '~/components/ui/AnimateText.astro';
+import Button from '../../components/ui/Button.astro';
 
+import QRCode from '~/../public/codymaze/qrCode.pdf';
 const metadata = {
   title: 'CodyMaze',
   tagline: 'Risorse',
@@ -50,7 +52,24 @@ const metadata = {
       all’Est. Se il luogo lo consente si consiglia di orientare effettivamente la scacchiera in modo coerente con i punti
       cardinali.
     </p>
-    <p><em>I 25 QR Code stampabili sono disponibili in questo archivio.</em></p>
+    <p><strong>I 25 QR Code stampabili sono disponibili cliccando qui sotto</strong></p>
+  </div>
+  <div
+    class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+  >
+    <div class="flex w-full sm:w-auto !text-white no-underline">
+      <Button
+        class="w-full sm:mb-0"
+        variant="primary"
+        text="Scarica ora"
+        href={QRCode}
+        target="_blank"
+        icon="tabler:download"
+      />
+    </div>
+  </div>
+
+  <div class="prose-page">
     <p>
       Per agevolare la disposizione e l’utilizzo, ogni QR Code riporta l’indicazione della posizione e dei punti
       cardinali. 5 dei QR Code hanno delle stelle alla cui presenza è condizionata l’esecuzione di alcune istruzioni.
