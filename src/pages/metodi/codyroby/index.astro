@@ -66,89 +66,96 @@ const cardsSymbols = [
   >
     <Fragment slot="subtitle"> </Fragment>
   </Hero>
-  <div class="prose-page">
-    <p>
-      <span class="font-semibold">Cody</span> è un coder, <span class="font-semibold">Roby</span> è un robot. Cody concatena
-      istruzioni che Roby esegue.
-    </p>
+  <AnimateText>
+    <div class="prose-page">
+      <p>
+        <span class="font-semibold">Cody</span> è un coder, <span class="font-semibold">Roby</span> è un robot. Cody concatena
+        istruzioni che Roby esegue.
+      </p>
 
-    <p>
-      <span class="font-semibold">CodyRoby</span> è un metodo fai-da-te di programmazione unplugged (senza computer). Le
-      istruzioni sono carte da gioco che contengono semplici simboli associati a tre azioni elementari: vai avanti, girati
-      a sinistra, girati a destra. Ogni giocatore veste i panni di Cody e usa le carte per dare istruzioni a Roby, rappresentato
-      da una pedina da muovere sulla scacchiera.
-    </p>
+      <p>
+        <span class="font-semibold">CodyRoby</span> è un metodo fai-da-te di programmazione unplugged (senza computer). Le
+        istruzioni sono carte da gioco che contengono semplici simboli associati a tre azioni elementari: vai avanti, girati
+        a sinistra, girati a destra. Ogni giocatore veste i panni di Cody e usa le carte per dare istruzioni a Roby, rappresentato
+        da una pedina da muovere sulla scacchiera.
+      </p>
 
-    <p>
-      CodyRoby è stato ideato nel <a href="https://www.codeweek.it/il-compleanno-di-codyroby/" target="_blank"
-        >novembre del 2014</a
-      >, per offrire a tutti la possibilità di partecipare alla European Robotics Week anche all’ultimo momento e senza
-      alcun costo. Lo <span class="font-semibold">starter kit</span> di CodyRoby può essere scaricato, stampato e ritagliato
-      per comporre il mazzo di carte, la scacchiera, le pedine e la scatola in cui tutto può essere riposto.
-    </p>
-  </div>
-  <div
-    class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
-  >
-    <div class="flex w-full sm:w-auto !text-white no-underline">
-      <Button
-        class="w-full sm:mb-0"
-        variant="primary"
-        text="Scarica CodyRoby Starter Kit"
-        href={codyRobyStarter}
-        target="_blank"
-        icon="tabler:download"
-      />
+      <p>
+        CodyRoby è stato ideato nel <a href="https://www.codeweek.it/il-compleanno-di-codyroby/" target="_blank"
+          >novembre del 2014</a
+        >, per offrire a tutti la possibilità di partecipare alla European Robotics Week anche all’ultimo momento e
+        senza alcun costo. Lo <span class="font-semibold">starter kit</span> di CodyRoby può essere scaricato, stampato e
+        ritagliato per comporre il mazzo di carte, la scacchiera, le pedine e la scatola in cui tutto può essere riposto.
+      </p>
     </div>
-  </div>
-  <div class="prose-page">
-    <p>
-      Dal 2014 ad oggi lo starter kit è stato distribuito in molte versioni, dedicate, tra l’altro, a <a
-        href="https://www.codeweek.it/cody-roby-en/ECW-edition/">Europe Code Week</a
-      >, a <a href="https://www.codeweek.it/cody-roby-en/ACW-edition/">Africa Code Week</a> e alla <a
-        href="https://www.codeweek.it/cody-roby-en/ERW-edition/">European Robotics Week</a
-      >. Lo starter kit permette di giocare con il coding in tanti modi diversi. Alcuni sono documentati da semplici
-      video-tutorial autoesplicativi, ma dopo aver giocato ai giochi base proposti vi suggerisco di inventarne di nuovi.
-    </p>
+  </AnimateText>
+  <AnimateText>
+    <div
+      class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+    >
+      <div class="flex w-full sm:w-auto !text-white no-underline">
+        <Button
+          class="w-full sm:mb-0"
+          variant="primary"
+          text="Scarica CodyRoby Starter Kit"
+          href={codyRobyStarter}
+          target="_blank"
+          icon="tabler:download"
+        />
+      </div>
+    </div>
+  </AnimateText>
 
-    <p>
-      In Agosto 2016 lo Starter Kit si è arricchito delle carte speciali che alle istruzioni elementari aggiungono le
-      ripetizioni e le condizioni. Il <span class="font-semibold">nuovo starter kit</span> è stato creato per CodeMOOC ed
-      è distribuito ufficialmente e gratuitamente in questa pagina. Il kit è anche allegato al libro di CodeMOOC, con diversa
-      impaginazione. Il nuovo kit permette di svolgere in modalità unplugged tutte le attività tipiche dell’ora del codice,
-      come spiegato in <a href="https://www.youtube.com/watch?v=4GKX65_T34o" target="_blank">questo video</a> e <a
-        href="https://www.slideshare.net/alessandrobogliolo/codyrobyhoc"
-        target="_blank">in queste slide</a
-      >.
-    </p>
+  <div class="prose-page">
     <AnimateText>
+      <p>
+        Dal 2014 ad oggi lo starter kit è stato distribuito in molte versioni, dedicate, tra l’altro, a <a
+          href="https://www.codeweek.it/cody-roby-en/ECW-edition/">Europe Code Week</a
+        >, a <a href="https://www.codeweek.it/cody-roby-en/ACW-edition/">Africa Code Week</a> e alla <a
+          href="https://www.codeweek.it/cody-roby-en/ERW-edition/">European Robotics Week</a
+        >. Lo starter kit permette di giocare con il coding in tanti modi diversi. Alcuni sono documentati da semplici
+        video-tutorial autoesplicativi, ma dopo aver giocato ai giochi base proposti vi suggerisco di inventarne di
+        nuovi.
+      </p>
+
+      <p>
+        In Agosto 2016 lo Starter Kit si è arricchito delle carte speciali che alle istruzioni elementari aggiungono le
+        ripetizioni e le condizioni. Il <span class="font-semibold">nuovo starter kit</span> è stato creato per CodeMOOC
+        ed è distribuito ufficialmente e gratuitamente in questa pagina. Il kit è anche allegato al libro di CodeMOOC, con
+        diversa impaginazione. Il nuovo kit permette di svolgere in modalità unplugged tutte le attività tipiche dell’ora
+        del codice, come spiegato in <a href="https://www.youtube.com/watch?v=4GKX65_T34o" target="_blank"
+          >questo video</a
+        > e <a href="https://www.slideshare.net/alessandrobogliolo/codyrobyhoc" target="_blank">in queste slide</a>.
+      </p>
+
       <div class="prose-page">
         <div class="border border-black mx-4 p-4 rounded-lg bg-slate-100 dark:bg-slate-700">
           <ButtonSelection buttons={cardsSymbols} client:load />
         </div>
       </div>
-    </AnimateText>
-    <p>
-      Premendo il pulsante, <em>Scarica CodyRoby</em>, che permette di scaricare il file pdf sono riportate le opzioni
-      di stampa consigliate.
-    </p>
-    <Hero
-      actions={[
-        {
-          variant: 'primary',
-          text: 'Scarica CodyRoby',
-          href: codyRobyCard,
-          target: '_blank',
-          icon: 'tabler:download',
-        },
-      ]}
-    />
 
-    <p>
-      Nella scuola dell’<strong>infanzia</strong> o nei primi anni della <strong>primaria</strong>, o in ogni situazione
-      in cui si faccia un <strong> uso collettivo </strong> del kit CodyRoby su scacchiere a terra si consiglia di utilizzare
-      il <a href="codyroby/codyroby-gigante">CodyRoby Gigante</a>
-    </p>
+      <p>
+        Premendo il pulsante, <em>Scarica CodyRoby</em>, che permette di scaricare il file pdf sono riportate le opzioni
+        di stampa consigliate.
+      </p>
+      <Hero
+        actions={[
+          {
+            variant: 'primary',
+            text: 'Scarica CodyRoby',
+            href: codyRobyCard,
+            target: '_blank',
+            icon: 'tabler:download',
+          },
+        ]}
+      />
+
+      <p>
+        Nella scuola dell’<strong>infanzia</strong> o nei primi anni della <strong>primaria</strong>, o in ogni
+        situazione in cui si faccia un <strong> uso collettivo </strong> del kit CodyRoby su scacchiere a terra si consiglia
+        di utilizzare il <a href="codyroby/codyroby-gigante">CodyRoby Gigante</a>
+      </p>
+    </AnimateText>
     <!-- <h2>I giochi</h2>
     <div class="flex flex-col md:flex-row gap-4 justify-between">
       <Button text="Seguimi" href={'codyroby/giochi/seguimi'} class="self-center" />
