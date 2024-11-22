@@ -17,7 +17,7 @@ export const headerData = {
       links: [
         {
           text: 'CodyRoby',
-          href: getPermalink(`${basePath}/codyroby`),
+          href: getPermalink(`${basePath}${metodiPath}/codyroby`),
         },
         {
           text: 'CodyColor',
@@ -67,8 +67,8 @@ export const headerData = {
           href: getPermalink(`${basePath}${appPath}/coding-in-famiglia`),
         },
         {
-          text: 'Applicazioni online',
-          href: getPermalink(`${basePath}${appPath}/applicazioni-online`),
+          text: 'Progetti Scratch',
+          href: getPermalink(`${basePath}${appPath}/progetti-scratch`),
         },
         {
           text: 'Videolezioni',

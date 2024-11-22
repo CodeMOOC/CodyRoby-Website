@@ -84,12 +84,15 @@ const {
       >
         {
           image && (
-            <div class="relative m-auto max-w-5xl">
-              {typeof image === 'string' ? (
-                <Fragment set:html={image} />
-              ) : (
-                <Image class="mx-auto w-full" loading="eager" {...image} />
-              )}
+            <div class="flex justify-center">
+              <div class="relative m-auto max-w-[800px]">
+                {typeof image === 'string' ? (
+                  <Fragment set:html={image} />
+                ) : (
+                  <Image class="max-w-[400px]" {...image} loading="lazy" decoding="async" />
+                  // <Image class="mx-auto w-full " loading="eager" {...image} />
+                )}
+              </div>
             </div>
           )
         }

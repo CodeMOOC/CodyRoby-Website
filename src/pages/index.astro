@@ -3,18 +3,13 @@ import Layout from '~/layouts/PageLayout.astro';
 import { Image } from 'astro:assets';
 
 import Hero from '~/components/widgets/Hero.astro';
-import Button from '~/components/ui/Button.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
 
-import kindergardern from '~/assets/images/home/kindergarden.jpg';
-import primaria from '~/assets/images/home/primaria.webp';
-import medie from '~/assets/images/home/medie.webp';
-
-// import banner from '~/assets/images/banner.png';
-// import banner from '~/assets/images/home/arrows.webp';
+import banner from '~/assets/images/banner-c.png';
 import { decode } from 'blurhash';
-import banner from '~/assets/images/home/arrows.png';
 import AnimateText from '~/components/ui/AnimateText.astro';
+import infanzia from '~/assets/images/home/toolkit-infanzia-b.png';
+import primaria from '~/assets/images/home/toolkit-primaria-b.png';
+import secondaria from '~/assets/images/home/toolkit-secondaria-b.png';
 
 const metadata = {
   title: 'CodyRoby',
@@ -28,21 +23,9 @@ const codyRobyCard = 'CodyRobyCards.pdf';
 ---
 
 <Layout metadata={metadata}>
-  <Hero
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Scarica ora',
-        href: codyRobyCard,
-        target: '_blank',
-        icon: 'tabler:download',
-      },
-      { text: 'Scopri di più', href: '/codyroby' },
-    ]}
-    image={{ src: banner, alt: 'CodyRoby' }}
-  >
+  <Hero image={{ src: banner, alt: 'CodyRoby' }}>
     <Fragment slot="title">
-      <span class="text-[#477DFD] highlight">CodyRoby</span><br />
+      <span class="text-slate-800 highlight">CodyRoby</span><br />
       <span class="text-[#477DFD]"></span>
     </Fragment>
 
@@ -52,9 +35,15 @@ const codyRobyCard = 'CodyRobyCards.pdf';
       </span>
     </Fragment>
   </Hero>
-
-  <!-- <div class="flex justify-center items-center gap-8 mx-4 md:mx-24 mt-10">
-    <div class="max-w-[1200px] flex flex-col md:flex-row gap-6">
+  <div class="prose-page">
+    <p>Testo presentazione principali metodi e risorse</p>
+  </div>
+  <div class="flex justify-center items-end gap-8 mx-4 md:mx-24 mt-10">
+    <Image src={infanzia} class="max-w-[400px]" alt={'infanzia'} loading="lazy" decoding="async" />
+    <Image src={primaria} class="max-w-[400px]" alt={'primaria'} loading="lazy" decoding="async" />
+    <Image src={secondaria} class="max-w-[400px]" alt={'secondaria'} loading="lazy" decoding="async" />
+  </div>
+  <!-- <div class="max-w-[1200px] flex flex-col md:flex-row gap-6">
       <AnimateText>
         <div
           class="flex flex-col justify-center gap-4 bg-[#fff3c4] hover:bg-[#FFFF00] hover:transition-all rounded-lg drop-shadow-xl border border-black"
@@ -120,11 +109,11 @@ const codyRobyCard = 'CodyRobyCards.pdf';
           </a>
         </div>
       </AnimateText>
-    </div>
-  </div> -->
+    </div> -->
+</Layout>
 
-  <!-- FAQs Widget ******************* -->
-  <!-- 
+<!-- FAQs Widget ******************* -->
+<!-- 
   <FAQs
     title="Frequently Asked Questions"
     subtitle="Dive into the following questions to gain insights into the powerful features that AstroWind offers and how it can elevate your web development journey."
@@ -163,4 +152,3 @@ const codyRobyCard = 'CodyRobyCards.pdf';
       },
     ]}
   /> -->
-</Layout>

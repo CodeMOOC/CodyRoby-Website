@@ -1,0 +1,93 @@
+---
+import AnimateText from '~/components/ui/AnimateText.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import RemoveCodyrobyGames from '~/components/widgets/RemoveCodyrobyGames.astro';
+
+const metadata = {
+  title: 'La Corsa',
+  tagline: 'Metodi - CodyRoby',
+  taglineLink: '/codyroby',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero {...metadata}>
+    <Fragment slot="subtitle"> </Fragment>
+  </Hero>
+
+  <div class="prose-page">
+    <AnimateText>
+      <h2>Descrizione</h2>
+      <p>
+        La corsa è un gioco di velocità della serie CodyRoby. È concepito per essere giocato da due giocatori o da due
+        squadre, ma se ne possono concepire delle varianti a più squadre. Nella descrizione parleremo di due giocatori.
+        I due giocatori vengono posti di fronte a un percorso e hanno a disposizione carte di tutti i tipi. Devono
+        pensare alla soluzione nel minor tempo possibile, comporla procurandosi le carte che servono e mettere la mano
+        sul tasto GO! Il giocatore che mette per primo la mano sul tasto GO può provare se la soluzione funziona
+        muovendo il suo robot sul percorso. L’altro giocatore controlla se la soluzione è giusta e se ha usato il numero
+        minimo di carte. Se la soluzione è sbagliata o l’avversario riesce a proporre una soluzione con meno carte, la
+        gara è vinta dall’avversario; altrimenti, è vinta dal giocatore che ha premuto GO!.
+      </p>
+
+      <h2>Materiale</h2>
+      <ul>
+        <li>
+          Carte: servono cody-cards di ogni tipo, in numero almeno doppio rispetto a quelle necessarie a comporre la
+          soluzione. I tipi di carte devono comprendere almeno <strong>VAI AVANTI</strong>, <strong
+            >GIRA A SINISTRA</strong
+          > e <strong>GIRA A DESTRA</strong>. Altri tipi di carte (RIPETI e SE) potranno essere inseriti in base alle
+          finalità didattiche e al livello di preparazione dei giocatori.
+        </li>
+        <li>
+          Percorso: il percorso deve essere disegnato su una scacchiera 5×5 o 8×8 (la scacchiera si può disegnare in un
+          foglio a quadretti o stampare). Si consiglia di disegnarlo a matita per poter riusare la scacchiera.
+        </li>
+        <li>Tasto GO!: può essere disegnato nel foglio accanto alla scacchiera o stampato e appoggiato sul tavolo.</li>
+        <li>
+          Pedine: 2 pedine (possono essere o immagini di Roby, stampate e ritagliate, o segnaposti di qualsiasi tipo, o
+          giocatori che si muovono sulla scacchiera, nel caso in cui il gioco sia giocato a terra).
+        </li>
+        <li>Tutto il materiale necessario è disponibile anche nello starter kit.</li>
+      </ul>
+    </AnimateText>
+  </div>
+
+  <div class="prose-page">
+    <AnimateText>
+      <h2>Regole del gioco</h2>
+      <p>
+        Le due squadre disegnano un percorso sulla scacchiera segnando con una matita due caselle a testa a turno. I
+        turni possono ripetersi per disegnare il percorso della lunghezza desiderata. Se si gioca senza usare carte
+        RIPETI, la lunghezza del percorso non deve superare la metà delle carte AVANTI a disposizione.
+      </p>
+      <p>Si pone (o si disegna) il tasto GO! accanto alla scacchiera.</p>
+      <p>Si dispongono sul tavolo pile di carte di ogni tipo a disposizione dei giocatori.</p>
+      <p>Si dispongono le due pedine all’inizio del percorso (anche sovrapposte).</p>
+      <p>
+        Quando tutto è pronto, si dà il via. I giocatori giocano contemporaneamente prendendo dai mazzi le carte di cui
+        hanno bisogno per comporre sul tavolo (ognuno per suo conto) la soluzione che guiderà la pedina fino alla fine
+        del percorso. I giocatori devono fare attenzione a non prendere dai mazzi più carte di quelle necessarie e
+        devono prenderle solo per inserirle nella sequenza (non possono accumularle per riserva). L’incetta e l’uso di
+        carte superflue comportano la squalifica e fanno vincere l’avversario.
+      </p>
+      <p>
+        Il giocatore che per primo pensa di aver composto la soluzione preme il tasto GO! mettendoci sopra una mano e
+        alzando l’altra dal tavolo per indicare di aver ultimato la partita.
+      </p>
+      <p>
+        Il giocatore che ha premuto GO! è candidato alla vittoria, ma deve dimostrare di aver trovato la soluzione
+        giusta. Seguendo le sue carte, deve muovere la pedina lungo il percorso, mentre l’altro verifica che la
+        soluzione sia corretta e che non usi carte inutili. Se l’avversario trova un errore o riesce a ridurre il numero
+        di carte (senza pensarci oltre la fine della dimostrazione), la vittoria passa all’avversario; altrimenti, vince
+        il giocatore che ha premuto GO!.
+      </p>
+      <h3>Gli altri giochi</h3>
+      <div class="flex flex-col gap-4">
+        <RemoveCodyrobyGames name="la turista" link="/codyroby/giochi/la-turista" />
+        <RemoveCodyrobyGames name="il duello" link="/codyroby/giochi/il-duello" />
+        <RemoveCodyrobyGames name="seguimi" link="/codyroby/giochi/seguimi" />
+      </div>
+    </AnimateText>
+  </div>
+</Layout>
