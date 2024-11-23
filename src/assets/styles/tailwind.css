@@ -133,3 +133,7 @@ body {
   background-position: top left;
   background-size: contain;
 }
+
+a {
+  @apply underline hover:text-blue-800;
+}

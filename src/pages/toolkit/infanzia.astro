@@ -8,7 +8,15 @@ const metadata = {
   tagline: 'Toolkit',
   subtitle: '',
 };
+
+const refCodingInFamiglia = '/risorse/coding-in-famiglia';
 ---
+
+<style>
+  a {
+    font-weight: 600;
+  }
+</style>
 
 <Layout metadata={metadata}>
   <Hero
@@ -22,7 +30,6 @@ const metadata = {
     <Fragment slot="subtitle">{metadata.subtitle}</Fragment>
   </Hero>
   <div class="prose-page">
-    <h1>Introduzione al Coding Unplugged con CodyRoby</h1>
     <p>
       Questa pagina è il punto di ingresso ideale al sito di CodyRoby per chi ha interesse all’introduzione di attività
       di coding unplugged in età pre-scolare o all’inizio della scuola primaria. Per affrontare il tema in modo
@@ -34,47 +41,56 @@ const metadata = {
 
     <h2>Metodi e strumenti</h2>
     <p>
-      Il metodo più adatto da utilizzare in età pre-scolare è <strong>CodyFeet</strong>, che è stato sviluppato come
-      semplificazione di CodyRoby in collaborazione con insegnanti della scuola dell’Infanzia, per agevolare un primo
-      approccio intuitivo che non perdesse il rigore metodologico. A questo scopo CodyFeet rappresenta le istruzioni
-      come tessere a incastro da disporre direttamente lungo il percorso. Gli incastri delle tessere rappresentano le
-      regole sintattiche di composizione delle istruzioni, ma la particolare forma delle tessere fa sì che il semplice
-      rispetto della sintassi garantisca anche la correttezza del percorso. In pratica, ogni percorso costruito con le
-      tessere di CodyFeet rispettandone gli incastri, contiene le istruzioni necessarie a percorrerlo. Le tessere
-      codificano semplici azioni da compiere sul posto (<em>Girati a sinistra, Girati a destra, Prosegui diritto</em>)
-      prima di passare alla tessera successiva. Ogni istruzione è caratterizzata da un colore (giallo, rosso, grigio) e
-      da impronte che danno l’immediata percezione della rotazione da effettuare e della direzione in cui procedere.
+      Il metodo più adatto da utilizzare in età pre-scolare è <a href="/metodi/codyfeet">CodyFeet</a>, che è stato
+      sviluppato come semplificazione di CodyRoby in collaborazione con insegnanti della scuola dell’Infanzia, per
+      agevolare un primo approccio intuitivo che non perdesse il rigore metodologico. A questo scopo CodyFeet
+      rappresenta le istruzioni come tessere a incastro da disporre direttamente lungo il percorso. Gli incastri delle
+      tessere rappresentano le regole sintattiche di composizione delle istruzioni, ma la particolare forma delle
+      tessere fa sì che il semplice rispetto della sintassi garantisca anche la correttezza del percorso. In pratica,
+      ogni percorso costruito con le tessere di CodyFeet rispettandone gli incastri, contiene le istruzioni necessarie a
+      percorrerlo. Le tessere codificano semplici azioni da compiere sul posto (<em
+        >Girati a sinistra, Girati a destra, Prosegui diritto</em
+      >) prima di passare alla tessera successiva. Ogni istruzione è caratterizzata da un colore (giallo, rosso, grigio)
+      e da impronte che danno l’immediata percezione della rotazione da effettuare e della direzione in cui procedere.
     </p>
     <p>
-      Per quanto detto in premessa, all’insegnante consiglio di familiarizzare con il metodo CodyRoby lineare (kit base)
-      e di seguire i video che documentano la genesi di CodyFeet (<a href="#">video1</a>,
+      Per quanto detto in premessa, all’insegnante consiglio di familiarizzare con il metodo <a href="/metodi/codyroby"
+        >CodyRoby</a
+      > lineare (kit base) e di seguire i video che documentano la genesi di CodyFeet (<a href="#">video1</a>,
       <a href="#">video2</a>, <a href="#">video3</a>), per apprezzare la coerenza tra i due metodi e comprendere le
       implicazioni della rappresentazione delle istruzioni lungo il percorso.
     </p>
     <p>
-      Dopo aver familiarizzato con CodyFeet è possibile passare a <strong>CodyColor</strong>, che ha una logica simile
-      (tessere colorate disposte lungo il percorso), ma con due differenze fondamentali: le tessere non hanno incastri
-      né hanno impronte. Questo rende la codifica dei colori meno esplicita, ma ne aumenta l’espressività e la
-      versatilità.
+      Dopo aver familiarizzato con CodyFeet è possibile passare a <a href="/metodi/codycolor">CodyColor</a>, che ha una
+      logica simile (tessere colorate disposte lungo il percorso), ma con due differenze fondamentali: le tessere non
+      hanno incastri né hanno impronte. Questo rende la codifica dei colori meno esplicita, ma ne aumenta l’espressività
+      e la versatilità.
     </p>
 
     <h2>Esempi di attività</h2>
     <p>
       Per farsi un’idea operativa delle potenzialità di CodyFeet e CodyColor si consiglia di seguire i primi 6
-      video-tutorial della serie <em>Coding in Famiglia</em>. <strong>L’esploratore</strong>, <strong
-        >Destra e sinistra</strong
-      >,
-      <strong>Passo a due</strong> e <strong>Tiro alla fune</strong> utilizzano CodyFeet; <strong
-        >L’esploratrice senza impronte</strong
-      >
-      e <strong>Passo a due senza impronte</strong> mostrano le varianti realizzate con CodyColor di due delle attività precedentemente
-      proposte con CodyFeet, permettendo di apprezzare le differenze.
+      video-tutorial della serie <a target="_blank" href=`${refCodingInFamiglia}`>Coding in Famiglia</a>. <a
+        target="_blank"
+        href=`${refCodingInFamiglia}#lesson-1`>L’esploratore</a
+      >, <a target="_blank" href=`${refCodingInFamiglia}#lesson-2`>Destra e sinistra</a>,
+      <a target="_blank" href=`${refCodingInFamiglia}#lesson-3`>Passo a due</a> e <a
+        target="_blank"
+        href=`${refCodingInFamiglia}#lesson-4`>Tiro alla fune</a
+      > utilizzano CodyFeet; <a target="_blank" href=`${refCodingInFamiglia}#lesson-5`>L’esploratrice senza impronte</a>
+      e <a target="_blank" href=`${refCodingInFamiglia}#lesson-6`>Passo a due senza impronte</a> mostrano le varianti realizzate
+      con CodyColor di due delle attività precedentemente proposte con CodyFeet, permettendo di apprezzare le differenze.
     </p>
+
     <p>
       Benché i video-tutorial propongano attività da tavolo per praticità e replicabilità in famiglia, nella scuola
       dell’infanzia si consiglia vivamente di proporre queste attività su scacchiera a terra, con scacchi di almeno 30cm
       di lato, in modo che bambine e bambini possano muovercisi all’interno sperimentando fisicamente le azioni
       associate alle istruzioni.
+    </p>
+    <p>
+      Dovunque possibile si consiglia di allestire a terra una scacchiera di 5x5 caselle da tenere sempre disposizione
+      per svolgere attività anche estemporanee.
     </p>
 
     <h2>Formazione</h2>
@@ -84,22 +100,30 @@ const metadata = {
       Corsi certificati della CodyRoby Academy.
     </p>
     <p>
-      Per una breve presentazione comparativa degli strumenti e dei metodi di coding unplugged della famiglia CodyRoby,
-      si consiglia la registrazione della lezione 3.2 del MOOC <em>Coding in biblioteca</em> (BIBMOOC3.2) e della
-      <em>Lezione 0</em> della Summer School <em>Teoria e pratica del coding unplugged</em> (<em>Lezione 0</em>).
+      Per una breve presentazione comparativa degli strumenti e dei metodi di coding unplugged della famiglia CodyRob<a
+        href="">BIBMOOC3.2</a
+      >y, si consiglia la registrazione della lezione 3.2 del MOOC <em>Coding in biblioteca</em> (<a
+        href="https://www.youtube.com/watch?v=snNVgUFe8r8">BIBMOOC3.2</a
+      >) e della
+      <em>Lezione 0</em> della Summer School <em>Teoria e pratica del coding unplugged</em> (<a
+        href="https://www.youtube.com/watch?v=Y5kpHmOwwis">Lezione 0</a
+      >).
     </p>
     <p>
       Per approfondimenti sulle modalità di utilizzo in classe di CodyFeet e CodyColor si consigliano le registrazioni
       della prima lezione e del primo laboratorio della Summer School dell’Università di Urbino dedicata alla
-      <em>Teoria e pratica del coding unplugged</em> (<em>Lezione 1</em> e <em>Laboratorio 1</em>).
+      <em>Teoria e pratica del coding unplugged</em> (<a href="https://www.youtube.com/watch?v=yG7m9GIxqnM">Lezione 1</a
+      > e <a href="https://www.youtube.com/watch?v=LR836n8RNhM">Laboratorio 1</a>).
     </p>
     <p>
       Per formazione certificata si rimanda ai corsi e ai laboratori di formazione sul campo per infanzia e primaria
-      della CodyRoby Academy.
+      della <a href="https://academy.codyroby.it/">CodyRoby Academy</a>.
     </p>
     <p>
-      Il testo di riferimento è <em>A Scuola con CodyRoby</em>, scritto da Alessandro Bogliolo per Giunti Scuola, 2020.
-      A CodyFeet e CodyColor sono dedicate la Parte II e la Parte III.
+      Il testo di riferimento è <a href="https://www.campustore.it/a-scuola-con-codyroby.html">A Scuola con CodyRoby</a
+      >, scritto da Alessandro Bogliolo per Giunti Scuola, 2020. A CodyFeet e CodyColor sono dedicate la <strong
+        >Parte II</strong
+      > e la <strong>Parte III</strong>.
     </p>
 
     <h2>Prodotti</h2>
@@ -112,7 +136,7 @@ const metadata = {
     <h2>Comunità di pratica</h2>
     <p>
       Per un confronto costante con la comunità di pratica si consiglia di seguire il gruppo Facebook
-      <a href="#">Coding in Your Classroom, Now!</a>.
+      <a href="https://www.facebook.com/groups/CodeMOOC/">Coding in Your Classroom, Now!</a>
     </p>
   </div>
 </Layout>

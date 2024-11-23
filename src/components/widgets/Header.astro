@@ -50,6 +50,12 @@ const {
 const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 ---
 
+<style>
+  a {
+    text-decoration: none;
+  }
+</style>
+
 <header
   class:list={[
     { sticky: isSticky, relative: !isSticky, dark: isDark },
