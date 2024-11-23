@@ -15,6 +15,8 @@ import codyroby from '~/assets/images/home/metodo-codyroby-bg.png';
 import codycolor from '~/assets/images/home/metodo-codycolor-bg.png';
 import codyfeet from '~/assets/images/home/metodo-codyfeet-bg.png';
 
+import bogliolo from '~/assets/images/home/Bogliolo.jpeg';
+
 const metadata = {
   title: 'CodyRoby',
   tagline: 'Metodi',
@@ -113,18 +115,25 @@ const toolkit = [
       primaria e secondaria di primo grado.
     </p>
   </div>
-  <div class="max-w-[70ch] m-auto px-12">
-    <div class="flex justify-center items-end gap-8 mx-4 md:mx-24 mt-10">
+  <div class="max-w-[70ch] m-auto px-4 sm:px-6 lg:px-12">
+    <div class="flex flex-wrap justify-center gap-6 mx-auto mt-10">
       {
         toolkit.map((toolkit) => (
-          <a href={toolkit.link}>
-            <Image src={toolkit.src} class="max-w-[400px]" alt={toolkit.alt} loading="lazy" decoding="async" />
-            <p class="text-md">{toolkit.description}</p>
+          <a href={toolkit.link} class="flex flex-col items-center w-full sm:w-1/2 lg:w-1/3 p-4">
+            <Image
+              src={toolkit.src}
+              class="w-full h-auto rounded-lg shadow-md"
+              alt={toolkit.alt}
+              loading="lazy"
+              decoding="async"
+            />
+            <p class="text-center text-sm sm:text-md mt-2">{toolkit.description}</p>
           </a>
         ))
       }
     </div>
   </div>
+
   <div class="prose-page">
     <h2>Metodi e strumenti</h2>
     <p>
@@ -133,16 +142,45 @@ const toolkit = [
       della programmazione.
     </p>
   </div>
-  <div class="max-w-[70ch] m-auto px-12">
-    <div class="flex justify-center gap-8 mx-4 md:mx-24 mt-10">
+  <div class="max-w-[70ch] m-auto px-4 sm:px-6 lg:px-12">
+    <div class="flex flex-wrap justify-center gap-6 mx-auto mt-10">
       {
         metodi.map((metodo) => (
-          <a href={metodo.link}>
-            <Image src={metodo.src} class="max-w-[400px]" alt={metodo.alt} loading="lazy" decoding="async" />
-            <p class="text-md">{metodo.description}</p>
+          <a href={metodo.link} class="flex flex-col items-center w-full sm:w-1/2 lg:w-1/3 p-4">
+            <Image
+              src={metodo.src}
+              class="w-full h-auto rounded-lg shadow-md"
+              alt={metodo.alt}
+              loading="lazy"
+              decoding="async"
+            />
+            <p class="text-center text-sm sm:text-md mt-2">{metodo.description}</p>
           </a>
         ))
       }
+    </div>
+  </div>
+
+  <div class="prose-page">
+    <h2>Alessandro Bogliolo</h2>
+    <div class="grid grid-cols-1 items-center">
+      <div class="flex justify-center">
+        <Image src={bogliolo} alt="bogliolo" class="w-2/3 md:w-2/3 lg:w-1/3 rounded-lg shadow-lg" />
+      </div>
+
+      <p>
+        Alessandro Bogliolo è professore di sistemi di elaborazione dell’informazione all’Università di Urbino, dove è
+        delegato del Rettore per Divulgazione Scientifica e Public Engagement. Dal 2013 ha svolto il ruolo di Ambassador
+        per la campagna di alfabetizzazione europea EU CodeWeek, di cui è stato coordinatore dal 2015 al 2023. Nel 2014
+        ha ideato CodyRoby per favorire la diffusione del coding nelle scuole anche in assenza di finanziamenti e di
+        attrezzature specifiche. Dal 2016 tiene corsi online aperti e gratuiti per insegnanti erogati dall’Università di
+        Urbino in modalità MOOC. Dal MOOC “Coding in Your Classroom, Now!” ha preso vita l’omonima comunità di pratica
+        che conta oggi più di 40.000 insegnanti. Ha curato e condotto per RAI Scuola i programmi Coding, CodyGames, Il
+        Digitale, Gli algoritmi di ogni giorno, e lo speciale Coding in Famiglia. Per Giunti Scuola è autore di “Coding
+        in Your Classroom, Now”, “A Scuola con CodyRoby” e “Il diario del coding”. Nel 2019 ha fondato DIGIT srl,
+        società benefit, spin-off dell’Università di Urbino. Per DIGIT, dal 2020, organizza e conduce CodyTrip, le gite
+        online interattive in diretta offerte gratuitamente alle scuole. Nel 2023 ha istituito la CodyRoby Academy.
+      </p>
     </div>
   </div>
 </Layout>

@@ -11,6 +11,12 @@ const metadata = {
 };
 ---
 
+<style>
+  a {
+    font-weight: 600;
+  }
+</style>
+
 <Layout metadata={metadata}>
   <div class="prose-page">
     <Hero
@@ -23,7 +29,6 @@ const metadata = {
       <Fragment slot="title"> {metadata.title} </Fragment>
       <Fragment slot="subtitle">{metadata.subtitle}</Fragment>
     </Hero>
-    <h2>CodyRoby: Introduzione al Coding Unplugged nella Primaria</h2>
     <p>
       Questa pagina è il punto di ingresso al sito di CodyRoby per chi ha interesse all’introduzione di attività di
       coding unplugged nella primaria. Poiché gli strumenti e i metodi della famiglia CodyRoby garantiscono la coerenza
@@ -34,37 +39,40 @@ const metadata = {
 
     <h2>Metodi e strumenti</h2>
     <p>
-      Lo strumento centrale per la scuola primaria è CodyRoby, che si presta ad accompagnare la crescita delle alunne e
-      degli alunni e a metterne a frutto le competenze e le conoscenze acquisite via via. Lo starter kit di CodyRoby
-      permette di costruire il mazzo da 40 carte che rappresentano le istruzioni elementari: 24 Vai avanti, 8 Girati a
-      sinistra e 8 Girati a destra. Le carte presentano piccoli dentelli che ne suggeriscono gli incastri per poter
-      essere correttamente concatenate a formare sequenze di istruzioni lineari. Le sequenze di istruzioni vengono
-      lette, interpretate ed eseguite dall’esecutore: un alunno o un’alunna che impersona il robot, spostando una pedina
-      su una scacchiera da tavolo (inclusa nel kit fai-da-te insieme a pedine e scatola in cui riporre tutto), o
-      muovendosi fisicamente su scacchiera a terra. E’ quest’ultima la scelta consigliata, per la quale di suggerisce di
-      utilizzare carte giganti, che favoriscono la partecipazione.
+      Lo strumento centrale per la scuola primaria è <a href="/metodi/codyroby">CodyRoby</a>, che si presta ad
+      accompagnare la crescita delle alunne e degli alunni e a metterne a frutto le competenze e le conoscenze acquisite
+      via via. Lo <a href="/metodi/codyroby#starter-kit">starter kit</a> di CodyRoby permette di costruire il mazzo da 40
+      carte che rappresentano le istruzioni elementari: 24 Vai avanti, 8 Girati a sinistra e 8 Girati a destra. Le carte
+      presentano piccoli dentelli che ne suggeriscono gli incastri per poter essere correttamente concatenate a formare sequenze
+      di istruzioni lineari. Le sequenze di istruzioni vengono lette, interpretate ed eseguite dall’esecutore: un alunno
+      o un’alunna che impersona il robot, spostando una pedina su una <strong>scacchiera da tavolo</strong> (inclusa nel
+      kit fai-da-te insieme a pedine e scatola in cui riporre tutto), o muovendosi fisicamente su <strong
+        >scacchiera a terra</strong
+      >. E’ quest’ultima la scelta consigliata, per la quale di suggerisce di utilizzare <a
+        href="/metodi/codyroby/codyroby-gigante">carte giganti</a
+      >, che favoriscono la partecipazione.
     </p>
     <p>
-      L’uso di CodyRoby alla primaria può essere sempre alternato all’uso di CodyColor, metodo più immediato e meno
-      espressivo, che prevede di disporre le istruzioni direttamente lungo il percorso. Malgrado la semplicità,
-      CodyColor consente di sviluppare attività molto coinvolgenti e mai banali. Si raccomanda di porre molta attenzione
-      alla differenza tra i due metodi, di cui l’insegnante deve essere pienamente consapevole per utilizzarli
-      correttamente. Se nella classe ci sono alunne/i che hanno conosciuto CodyFeet nella scuola dell’infanzia, è bene
-      che l’insegnante sia preparata/o a introdurre CodyColor come generalizzazione di CodyFeet (si veda il Toolkit
-      infanzia a questo proposito).
+      L’uso di CodyRoby alla primaria può essere sempre alternato all’uso di <a href="/metodi/codycolor">CodyColor</a>,
+      metodo più immediato e meno espressivo, che prevede di disporre le istruzioni direttamente lungo il percorso.
+      Malgrado la semplicità, CodyColor consente di sviluppare attività molto coinvolgenti e mai banali. Si raccomanda
+      di porre molta attenzione alla differenza tra i due metodi, di cui l’insegnante deve essere pienamente consapevole
+      per utilizzarli correttamente. Se nella classe ci sono alunne/i che hanno conosciuto CodyFeet nella scuola
+      dell’infanzia, è bene che l’insegnante sia preparata/o a introdurre CodyColor come generalizzazione di CodyFeet
+      (si veda il Toolkit infanzia a questo proposito).
     </p>
     <p>
-      Nel corso della primaria, il kit CodyRoby può arricchirsi dei costrutti di programmazione, che poi saranno
-      pienamente utilizzati nella secondaria. In particolare, si consiglia di introdurre fin dalle terza primaria il
-      costrutto di ripetizione a contatore, che può essere utilizzato anche per spostamenti sulla linea dei numeri per
-      essere messo in relazione con operazioni matematiche di addizione e moltiplicazione.
+      Nel corso della primaria, il kit CodyRoby può arricchirsi dei <strong>costrutti di programmazione</strong>, che
+      poi saranno pienamente utilizzati nella secondaria. In particolare, si consiglia di introdurre fin dalle terza
+      primaria il costrutto di <strong>ripetizione a contatore</strong>, che può essere utilizzato anche per spostamenti
+      sulla linea dei numeri per essere messo in relazione con operazioni matematiche di addizione e moltiplicazione.
     </p>
 
     <h2>Esempi di attività</h2>
     <p>
-      Per farsi un’idea operativa delle potenzialità di CodyRoby, si consiglia di seguire i tutorial dal numero 8 al
-      numero 18 della serie Coding in Famiglia. I tutorial 5 e 6 della stessa serie mostrano esempi di attività con
-      CodyColor.
+      Per farsi un’idea operativa delle potenzialità di <strong>CodyRoby</strong>, si consiglia di seguire i tutorial
+      dal numero 8 al numero 18 della serie <a href="/risorse/coding-in-famiglia">Coding in Famiglia</a>. I tutorial 5 e
+      6 della stessa serie mostrano esempi di attività con <strong>CodyColor</strong>.
     </p>
     <p>
       Benchè i video-tutorial propongano attività da tavolo per praticità e replicabilità in famiglia, nella primaria si
@@ -76,42 +84,54 @@ const metadata = {
     <h2>Formazione</h2>
     <p>
       Ci sono numerosi corsi di formazione per insegnanti della scuola dell’infanzia che utilizzano CodyRoby e
-      CodyColor. Quelli ufficiali sono: i MOOC dell’Università di Urbino, le Summer School dell’Università di Urbino e i
-      Corsi certificati della CodyRoby Academy.
+      CodyColor. Quelli ufficiali sono: i <a href="/risorse/videolezioni/mooc">MOOC dell’Università di Urbino</a>, le <a
+        href="/risorse/videolezioni/registrazioni-summer-school">Summer School dell’Università di Urbino</a
+      > e i
+      <a href="https://academy.codyroby.it/">Corsi certificati della CodyRoby Academy</a>.
     </p>
     <p>
       Per una breve presentazione comparativa degli strumenti e dei metodi di coding unplugged della famiglia CodyRoby,
-      si consiglia la registrazione della lezione 3.2 del MOOC Coding in biblioteca (BIBMOOC3.2) e della Lezione 0 della
-      Summer School Teoria e pratica del coding unplugged (Lezione 0).
+      si consiglia la registrazione della lezione 3.2 del <strong>MOOC Coding in biblioteca</strong> (<a
+        href="https://www.youtube.com/watch?v=snNVgUFe8r8">BIBMOOC3.2</a
+      >) e della Lezione 0 della Summer School <strong>Teoria e pratica del coding unplugged</strong> (<a
+        href="https://www.youtube.com/watch?v=Y5kpHmOwwis">Lezione 0</a
+      >).
     </p>
     <p>
       Per approfondimenti sulle modalità di utilizzo in classe di CodyRoby e CodyColor si consigliano le registrazioni
       delle prime due lezioni e dei primi due laboratori della Summer School dell’Università di Urbino dedicata alla
-      Teoria e pratica del coding unplugged (Lezione 1, Laboratorio 1, Lezione 2, Laboratorio 2).
+      <strong>Teoria e pratica del coding unplugged</strong> (<a href="https://www.youtube.com/watch?v=yG7m9GIxqnM"
+        >Lezione 1</a
+      > e
+      <a href="https://www.youtube.com/watch?v=LR836n8RNhM">Laboratorio 1</a>, <a href="https://youtu.be/Pkco_fpvrvg"
+        >Lezione 2</a
+      >, <a href="https://youtu.be/oPtQQOpksfM">Laboratorio 2</a>).
     </p>
     <p>
-      Per formazione certificata si rimanda ai corsi e ai laboratori di formazione sul campo per infanzia e primaria
-      (adatto ai primi due anni della primaria) o per primaria e secondaria (adatto ad attività dalla terza primaria in
-      su) della CodyRoby Academy.
+      <a href="">Lezione 0</a>
+      Per formazione certificata si rimanda ai corsi e ai laboratori di formazione sul campo per infanzia e primaria (adatto
+      ai primi due anni della primaria) o per primaria e secondaria (adatto ad attività dalla terza primaria in su) della
+      <a href="https://academy.codyroby.it/">CodyRoby Academy</a>.
     </p>
     <p>
-      Il testo di riferimento è <em>A Scuola con CodyRoby</em>, scritto da Alessandro Bogliolo per Giunti Scuola, 2020.
-      A CodyColor e a CodyRoby sono dedicate la Parte III e la Parte IV.
+      Il testo di riferimento è <a href="https://www.campustore.it/a-scuola-con-codyroby.html">A Scuola con CodyRoby</a
+      >, scritto da Alessandro Bogliolo per Giunti Scuola, 2020. A CodyColor e a CodyRoby sono dedicate la Parte III e
+      la Parte IV.
     </p>
 
     <h2>Prodotti</h2>
     <p>
       Dai metodi fai-da-te sono derivati prodotti per rispondere all’esigenza delle scuole di avere materiali di
       qualità, durevoli e certificati. Per gli ambienti di apprendimento della scuola primaria può essere indicato il
-      Tappeto di CodyRoby in EVA, con tasselli che ne prevedono l’utilizzo per tutte le attività basate di CodyRoby
-      (comprese CodyWord e CodyMath) e CodyColor.
+      <a href="http://localhost:4321/prodotti-e-pubblicazioni#3">Tappeto di CodyRoby in EVA</a>, con tasselli che ne
+      prevedono l’utilizzo per tutte le attività basate di CodyRoby (comprese CodyWord e CodyMath) e CodyColor.
     </p>
     <p>Esistono versioni professionali dei kit CodyRoby sia con carte da tavolo che con carte giganti.</p>
 
     <h2>Comunità di pratica</h2>
     <p>
-      Per un confronto costante con la comunità di pratica si consiglia di seguire il gruppo Facebook <strong
-        >Coding in Your Classroom, Now!</strong
+      Per un confronto costante con la comunità di pratica si consiglia di seguire il gruppo Facebook <a
+        href="https://www.facebook.com/groups/CodeMOOC/">Coding in Your Classroom, Now!</a
       >
     </p>
   </div>

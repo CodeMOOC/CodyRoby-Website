@@ -98,7 +98,7 @@
 }
 
 .prose-page {
-  @apply prose-xl mx-auto px-6 sm:px-12 max-w-[70ch]  dark:text-white;
+  @apply prose-xl mx-auto px-6 sm:px-12 max-w-[70ch] text-lg dark:text-white;
 }
 
 .video-container {
@@ -135,5 +135,5 @@ body {
 }
 
 a {
-  @apply underline hover:text-blue-800;
+  @apply underline hover:text-blue-800 cursor-pointer;
 }
