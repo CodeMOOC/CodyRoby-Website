@@ -306,15 +306,63 @@ const videolezioni = [
       <Fragment slot="subtitle"> </Fragment>
     </Hero>
   </div>
+
+  <div class="prose-page">
+    <p>
+      <strong>Brevi video</strong>, <strong>materiali fai da te</strong>, <strong>enigmi</strong>, <strong
+        >giochi</strong
+      > e <strong>sfide di coding</strong> proposti online per creare nuove occasioni di contatto tra casa e scuola, tra
+      alunni e insegnanti, al di fuori degli orari e degli spazi scolastici. <a
+        href="https://www.raicultura.it/speciali/codinginfamiglia"
+        target="_blank">– SPECIALE DI RAI CULTURA –</a
+      >
+    </p>
+
+    <div class="coding-in-famiglia-video">
+      <div class="video-container">
+        <iframe
+          src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fcoding4parents%2Fvideos%2F626412751543957%2F&show_text=false&width=560&t=0"
+          width="560"
+          height="314"
+          style="border:none;overflow:hidden"
+          allowfullscreen="true"
+          loading="lazy"
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+      </div>
+    </div>
+    <h3>Il contesto</h3>
+    <div class="coding-in-famiglia-video">
+      <div class="video-container">
+        <iframe
+          src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fcoding4parents%2Fvideos%2F352290018652672%2F&show_text=false&width=560&t=0"
+          width="560"
+          height="314"
+          style="border:none;overflow:hidden"
+          scrolling="no"
+          frameborder="0"
+          allowfullscreen="true"
+          loading="lazy"
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+      </div>
+    </div>
+    <p>
+      Chi volesse conoscere il contesto, potrebbe seguire “Coding per genitori“, dieci video da 2 minuti che raccontano
+      cos’è il coding e perchè viene praticato a scuola: <a target="_blank" href="http://codemooc.org/codyparentsmooc"
+        >http://codemooc.org/codyparentsmooc</a
+      >
+    </p>
+  </div>
+  <hr />
   <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
-    <!-- Sidebar with responsive sticky behavior -->
-    <aside class="col-span-1 bg-slate-200 p-4 md:sticky md:top-0 md:h-screen">
-      <h2>Contenuto</h2>
-      <ul>
+    <aside class="col-span-1 md:sticky md:top-24 md:h-screen border-r bg-slate-100">
+      <div class="prose-page">
+        <h2>Contenuto</h2>
+      </div>
+      <ul class="pl-6 text-base">
         {
           videolezioni.map((lesson) => (
             <li>
-              <a href={`#${lesson.id}`} class="text-blue-500 hover:underline">
+              <a href={`#${lesson.id}`} class="">
                 {lesson.title}
               </a>
             </li>
@@ -323,49 +371,6 @@ const videolezioni = [
       </ul>
     </aside>
     <div class="prose-page col-span-4">
-      <p>
-        <strong>Brevi video</strong>, <strong>materiali fai da te</strong>, <strong>enigmi</strong>, <strong
-          >giochi</strong
-        > e <strong>sfide di coding</strong> proposti online per creare nuove occasioni di contatto tra casa e scuola, tra
-        alunni e insegnanti, al di fuori degli orari e degli spazi scolastici. <a
-          href="https://www.raicultura.it/speciali/codinginfamiglia"
-          target="_blank">– SPECIALE DI RAI CULTURA –</a
-        >
-      </p>
-      <div class="coding-in-famiglia-video">
-        <div class="video-container">
-          <iframe
-            src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fcoding4parents%2Fvideos%2F626412751543957%2F&show_text=false&width=560&t=0"
-            width="560"
-            height="314"
-            style="border:none;overflow:hidden"
-            scrolling="no"
-            frameborder="0"
-            allowfullscreen="true"
-            loading="lazy"
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-        </div>
-      </div>
-      <h3>Il contesto</h3>
-      <div class="coding-in-famiglia-video">
-        <div class="video-container">
-          <iframe
-            src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fcoding4parents%2Fvideos%2F352290018652672%2F&show_text=false&width=560&t=0"
-            width="560"
-            height="314"
-            style="border:none;overflow:hidden"
-            scrolling="no"
-            frameborder="0"
-            allowfullscreen="true"
-            loading="lazy"
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-        </div>
-      </div>
-      <p>
-        Chi volesse conoscere il contesto, potrebbe seguire “Coding per genitori“, dieci video da 2 minuti che
-        raccontano cos’è il coding e perchè viene praticato a scuola: http://codemooc.org/codyparentsmooc
-      </p>
-
       {
         videolezioni.map((lesson) => (
           <div id={lesson.id} class="mb-8">
