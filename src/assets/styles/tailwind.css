@@ -137,3 +137,18 @@ body {
 a {
   @apply underline hover:text-blue-800 cursor-pointer;
 }
+
+.btn-shadow-box {
+  box-shadow: 5px 5px;
+  border: black;
+  border: solid;
+  border-width: 2px;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.btn-shadow-box:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px;
+}
