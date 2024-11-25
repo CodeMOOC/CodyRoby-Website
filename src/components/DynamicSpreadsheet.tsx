@@ -7,11 +7,11 @@ export default function DynamicSpreadsheet() {
   type Row = {
     metodo: string;
     toolkit: string;
-    // Add other fields from the CSV if necessary
-    [key: string]: any; // Optional: for dynamic keys, but avoid unless necessary
+    [key: string]: any;
   };
 
-  const spreadshettPath = import.meta.env.PUBLIC_SPREADSHEET_URL;
+  const spreadshettPath =
+    'https://docs.google.com/spreadsheets/d/e/2PACX-1vShO8_BWQx9hLF4g2YauGmPvEBlalRe19NlSbLM6I57oLmmTeWwMgZrWRpD4VUdlu5bdUZayXtDFquO/pub?output=csv';
 
   const [rows, setRows] = useState<Row[]>([]);
 
