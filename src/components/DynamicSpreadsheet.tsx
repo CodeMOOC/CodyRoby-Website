@@ -46,7 +46,6 @@ export default function DynamicSpreadsheet() {
         [filter]: updatedFilterValues,
       };
     });
-    console.log('Filter ', filter);
     if (filter === 'metodo') {
       setMetodi((prevMetodi) =>
         prevMetodi.map((item) => (item.name === value ? { ...item, selected: !item.selected } : item))
@@ -61,7 +60,6 @@ export default function DynamicSpreadsheet() {
   const isMetodiSelected = metodi.some((m) => m.selected);
 
   const filteredRows = rows.filter((row: Row) => {
-    console.log('Righe ', row);
     const metodiMatch = filters.metodo.length === 0 || filters.metodo.includes(row.metodo);
     const toolkitMatch = filters.toolkit.length === 0 || filters.toolkit.includes(row.toolkit);
     return metodiMatch && toolkitMatch;
