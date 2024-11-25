@@ -4,13 +4,23 @@ import { Icon } from '@iconify/react';
 import IconSelect from './ui/IconSelect';
 
 export default function DynamicSpreadsheet() {
+  type Row = {
+    metodo: string;
+    toolkit: string;
+    // Add other fields from the CSV if necessary
+    [key: string]: any; // Optional: for dynamic keys, but avoid unless necessary
+  };
+
   const spreadshettPath = import.meta.env.PUBLIC_SPREADSHEET_URL;
 
-  const [rows, setRows] = useState([]);
+  const [rows, setRows] = useState<Row[]>([]);
 
-  const [filters, setFilters] = useState({
-    Metodi: [],
-    Toolkit: [],
+  const [filters, setFilters] = useState<{
+    metodo: string[];
+    toolkit: string[];
+  }>({
+    metodo: [],
+    toolkit: [],
   });
 
   const [metodi, setMetodi] = useState([
@@ -19,10 +29,10 @@ export default function DynamicSpreadsheet() {
     { name: 'CodyFeet', selected: false },
   ]);
 
-  const [targets, setTargets] = useState([
-    { name: 'infanzia', selected: false },
-    { name: 'primaria', selected: false },
-    { name: 'secondaria', selected: false },
+  const [toolkits, setToolkits] = useState([
+    { name: 'Infanzia', selected: false },
+    { name: 'Primaria', selected: false },
+    { name: 'Secondaria', selected: false },
   ]);
 
   const handleFilterSelection = ({ filter, value }) => {
@@ -36,17 +46,26 @@ export default function DynamicSpreadsheet() {
         [filter]: updatedFilterValues,
       };
     });
-
-    if (filter === 'Metodi') {
+    console.log('Filter ', filter);
+    if (filter === 'metodo') {
       setMetodi((prevMetodi) =>
         prevMetodi.map((item) => (item.name === value ? { ...item, selected: !item.selected } : item))
       );
-    } else if (filter === 'Toolkit') {
-      setTargets((prevTargets) =>
+    } else if (filter === 'toolkit') {
+      setToolkits((prevTargets) =>
         prevTargets.map((item) => (item.name === value ? { ...item, selected: !item.selected } : item))
       );
     }
   };
+
+  const isMetodiSelected = metodi.some((m) => m.selected);
+
+  const filteredRows = rows.filter((row: Row) => {
+    console.log('Righe ', row);
+    const metodiMatch = filters.metodo.length === 0 || filters.metodo.includes(row.metodo);
+    const toolkitMatch = filters.toolkit.length === 0 || filters.toolkit.includes(row.toolkit);
+    return metodiMatch && toolkitMatch;
+  });
 
   useEffect(() => {
     async function fetchSpreadsheetData() {
@@ -77,15 +96,52 @@ export default function DynamicSpreadsheet() {
         <IconSelect
           options={metodi}
           icon="codicon:symbol-method"
-          filter="Metodi"
+          filter="metodo"
           onFilterSelection={handleFilterSelection}
         />
         <IconSelect
-          options={targets}
+          options={toolkits}
           icon="pepicons-pop:label"
-          filter="Toolkit"
+          filter="toolkit"
           onFilterSelection={handleFilterSelection}
         />
+      </div>
+      <div className="flex gap-4 not-prose">
+        {/* {isMetodiSelected && <p>Metodi: </p>} */}
+        {metodi.map(
+          (m) =>
+            m.selected && (
+              <button
+                key={m.name}
+                onClick={() => handleFilterSelection({ filter: 'metodo', value: m.name })}
+                className="flex items-center border rounded-full border-black px-2 ease-in-out duration-300 hover:bg-red-100"
+              >
+                <Icon
+                  icon="material-symbols:close"
+                  className="text-red-500 hover:text-red-600 duration-300 transition-colors"
+                />
+
+                {m.name}
+              </button>
+            )
+        )}
+        {toolkits.map(
+          (t) =>
+            t.selected && (
+              <button
+                key={t.name}
+                onClick={() => handleFilterSelection({ filter: 'toolkit', value: t.name })}
+                className="flex items-center border rounded-full border-black px-2 ease-in-out duration-300 hover:bg-red-100"
+              >
+                <Icon
+                  icon="material-symbols:close"
+                  className="text-red-500 hover:text-red-600 duration-300 transition-colors"
+                />
+
+                {t.name}
+              </button>
+            )
+        )}
       </div>
       <hr className="my-6 not-prose" />
       {rows.length > 0 ? (
@@ -98,7 +154,7 @@ export default function DynamicSpreadsheet() {
             </tr>
           </thead>
           <tbody>
-            {rows.map((row, index) => (
+            {filteredRows.map((row, index) => (
               <tr key={index}>
                 {Object.values(row).map((value: string, colIndex) => (
                   <td key={colIndex}>{value}</td>
