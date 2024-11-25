@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { parse } from 'csv-parse/browser/esm'; 
+import { Icon } from '@iconify/react';
+import IconSelect from './ui/IconSelect';
 
 export default function DynamicSpreadsheet() {
   const [rows, setRows] = useState([]);
+
+  const targets = ['infanzia', 'primaria', 'secondaria'];
+const metodi = ['CodyRoby', 'CodyColor', 'CodyFeet'];
+
 
   useEffect(() => {
     async function fetchSpreadsheetData() {
@@ -27,11 +33,17 @@ export default function DynamicSpreadsheet() {
     }
 
     fetchSpreadsheetData();
-  }, []); // Runs once when the component is mounted
+  }, []);
 
+  
   return (
     <div>
-      <h2>Live Updates</h2>
+        <div className='flex justify-center items-center gap-4'>
+        
+        <p >Filtri:</p>
+        <IconSelect metodi={metodi}/>
+        <IconSelect metodi={targets}/>
+       </div>
       {rows.length > 0 ? (
         <table>
           <thead>
