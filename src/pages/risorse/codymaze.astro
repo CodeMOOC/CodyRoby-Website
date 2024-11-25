@@ -24,313 +24,329 @@ const metadata = {
   >
     <Fragment slot="subtitle"> </Fragment>
   </Hero>
+
   <div class="mt-10"></div>
-  <div class="prose-page">
-    <strong>CodyMaze</strong> è un labirinto virtuale nel mondo reale. Ci si muove su una scacchiera 5 x 5 le cui caselle
-    contengono dei QRcode. Apparentemente la scacchiera è libera, ma grazie ai QRcode mostra labirinti sempre diversi che
-    vengono proposti al giocatore da un bot <a href="https://telegram.org/">Telegram</a> chiamato <strong
-      ><a href="https://telegram.me/codymazebot" target="_blank">@codymazebot</a></strong
-    >. Il giocatore si muove fisicamente sulla scacchiera seguendo le istruzioni del bot e scansiona il QR Code su cui
-    arriva ad ogni tappa per verificare di aver eseguito correttamente la sequenza di istruzioni. Durante le varie tappe
-    del gioco vengono proposte sequenze di istruzioni di complessità crescente che introducono tutti i concetti base
-    della programmazione, offrendo un’esperienza equivalente al <a href="https://studio.code.org/hoc/1" target="_blank"
-      >labirinto classico</a
-    > dell’<em>hour of code</em>, ma diversa di volta in volta e giocata fisicamente. Al termine del gioco il bot
-    Telegram rilascia un attestato nominale di completamento di un’ora di coding, che riporta l’elenco dei costrutti di
-    programmazione sperimentati durante il gioco.
-
-    <h2>Terreno di gioco</h2>
-    <p>
-      <strong>CodyMaze</strong> si gioca su una griglia quadrata, 5×5, sulla quale sono disposti 25 QRcode. I QRcode sono
-      disposti sul pavimento, ad almeno 50cm di distanza l’uno dall’altro. In tal modo il giocatore può muoversi con il proprio
-      corpo all’interno della scacchiera, senza usare pedine. Se la scacchiera fosse effettivamente disegnata a terra ogni
-      QR Code occuperebbe il centro di una casella, ma la presenza dei QRcode che identificano il centro delle caselle rende
-      inessenziale tracciarne i bordi. Quindi la scacchiera può non essere disegnata. Le colonne e le righe della scacchiera
-      sono identificate da lettere e numeri, partendo dall’angolo in alto a sinistra. Ad ogni QR Code è assegnata una posizione
-      identificata da una lettera e da un numero. Inoltre la scacchiera è orientata convenzionalmente in modo che il lato
-      superiore corrisponda al Nord e, di conseguenza, quello inferiore al Sud, quello sinistro all’Ovest e quello destro
-      all’Est. Se il luogo lo consente si consiglia di orientare effettivamente la scacchiera in modo coerente con i punti
-      cardinali.
-    </p>
-    <p><strong>I 25 QR Code stampabili sono disponibili cliccando qui sotto</strong></p>
-  </div>
-  <div
-    class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
-  >
-    <div class="flex w-full sm:w-auto !text-white no-underline">
-      <Button
-        class="w-full sm:mb-0"
-        variant="primary"
-        text="Scarica i QR Code"
-        href={QRCode}
-        target="_blank"
-        icon="tabler:download"
-      />
+  <AnimateText>
+    <div class="prose-page">
+      <p>
+        <strong>CodyMaze</strong> è un labirinto virtuale nel mondo reale. Ci si muove su una scacchiera 5 x 5 le cui caselle
+        contengono dei QRcode. Apparentemente la scacchiera è libera, ma grazie ai QRcode mostra labirinti sempre diversi
+        che vengono proposti al giocatore da un bot <a href="https://telegram.org/">Telegram</a> chiamato <strong
+          ><a href="https://telegram.me/codymazebot" target="_blank">@codymazebot</a></strong
+        >. Il giocatore si muove fisicamente sulla scacchiera seguendo le istruzioni del bot e scansiona il QR Code su
+        cui arriva ad ogni tappa per verificare di aver eseguito correttamente la sequenza di istruzioni. Durante le
+        varie tappe del gioco vengono proposte sequenze di istruzioni di complessità crescente che introducono tutti i
+        concetti base della programmazione, offrendo un’esperienza equivalente al <a
+          href="https://studio.code.org/hoc/1"
+          target="_blank">labirinto classico</a
+        > dell’<em>hour of code</em>, ma diversa di volta in volta e giocata fisicamente. Al termine del gioco il bot
+        Telegram rilascia un attestato nominale di completamento di un’ora di coding, che riporta l’elenco dei costrutti
+        di programmazione sperimentati durante il gioco.
+      </p>
+      <h2>Terreno di gioco</h2>
+      <p>
+        <strong>CodyMaze</strong> si gioca su una griglia quadrata, 5×5, sulla quale sono disposti 25 QRcode. I QRcode sono
+        disposti sul pavimento, ad almeno 50cm di distanza l’uno dall’altro. In tal modo il giocatore può muoversi con il
+        proprio corpo all’interno della scacchiera, senza usare pedine. Se la scacchiera fosse effettivamente disegnata a
+        terra ogni QR Code occuperebbe il centro di una casella, ma la presenza dei QRcode che identificano il centro delle
+        caselle rende inessenziale tracciarne i bordi. Quindi la scacchiera può non essere disegnata. Le colonne e le righe
+        della scacchiera sono identificate da lettere e numeri, partendo dall’angolo in alto a sinistra. Ad ogni QR Code
+        è assegnata una posizione identificata da una lettera e da un numero. Inoltre la scacchiera è orientata convenzionalmente
+        in modo che il lato superiore corrisponda al Nord e, di conseguenza, quello inferiore al Sud, quello sinistro all’Ovest
+        e quello destro all’Est. Se il luogo lo consente si consiglia di orientare effettivamente la scacchiera in modo coerente
+        con i punti cardinali.
+      </p>
+      <p><strong>I 25 QR Code stampabili sono disponibili cliccando qui sotto</strong></p>
     </div>
-  </div>
-
+    <div
+      class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+    >
+      <div class="flex w-full sm:w-auto !text-white no-underline">
+        <Button
+          class="w-full sm:mb-0"
+          variant="primary"
+          text="Scarica i QR Code"
+          href={QRCode}
+          target="_blank"
+          icon="tabler:download"
+        />
+      </div>
+    </div>
+  </AnimateText>
   <div class="prose-page">
-    <p>
-      Per agevolare la disposizione e l’utilizzo, ogni QR Code riporta l’indicazione della posizione e dei punti
-      cardinali. 5 dei QR Code hanno delle stelle alla cui presenza è condizionata l’esecuzione di alcune istruzioni.
-    </p>
+    <AnimateText>
+      <p>
+        Per agevolare la disposizione e l’utilizzo, ogni QR Code riporta l’indicazione della posizione e dei punti
+        cardinali. 5 dei QR Code hanno delle stelle alla cui presenza è condizionata l’esecuzione di alcune istruzioni.
+      </p>
 
-    <h2>Obiettivo del gioco</h2>
-    <p>
-      Uscire dal labirinto virtuale seguendo le istruzioni fornite dal bot Telegram <strong
-        ><a href="https://telegram.me/codymazebot" target="_blank">@codymazebot</a></strong
-      >.
-    </p>
+      <h2>Obiettivo del gioco</h2>
+      <p>
+        Uscire dal labirinto virtuale seguendo le istruzioni fornite dal bot Telegram <strong
+          ><a href="https://telegram.me/codymazebot" target="_blank">@codymazebot</a></strong
+        >.
+      </p>
 
-    <h2>Giocatori</h2>
-    <p>
-      Il gioco può essere giocato da uno o più giocatori. Il limite al numero di giocatori è dato solo dalle dimensioni
-      della scacchiera sulla quale i giocatori devono potersi muovere indipendentemente, eseguendo ciascuno le proprie
-      istruzioni fornite da <strong><a href="https://telegram.me/codymazebot" target="_blank">@codymazebot</a></strong>.
-    </p>
+      <h2>Giocatori</h2>
+      <p>
+        Il gioco può essere giocato da uno o più giocatori. Il limite al numero di giocatori è dato solo dalle
+        dimensioni della scacchiera sulla quale i giocatori devono potersi muovere indipendentemente, eseguendo ciascuno
+        le proprie istruzioni fornite da <strong
+          ><a href="https://telegram.me/codymazebot" target="_blank">@codymazebot</a></strong
+        >.
+      </p>
 
-    <h2>Componenti del gioco</h2>
-    <ul>
-      <li>
-        Smartphone o tablet dotato di:
-        <ul>
-          <li>Connessione dati</li>
-          <li>Fotocamera</li>
-          <li>Lettore di QR Code</li>
-          <li>Telegram messenger</li>
-        </ul>
-      </li>
-    </ul>
-    <p>
-      I dispositivi in uso devono essere pari al numero di giocatori che giocano contemporaneamente. Al termine del
-      gioco lo stesso smartphone può essere usato da un altro giocatore, al quale il bot presenterà un percorso diverso.
-    </p>
+      <h2>Componenti del gioco</h2>
+      <ul>
+        <li>
+          Smartphone o tablet dotato di:
+          <ul>
+            <li>Connessione dati</li>
+            <li>Fotocamera</li>
+            <li>Lettore di QR Code</li>
+            <li>Telegram messenger</li>
+          </ul>
+        </li>
+      </ul>
+      <p>
+        I dispositivi in uso devono essere pari al numero di giocatori che giocano contemporaneamente. Al termine del
+        gioco lo stesso smartphone può essere usato da un altro giocatore, al quale il bot presenterà un percorso
+        diverso.
+      </p>
 
-    <h2>Difficoltà</h2>
-    <p>
-      Il giocatore non conosce il percorso, ma riceve istruzioni dal bot Telegram e deve interpretarle ed eseguirle
-      correttamente. Le sequenze di istruzioni fornite dal bot sono di difficoltà crescente, sia per i costrutti che
-      introducono sia per la lunghezza.
-    </p>
+      <h2>Difficoltà</h2>
+      <p>
+        Il giocatore non conosce il percorso, ma riceve istruzioni dal bot Telegram e deve interpretarle ed eseguirle
+        correttamente. Le sequenze di istruzioni fornite dal bot sono di difficoltà crescente, sia per i costrutti che
+        introducono sia per la lunghezza.
+      </p>
 
-    <h2>Game Play</h2>
-    <p>Il giocatore interagisce con il gioco compiendo le seguenti azioni:</p>
-    <ul>
-      <li>
-        Scansione del QR Code associato alla casella su cui si trova il giocatore (inquadrare con un lettore di codice a
-        barre il QR Code che si intende scansionare, selezionare Telegram messenger come applicazione con cui aprire il
-        link contenuto nel QR Code, premere il tasto <strong>AVVIA</strong> che appare in basso nell’interfaccia del bot
-        Telegram)
-      </li>
-      <li>
-        Impostazione della direzione di marcia (selezionare uno dei quattro tasti Nord, Est, Sud, o Ovest quando
-        richiesto da bot)
-      </li>
-      <li>
-        Lettura e interpretazione delle istruzioni fornite dal bot (la sintassi è descritta nella sezione <em
-          >game design</em
-        >)
-      </li>
-      <li>
-        Esecuzione delle istruzioni fornite dal bot (le istruzioni si eseguono fisicamente spostandosi sulla scacchiera
-        a terra).
-      </li>
-    </ul>
+      <h2>Game Play</h2>
+      <p>Il giocatore interagisce con il gioco compiendo le seguenti azioni:</p>
+      <ul>
+        <li>
+          Scansione del QR Code associato alla casella su cui si trova il giocatore (inquadrare con un lettore di codice
+          a barre il QR Code che si intende scansionare, selezionare Telegram messenger come applicazione con cui aprire
+          il link contenuto nel QR Code, premere il tasto <strong>AVVIA</strong> che appare in basso nell’interfaccia del
+          bot Telegram)
+        </li>
+        <li>
+          Impostazione della direzione di marcia (selezionare uno dei quattro tasti Nord, Est, Sud, o Ovest quando
+          richiesto da bot)
+        </li>
+        <li>
+          Lettura e interpretazione delle istruzioni fornite dal bot (la sintassi è descritta nella sezione <em
+            >game design</em
+          >)
+        </li>
+        <li>
+          Esecuzione delle istruzioni fornite dal bot (le istruzioni si eseguono fisicamente spostandosi sulla
+          scacchiera a terra).
+        </li>
+      </ul>
 
-    <h2>Game Design (regole)</h2>
-    <h3>Inizio del gioco</h3>
-    <p>
-      È possibile iniziare una nuova partita solo dopo aver concluso le partite eventualmente in corso. Se <strong
-        ><a href="https://telegram.me/codymazebot" target="_blank">@codymazebot</a></strong
-      > non è pronto ad iniziare una nuova partita perché la precedente è stata interrotta, è possibile riportarlo allo stato
-      iniziale con il comando <strong>/reset</strong>. In queste condizioni il gioco viene avviato quando viene
-      scansionato uno qualsiasi dei QRcode della griglia.
-    </p>
-    <p>
-      Per iniziare il gioco il giocatore deve scegliere una casella esterna (una delle 16 che compongono il bordo) e
-      scansionare il corrispondente QRcode per notificare al bot la scelta. Il bot indica al giocatore la direzione di
-      marcia e chiede conferma. È importante rispettare questa indicazione: ogni successiva istruzione dovrà essere
-      eseguita partendo dalla posizione scelta e dalla direzione indicata dal bot.
-    </p>
+      <h2>Game Design (regole)</h2>
+      <h3>Inizio del gioco</h3>
+      <p>
+        È possibile iniziare una nuova partita solo dopo aver concluso le partite eventualmente in corso. Se <strong
+          ><a href="https://telegram.me/codymazebot" target="_blank">@codymazebot</a></strong
+        > non è pronto ad iniziare una nuova partita perché la precedente è stata interrotta, è possibile riportarlo allo
+        stato iniziale con il comando <strong>/reset</strong>. In queste condizioni il gioco viene avviato quando viene
+        scansionato uno qualsiasi dei QRcode della griglia.
+      </p>
+      <p>
+        Per iniziare il gioco il giocatore deve scegliere una casella esterna (una delle 16 che compongono il bordo) e
+        scansionare il corrispondente QRcode per notificare al bot la scelta. Il bot indica al giocatore la direzione di
+        marcia e chiede conferma. È importante rispettare questa indicazione: ogni successiva istruzione dovrà essere
+        eseguita partendo dalla posizione scelta e dalla direzione indicata dal bot.
+      </p>
 
-    <h3>Mossa</h3>
-    <p>
-      Ad ogni passo il bot guida il giocatore con un codice preceduto da questa frase: “<strong
-        >Segui queste indicazioni per risolvere il prossimo passo e scansiona il QR Code all’arrivo</strong
-      >“. Il codice segue la sintassi descritta nel seguito alla sezione <em>Sintassi</em>.
-    </p>
-    <p>
-      Il giocatore deve muoversi sulla scacchiera eseguendo il codice come se fosse un robot, facendo attenzione alla
-      posizione e alla direzione di partenza. Terminata l’esecuzione il giocatore scansione il QR Code per notificare al
-      bot la posizione che ha raggiunto. Il bot risponde chiedendo “<strong>In che direzione stai guardando?</strong>“ e
-      presenta i 4 pulsanti per la selezione della direzione. Il giocatore indica la direzione (senza girarsi rispetto
-      alla posizione assunta al termine dell’esecuzione del codice).
-    </p>
-    <p>
-      Se l’esecuzione è corretta il bot dice “<strong>Benissimo! Hai trovato il punto giusto.</strong>“ e propone il
-      codice del passo successivo.
-    </p>
-    <p>
-      <strong>Attenzione</strong>: è possibile che una mossa non comporti alcuno spostamento. In tal caso, l’esecuzione
-      corretta prevede che venga scansionato nuovamente il QRCode su cui il giocatore si trova.
-    </p>
+      <h3>Mossa</h3>
+      <p>
+        Ad ogni passo il bot guida il giocatore con un codice preceduto da questa frase: “<strong
+          >Segui queste indicazioni per risolvere il prossimo passo e scansiona il QR Code all’arrivo</strong
+        >“. Il codice segue la sintassi descritta nel seguito alla sezione <em>Sintassi</em>.
+      </p>
+      <p>
+        Il giocatore deve muoversi sulla scacchiera eseguendo il codice come se fosse un robot, facendo attenzione alla
+        posizione e alla direzione di partenza. Terminata l’esecuzione il giocatore scansione il QR Code per notificare
+        al bot la posizione che ha raggiunto. Il bot risponde chiedendo “<strong
+          >In che direzione stai guardando?</strong
+        >“ e presenta i 4 pulsanti per la selezione della direzione. Il giocatore indica la direzione (senza girarsi
+        rispetto alla posizione assunta al termine dell’esecuzione del codice).
+      </p>
+      <p>
+        Se l’esecuzione è corretta il bot dice “<strong>Benissimo! Hai trovato il punto giusto.</strong>“ e propone il
+        codice del passo successivo.
+      </p>
+      <p>
+        <strong>Attenzione</strong>: è possibile che una mossa non comporti alcuno spostamento. In tal caso,
+        l’esecuzione corretta prevede che venga scansionato nuovamente il QRCode su cui il giocatore si trova.
+      </p>
+    </AnimateText>
+    <AnimateText>
+      <h3>Mosse sbagliate</h3>
+      <p>
+        Una mossa è sbagliata se viene scansionato il QRCode sbagliato o impostata la direzione sbagliata rispetto a
+        quelli previsti dal codice fornito dal Bot. A fronte di una mossa sbagliata il bot chiede al giocatore di
+        tornare al punto di partenza dell’ultima mossa, di cui fornisce coordinate e direzione. La risposta del bot è: “<strong
+          >Ops! Hai sbagliato! Ritorna alla posizione … guardando verso … e scansiona nuovamente il codice.</strong
+        >“
+      </p>
+      <p>
+        Il giocatore deve tornare nella posizione indicata dal bot, scansionare il QRCode, guardare nella direzione
+        indicata dal bot e selezionarla per conferma quando richiesto. A questo punto il bot fornisce nuovamente le
+        istruzioni per ripetere la mossa.
+      </p>
+      <h3>Completamento del labirinto</h3>
+      <p>
+        Al termine di tutte le mosse previste il bot manda il seguente messaggio: “<strong
+          >Complimenti! Hai completato CodyMaze!</strong
+        >”
+      </p>
+      <p>
+        Il bot chiede quindi di digitare il nome che si vuole sul certificato di completamento. Il messaggio di
+        richiesta è il seguente: “<strong
+          >Scrivi il nome e cognome da visualizzare sul certificato di completamento:</strong
+        >”
+      </p>
+      <p>
+        Il giocatore deve digitare il proprio nome e cognome (o una qualsiasi altro nome, come ad esempio il nome della
+        classe o un elenco di nomi nel caso in cui il gioco sia stato giocato in squadra)
+      </p>
+      <p>
+        Il bot chiede: “<strong>Confermi che il nome inviato è …?</strong>” per dare modo di correggere eventuali
+        errori.
+      </p>
+      <p>
+        Rispondendo <strong>Sì</strong> si ottiene il certificato nominale di completamento. Oltre al nome indicato dal giocatore,
+        il certificato contiene un identificativo univoco che in futuro potrà essere utilizzato per verificare l’autenticità
+        del certificato. Il certificato può essere scaricato, salvato e condiviso con orgoglio!
+      </p>
+      <p><strong>certificato-CodyMaze</strong></p>
+      <p>
+        Quando il bot invia il messaggio “<strong>Grazie per aver giocato con CodyMaze!</strong>” è pronto ad iniziare
+        una nuova partita.
+      </p>
 
-    <h3>Mosse sbagliate</h3>
-    <p>
-      Una mossa è sbagliata se viene scansionato il QRCode sbagliato o impostata la direzione sbagliata rispetto a
-      quelli previsti dal codice fornito dal Bot. A fronte di una mossa sbagliata il bot chiede al giocatore di tornare
-      al punto di partenza dell’ultima mossa, di cui fornisce coordinate e direzione. La risposta del bot è: “<strong
-        >Ops! Hai sbagliato! Ritorna alla posizione … guardando verso … e scansiona nuovamente il codice.</strong
-      >“
-    </p>
-    <p>
-      Il giocatore deve tornare nella posizione indicata dal bot, scansionare il QRCode, guardare nella direzione
-      indicata dal bot e selezionarla per conferma quando richiesto. A questo punto il bot fornisce nuovamente le
-      istruzioni per ripetere la mossa.
-    </p>
-    <h3>Completamento del labirinto</h3>
-    <p>
-      Al termine di tutte le mosse previste il bot manda il seguente messaggio: “<strong
-        >Complimenti! Hai completato CodyMaze!</strong
-      >”
-    </p>
-    <p>
-      Il bot chiede quindi di digitare il nome che si vuole sul certificato di completamento. Il messaggio di richiesta
-      è il seguente: “<strong>Scrivi il nome e cognome da visualizzare sul certificato di completamento:</strong>”
-    </p>
-    <p>
-      Il giocatore deve digitare il proprio nome e cognome (o una qualsiasi altro nome, come ad esempio il nome della
-      classe o un elenco di nomi nel caso in cui il gioco sia stato giocato in squadra)
-    </p>
-    <p>
-      Il bot chiede: “<strong>Confermi che il nome inviato è …?</strong>” per dare modo di correggere eventuali errori.
-    </p>
-    <p>
-      Rispondendo <strong>Sì</strong> si ottiene il certificato nominale di completamento. Oltre al nome indicato dal giocatore,
-      il certificato contiene un identificativo univoco che in futuro potrà essere utilizzato per verificare l’autenticità
-      del certificato. Il certificato può essere scaricato, salvato e condiviso con orgoglio!
-    </p>
-    <p><strong>certificato-CodyMaze</strong></p>
-    <p>
-      Quando il bot invia il messaggio “<strong>Grazie per aver giocato con CodyMaze!</strong>” è pronto ad iniziare una
-      nuova partita.
-    </p>
+      <h3>Sintassi</h3>
+      <p>
+        <strong>Istruzioni elementari.</strong> Il bot usa le 3 istruzioni elementari di CodyRoby, rappresentate dalle rispettive
+        iniziali in caratteri minuscoli:
+      </p>
+      <ul>
+        <li>
+          <strong>a</strong> = vai avanti, da eseguire spostandosi da un QRcode a quello successivo lungo la direzione di
+          marcia
+        </li>
+        <li>
+          <strong>s</strong> = girati a sinistra, da eseguire ruotando di 90 gradi in senso antiorario senza cambiare casella
+        </li>
+        <li>
+          <strong>d</strong> = girati a destra, da eseguire ruotando di 90 gradi in senso orario senza cambiare casella
+        </li>
+      </ul>
+      <p>
+        <strong>Ripetizioni.</strong> Il bot chiede di ripetere più volte un’istruzione o una sequenza di istruzioni indicando
+        il numero di ripetizioni seguito dal codice da ripetere racchiuso tra parentesi graffe:
+      </p>
+      <p><code>n codice = codice ripetuto n volte</code></p>
+      <p>
+        <code>3 a = aaa</code><br />
+        <code>2 as = asas</code><br />
+        <code>s2 a = saa</code>
+      </p>
+      <p>
+        <strong>Costrutti nidificati.</strong> Le ripetizioni, come i restanti costrutti descritti nel seguito, possono anche
+        essere nidificati. In altre parole, il codice da ripetere può contenere ripetizioni o altri costrutti, come in questi
+        esempi:
+      </p>
+      <p>
+        <code>2 2 a = 2 aa = aaaa</code><br />
+        <code>3 2 a s = 3 aas = aasaasaas</code>
+      </p>
+      <p>
+        <strong>Condizioni.</strong> Per esprimere le condizioni a cui è subordinata l’esecuzione di determinate istruzioni,
+        il bot utilizza il “se”, racchiudendo la condizione tra parentesi tonde e le istruzioni da eseguire in modo condizionato
+        tra parentesi graffe:
+      </p>
+      <p>
+        <code>se(condizione) codice = esegui il codice solo se si verifica la condizione</code><br />
+        <code
+          >se(condizione) codice1 altrimenti codice2 = esegui codice1 se si verifica la condizione, altrimenti esegui
+          codice2</code
+        >
+      </p>
+      <p>Le condizioni utilizzate dal bot sono le seguenti:</p>
+      <ul>
+        <li>
+          <strong>strada davanti</strong> o <strong>c’è strada</strong> = verificata se nella direzione di marcia c’è almeno
+          una casella su cui spostarsi
+        </li>
+        <li>
+          <strong>strada a dx</strong> = verificata se rispetto alla posizione e alla direzione di marcia del giocatore c’è
+          almeno una casella a destra
+        </li>
+        <li>
+          <strong>strada a sx</strong> = verificata se rispetto alla posizione e alla direzione di marcia del giocatore c’è
+          almeno una casella a sinistra
+        </li>
+        <li>
+          <strong>stella</strong> = verificata se nella casella in cui si trova il giocatore, attorno al QRCode, ci sono
+          delle stelle
+        </li>
+        <li>
+          <strong>non stella</strong> = verificata se nella casella in cui si trova il giocatore, attorno al QRCode, non
+          ci sono delle stelle
+        </li>
+      </ul>
+      <p>
+        <strong>Ripetizioni condizionate.</strong> Il bot usa il termine “<strong>finché</strong>” per indicare che una
+        o più istruzioni vanno ripetute finché perdura una condizione. La condizione è espressa tra parentesi tonde, il
+        codice da eseguire tra parentesi graffe:
+      </p>
+      <p><code>finché(condizione) codice = esegui il codice finché è verificata la condizione.</code></p>
+      <p>
+        <strong>Attenzione:</strong> nelle ripetizioni e nelle ripetizioni condizionate occorre eseguire tutto il codice
+        interno ad ogni ripetizione, poi occorre verificare nuovamente la condizione di ripetizione (condizione esplicita
+        o numero di ripetizioni) per decidere se eseguirlo di nuovo.
+      </p>
 
-    <h3>Sintassi</h3>
-    <p>
-      <strong>Istruzioni elementari.</strong> Il bot usa le 3 istruzioni elementari di CodyRoby, rappresentate dalle rispettive
-      iniziali in caratteri minuscoli:
-    </p>
-    <ul>
-      <li>
-        <strong>a</strong> = vai avanti, da eseguire spostandosi da un QRcode a quello successivo lungo la direzione di marcia
-      </li>
-      <li>
-        <strong>s</strong> = girati a sinistra, da eseguire ruotando di 90 gradi in senso antiorario senza cambiare casella
-      </li>
-      <li>
-        <strong>d</strong> = girati a destra, da eseguire ruotando di 90 gradi in senso orario senza cambiare casella
-      </li>
-    </ul>
-    <p>
-      <strong>Ripetizioni.</strong> Il bot chiede di ripetere più volte un’istruzione o una sequenza di istruzioni indicando
-      il numero di ripetizioni seguito dal codice da ripetere racchiuso tra parentesi graffe:
-    </p>
-    <p><code>n codice = codice ripetuto n volte</code></p>
-    <p>
-      <code>3 a = aaa</code><br />
-      <code>2 as = asas</code><br />
-      <code>s2 a = saa</code>
-    </p>
-    <p>
-      <strong>Costrutti nidificati.</strong> Le ripetizioni, come i restanti costrutti descritti nel seguito, possono anche
-      essere nidificati. In altre parole, il codice da ripetere può contenere ripetizioni o altri costrutti, come in questi
-      esempi:
-    </p>
-    <p>
-      <code>2 2 a = 2 aa = aaaa</code><br />
-      <code>3 2 a s = 3 aas = aasaasaas</code>
-    </p>
-    <p>
-      <strong>Condizioni.</strong> Per esprimere le condizioni a cui è subordinata l’esecuzione di determinate istruzioni,
-      il bot utilizza il “se”, racchiudendo la condizione tra parentesi tonde e le istruzioni da eseguire in modo condizionato
-      tra parentesi graffe:
-    </p>
-    <p>
-      <code>se(condizione) codice = esegui il codice solo se si verifica la condizione</code><br />
-      <code
-        >se(condizione) codice1 altrimenti codice2 = esegui codice1 se si verifica la condizione, altrimenti esegui
-        codice2</code
-      >
-    </p>
-    <p>Le condizioni utilizzate dal bot sono le seguenti:</p>
-    <ul>
-      <li>
-        <strong>strada davanti</strong> o <strong>c’è strada</strong> = verificata se nella direzione di marcia c’è almeno
-        una casella su cui spostarsi
-      </li>
-      <li>
-        <strong>strada a dx</strong> = verificata se rispetto alla posizione e alla direzione di marcia del giocatore c’è
-        almeno una casella a destra
-      </li>
-      <li>
-        <strong>strada a sx</strong> = verificata se rispetto alla posizione e alla direzione di marcia del giocatore c’è
-        almeno una casella a sinistra
-      </li>
-      <li>
-        <strong>stella</strong> = verificata se nella casella in cui si trova il giocatore, attorno al QRCode, ci sono delle
-        stelle
-      </li>
-      <li>
-        <strong>non stella</strong> = verificata se nella casella in cui si trova il giocatore, attorno al QRCode, non ci
-        sono delle stelle
-      </li>
-    </ul>
-    <p>
-      <strong>Ripetizioni condizionate.</strong> Il bot usa il termine “<strong>finché</strong>” per indicare che una o
-      più istruzioni vanno ripetute finché perdura una condizione. La condizione è espressa tra parentesi tonde, il
-      codice da eseguire tra parentesi graffe:
-    </p>
-    <p><code>finché(condizione) codice = esegui il codice finché è verificata la condizione.</code></p>
-    <p>
-      <strong>Attenzione:</strong> nelle ripetizioni e nelle ripetizioni condizionate occorre eseguire tutto il codice interno
-      ad ogni ripetizione, poi occorre verificare nuovamente la condizione di ripetizione (condizione esplicita o numero
-      di ripetizioni) per decidere se eseguirlo di nuovo.
-    </p>
+      <h3>Consiglio.</h3>
+      <p>
+        Per illustrare la sintassi ai partecipanti si consiglia di effettuare un’esecuzione collettiva del gioco,
+        dichiarando e commentando insieme le sequenze di istruzioni che il bot assegna a ogni passo. In alternativa, si
+        possono creare delle sequenze di istruzioni di prova per simularne l’esecuzione.
+      </p>
 
-    <h3>Consiglio.</h3>
-    <p>
-      Per illustrare la sintassi ai partecipanti si consiglia di effettuare un’esecuzione collettiva del gioco,
-      dichiarando e commentando insieme le sequenze di istruzioni che il bot assegna a ogni passo. In alternativa, si
-      possono creare delle sequenze di istruzioni di prova per simularne l’esecuzione.
-    </p>
+      <h3>Installazioni</h3>
+      <p><strong>installazioni</strong></p>
+      <p>
+        CodyMaze è un gioco di coding da piazza, che è stato presentato per la prima volta durante l’edizione 2017 di
+        Urbino Summer Code Fest, il 24 agosto 2017, nel cortile del Collegio Raffaello a Urbino. Nella prima
+        installazione i QRCode erano posti su scatole quadrate per essere più visibili. La seconda sperimentazione è
+        stata effettuata a Napoli, in Piazza del Plebiscito, il 21 settembre 2017, con i QRCode appoggiati su lattine di
+        pomodoro.
+      </p>
+      <p>
+        I due esperimenti pubblici sono stati fondamentali per collaudare e debuggare l’applicazione prima di renderla
+        disponibile a chiunque voglia allestire il gioco in una piazza, in un cortile, a casa, o in un’aula. I QRCode
+        non devono necessariamente essere appoggiati su oggetti rialzati, è sufficiente appoggiarli a terra. Si
+        consiglia comunque di fissarli a terra in modo da evitare che vengano spostati accidentalmente.
+      </p>
 
-    <h3>Installazioni</h3>
-    <p><strong>installazioni</strong></p>
-    <p>
-      CodyMaze è un gioco di coding da piazza, che è stato presentato per la prima volta durante l’edizione 2017 di
-      Urbino Summer Code Fest, il 24 agosto 2017, nel cortile del Collegio Raffaello a Urbino. Nella prima installazione
-      i QRCode erano posti su scatole quadrate per essere più visibili. La seconda sperimentazione è stata effettuata a
-      Napoli, in Piazza del Plebiscito, il 21 settembre 2017, con i QRCode appoggiati su lattine di pomodoro.
-    </p>
-    <p>
-      I due esperimenti pubblici sono stati fondamentali per collaudare e debuggare l’applicazione prima di renderla
-      disponibile a chiunque voglia allestire il gioco in una piazza, in un cortile, a casa, o in un’aula. I QRCode non
-      devono necessariamente essere appoggiati su oggetti rialzati, è sufficiente appoggiarli a terra. Si consiglia
-      comunque di fissarli a terra in modo da evitare che vengano spostati accidentalmente.
-    </p>
+      <h3>Sviluppi futuri</h3>
+      <p>
+        CodyMaze verrà ulteriormente sviluppato per offrire esperienze di coding diversificate per fascia d’età. I
+        QRCode non cambieranno. Quindi chiunque volesse farne un’installazione fissa potrà utilizzarla per tutte le
+        versioni del gioco.
+      </p>
 
-    <h3>Sviluppi futuri</h3>
-    <p>
-      CodyMaze verrà ulteriormente sviluppato per offrire esperienze di coding diversificate per fascia d’età. I QRCode
-      non cambieranno. Quindi chiunque volesse farne un’installazione fissa potrà utilizzarla per tutte le versioni del
-      gioco.
-    </p>
-
-    <h3>Credits</h3>
-    <p>
-      <strong>CodyMaze</strong> è un progetto di Alessandro Bogliolo, sviluppato da Brendan Paolini, Lorenz Cuno Klopfenstein
-      e Saverio Delpriori, del Corso di Laurea in Informatica Applicata dell’Università di Urbino.
-    </p>
+      <h3>Credits</h3>
+      <p>
+        <strong>CodyMaze</strong> è un progetto di Alessandro Bogliolo, sviluppato da Brendan Paolini, Lorenz Cuno Klopfenstein
+        e Saverio Delpriori, del Corso di Laurea in Informatica Applicata dell’Università di Urbino.
+      </p>
+    </AnimateText>
   </div>
 </Layout>
