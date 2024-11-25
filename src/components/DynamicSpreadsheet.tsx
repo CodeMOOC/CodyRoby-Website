@@ -4,17 +4,54 @@ import { Icon } from '@iconify/react';
 import IconSelect from './ui/IconSelect';
 
 export default function DynamicSpreadsheet() {
+  const spreadshettPath = import.meta.env.PUBLIC_SPREADSHEET_URL;
+
   const [rows, setRows] = useState([]);
 
-  const targets = ['infanzia', 'primaria', 'secondaria'];
-  const metodi = ['CodyRoby', 'CodyColor', 'CodyFeet'];
+  const [filters, setFilters] = useState({
+    Metodi: [],
+    Toolkit: [],
+  });
+
+  const [metodi, setMetodi] = useState([
+    { name: 'CodyRoby', selected: false },
+    { name: 'CodyColor', selected: false },
+    { name: 'CodyFeet', selected: false },
+  ]);
+
+  const [targets, setTargets] = useState([
+    { name: 'infanzia', selected: false },
+    { name: 'primaria', selected: false },
+    { name: 'secondaria', selected: false },
+  ]);
+
+  const handleFilterSelection = ({ filter, value }) => {
+    setFilters((prevFilters) => {
+      const updatedFilterValues = prevFilters[filter]?.includes(value)
+        ? prevFilters[filter].filter((item) => item !== value)
+        : [...(prevFilters[filter] || []), value];
+
+      return {
+        ...prevFilters,
+        [filter]: updatedFilterValues,
+      };
+    });
+
+    if (filter === 'Metodi') {
+      setMetodi((prevMetodi) =>
+        prevMetodi.map((item) => (item.name === value ? { ...item, selected: !item.selected } : item))
+      );
+    } else if (filter === 'Toolkit') {
+      setTargets((prevTargets) =>
+        prevTargets.map((item) => (item.name === value ? { ...item, selected: !item.selected } : item))
+      );
+    }
+  };
 
   useEffect(() => {
     async function fetchSpreadsheetData() {
       try {
-        const response = await fetch(
-          'https://docs.google.com/spreadsheets/d/e/2PACX-1vTcSleBVCqdjUx2ZI95NrW5jU4LIlSJp-F3YWD-BJ0t9utjvMzkila7eCXJMgUl9PMWQDrrzcK6i19r/pub?output=csv'
-        );
+        const response = await fetch(spreadshettPath);
         const csvData = await response.text();
 
         parse(csvData, { columns: true, delimiter: ',' }, (err, records) => {
@@ -22,7 +59,7 @@ export default function DynamicSpreadsheet() {
             console.error('Error parsing CSV:', err);
             return;
           }
-          setRows(records); // Store the fetched and parsed data
+          setRows(records);
         });
       } catch (error) {
         console.error('Error fetching spreadsheet data:', error);
@@ -36,8 +73,19 @@ export default function DynamicSpreadsheet() {
     <div className="prose-page">
       <div className="flex justify-start items-center gap-4 ">
         <p className="font-semibold">Filtri:</p>
-        <IconSelect options={metodi} icon="codicon:symbol-method" filter="Metodi" />
-        <IconSelect options={targets} icon="pepicons-pop:label" filter="Toolkit" />
+
+        <IconSelect
+          options={metodi}
+          icon="codicon:symbol-method"
+          filter="Metodi"
+          onFilterSelection={handleFilterSelection}
+        />
+        <IconSelect
+          options={targets}
+          icon="pepicons-pop:label"
+          filter="Toolkit"
+          onFilterSelection={handleFilterSelection}
+        />
       </div>
       <hr className="my-6 not-prose" />
       {rows.length > 0 ? (
