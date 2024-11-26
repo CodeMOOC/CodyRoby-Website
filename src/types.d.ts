@@ -53,7 +53,7 @@ export interface Post {
   readingTime?: number;
 }
 
-export interface Product {
+export interface ProductPublication {
   id: string;
 
   url: string;
