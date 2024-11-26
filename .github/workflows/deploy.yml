@@ -17,14 +17,7 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
-
-      # Step to debug environment variables before the build
-      - name: Print Environment Variables
-        run: |
-          echo "Checking for PUBLIC_SPREADSHEET_URL"
-          echo "PUBLIC_SPREADSHEET_URL=${PUBLIC_SPREADSHEET_URL}"
-          printenv | grep PUBLIC_
-
+        
       # Install dependencies and build the site
       - name: Install, build, and upload your site
         uses: withastro/action@v3
