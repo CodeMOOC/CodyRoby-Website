@@ -19,7 +19,7 @@ import codyfeet from '~/assets/images/home/metodo-codyfeet-bg.png';
 
 import bogliolo from '~/assets/images/home/Bogliolo.jpeg';
 
-import og from '~/../public/codycolor/open.jpeg';
+import og from '~/../public/openGraph.jpeg';
 import type { MetaData } from '~/types';
 
 const openGraphImage = og;
@@ -33,7 +33,7 @@ const metadata = merge({
       ? {
           images: [
             {
-              url: 'https://images.unsplash.com/photo-1534307671554-9a6d81f4d629?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1651&q=80',
+              url: og,
               width: (openGraphImage as ImageMetadata)?.width,
               height: (openGraphImage as ImageMetadata)?.height,
             },

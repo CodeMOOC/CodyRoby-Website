@@ -12,14 +12,35 @@ import dritto from '~/assets/images/metodi/codyroby/dritto.png';
 import destra from '~/assets/images/metodi/codyroby/destra.png';
 import speciali from '~/assets/images/metodi/codyroby/speciali.png';
 import Button from '../../../components/ui/Button.astro';
+import og from '~/../public/codyroby/openGraph.jpeg';
+import type { MetaData } from '~/types';
+import merge from 'lodash.merge';
 
 const codyRobyStarter = 'codyRobyStarter.pdf';
 const codyRobyCard = 'CodyRobyCards.pdf';
 
-const metadata = {
+const openGraphImage = og;
+
+const metadata = merge({
   title: 'CodyRoby',
-  tagline: 'Metodi',
-};
+
+  ignoreTitleTemplate: true,
+  openGraph: {
+    ...(openGraphImage
+      ? {
+          images: [
+            {
+              url: og,
+              width: (openGraphImage as ImageMetadata)?.width,
+              height: (openGraphImage as ImageMetadata)?.height,
+            },
+          ],
+        }
+      : {}),
+  },
+}) as MetaData;
+
+const tagline = 'Metodi';
 
 const cardsSymbols = [
   {
@@ -57,7 +78,7 @@ const cardsSymbols = [
 
 <Layout metadata={metadata}>
   <Hero
-    tagline={metadata.tagline}
+    tagline={tagline}
     title="CodyRoby"
     image={{
       src: banner,
