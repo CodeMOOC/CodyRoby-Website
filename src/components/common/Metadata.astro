@@ -9,11 +9,13 @@ import type { MetaData } from '~/types';
 import { getCanonical } from '~/utils/permalinks';
 
 import { adaptOpenGraphImages } from '~/utils/images';
+import defaultImage from '~/assets/images/default.png'; // Import your default image
 
 export interface Props extends MetaData {
   dontUseTitleTemplate?: boolean;
 }
 
+// Extract Astro.props for the page-specific data
 const {
   title,
   ignoreTitleTemplate = false,
@@ -24,6 +26,7 @@ const {
   twitter = {},
 } = Astro.props;
 
+// Merge global metadata, page-specific data, and fallback logic
 const seoProps: AstroSeoProps = merge(
   {
     title: '',
@@ -59,11 +62,16 @@ const seoProps: AstroSeoProps = merge(
     noindex: typeof robots?.index !== 'undefined' ? !robots.index : undefined,
     nofollow: typeof robots?.follow !== 'undefined' ? !robots.follow : undefined,
     description: description,
-    openGraph: { url: canonical, ...openGraph },
+    openGraph: {
+      url: canonical,
+      ...openGraph,
+      images: openGraph?.images?.length ? openGraph.images : [{ url: defaultImage, width: 1200, height: 630 }],
+    },
     twitter: twitter,
   }
 );
-console.log('Astro meta ', openGraph);
+
+seoProps.openGraph = await adaptOpenGraphImages(seoProps?.openGraph, Astro.site);
 ---
 
-<AstroSeo {...{ ...seoProps, openGraph: await adaptOpenGraphImages(seoProps?.openGraph, Astro.site) }} />
+<AstroSeo {...seoProps} />
