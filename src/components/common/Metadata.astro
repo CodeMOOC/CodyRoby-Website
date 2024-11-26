@@ -63,6 +63,7 @@ const seoProps: AstroSeoProps = merge(
     twitter: twitter,
   }
 );
+console.log('Astro meta ', openGraph);
 ---
 
 <AstroSeo {...{ ...seoProps, openGraph: await adaptOpenGraphImages(seoProps?.openGraph, Astro.site) }} />

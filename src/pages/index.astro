@@ -5,6 +5,7 @@ import { Image } from 'astro:assets';
 import Hero from '~/components/widgets/Hero.astro';
 
 import banner from '~/assets/images/codyroby-cover.png';
+import merge from 'lodash.merge';
 // import banner from '~/assets/images/home-test.jpeg';
 
 import AnimateText from '~/components/ui/AnimateText.astro';
@@ -18,20 +19,29 @@ import codyfeet from '~/assets/images/home/metodo-codyfeet-bg.png';
 
 import bogliolo from '~/assets/images/home/Bogliolo.jpeg';
 
-const metadata = {
+import og from '~/../public/codycolor/open.jpeg';
+import type { MetaData } from '~/types';
+
+const openGraphImage = og;
+
+const metadata = merge({
   title: 'CodyRoby',
   tagline: 'Metodi',
   ignoreTitleTemplate: true,
   openGraph: {
-    images: [
-      {
-        url: '~/assets/images/codyroby-cover.png',
-        width: 1200,
-        height: 630,
-      },
-    ],
+    ...(openGraphImage
+      ? {
+          images: [
+            {
+              url: openGraphImage,
+              width: (openGraphImage as ImageMetadata)?.width,
+              height: (openGraphImage as ImageMetadata)?.height,
+            },
+          ],
+        }
+      : {}),
   },
-};
+}) as MetaData;
 
 const metodiPath = '/metodi';
 const toolkitPath = '/toolkit';
