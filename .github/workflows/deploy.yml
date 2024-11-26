@@ -18,10 +18,28 @@ jobs:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
 
+      # Step to debug environment variables before the build
+      - name: Print Environment Variables
+        run: |
+          echo "Checking for PUBLIC_SPREADSHEET_URL"
+          echo "PUBLIC_SPREADSHEET_URL=${PUBLIC_SPREADSHEET_URL}"
+          printenv | grep PUBLIC_
+
+      # Install dependencies and build the site
       - name: Install, build, and upload your site
         uses: withastro/action@v3
         with:
           package-manager: npm@latest 
+        env:
+          PUBLIC_SPREADSHEET_URL: ${{ secrets.PUBLIC_SPREADSHEET_URL }} # Explicitly pass here in case of scoping issues
+
+      # Additional step to verify build output
+      - name: Verify Build Output
+        run: |
+          echo "Inspecting build directory..."
+          ls -la dist
+          grep -r PUBLIC_SPREADSHEET_URL dist || echo "PUBLIC_SPREADSHEET_URL not found in build output"
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
