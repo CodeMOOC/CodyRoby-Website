@@ -12,6 +12,8 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env: 
+      PUBLIC_SPREADSHEET_URL: ${{ secrets.PUBLIC_SPREADSHEET_URL }}
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
@@ -20,9 +22,6 @@ jobs:
         uses: withastro/action@v3
         with:
           package-manager: npm@latest 
-        env:
-          PUBLIC_SPREADSHEET_URL: ${{ secrets.PUBLIC_SPREADSHEET_URL }}
-
   deploy:
     needs: build
     runs-on: ubuntu-latest
