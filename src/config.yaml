@@ -11,14 +11,14 @@ metadata:
   title:
     default: CodyRoby
     template: '%s — CodyRoby'
-  description: "\U0001F680 Cody è un coder, Roby è un robot"
+  description: 'Strumenti e metodi di coding unplugged fai-da-te'
   robots:
     index: true
     follow: true
   openGraph:
     site_name: CodyRoby
     images:
-      - url: '~/assets/images/default.png'
+      - url: '~/assets/images/banner-c.png'
         width: 1200
         height: 628
     type: website
