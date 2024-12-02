@@ -10,7 +10,6 @@ const MobileMenu = ({ links, currentPath }) => {
   });
 
   const toggleMenu = (menuKey) => {
-    console.log(menuKey);
     setOpenMenus((prevState) => {
       const newState = {
         ...prevState,
@@ -78,7 +77,7 @@ const MobileMenu = ({ links, currentPath }) => {
                                             href={href3}
                                             target={target3}
                                           >
-                                            {text3} ds
+                                            {text3}
                                           </a>
                                         </li>
                                       ))}
