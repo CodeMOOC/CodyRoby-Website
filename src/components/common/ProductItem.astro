@@ -14,9 +14,9 @@ const url = product.url;
 
 <div
   id={product.id}
-  class="mb-6 transition intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade not-prose shadow-lg"
+  class="mb-6 transition intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade not-prose"
 >
-  <div class="my-2">
+  <div class="my-2 flex justify-center">
     <a
       class="inline-block hover:text-[#F07305] dark:hover:text-[#F07305] transition ease-in duration-200 no-underline"
       href={url}
@@ -28,9 +28,7 @@ const url = product.url;
             <Image
               src={image}
               class="w-full md:h-full rounded dark:bg-slate-700"
-              widths={[400, 900]}
-              width={400}
-              sizes="(max-width: 900px) 400px, 900px"
+              width={500}
               alt={product.title}
               loading="lazy"
               decoding="async"
@@ -39,7 +37,7 @@ const url = product.url;
         }
       </span>
 
-      <h3 class="text-base font-bold leading-tight px-4 mt-2 dark:text-slate-300">
+      <h3 class="text-base font-bold leading-tight mt-6 dark:text-slate-300">
         {product.title}
       </h3>
     </a>

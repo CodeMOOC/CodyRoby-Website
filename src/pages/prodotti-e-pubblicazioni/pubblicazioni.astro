@@ -1,0 +1,78 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Grid from '~/components/blog/Grid.astro';
+import ProductItem from '~/components/common/ProductItem.astro';
+import type { ProductPublication } from '~/types';
+
+import beeBot from '~/assets/images/prodotti/beeBot.jpg';
+import codycolorPuzzle from '~/assets/images/prodotti/codycolorPuzzle.jpeg';
+import codyRobySetCompletoCarteGiganti from '~/assets/images/prodotti/CodyRobySetCompletoCarteGiganti.jpeg';
+import codyRobyQR from '~/assets/images/prodotti/CodyRobyQR.jpeg';
+import codyRobyDaTavoloPerClasse from '~/assets/images/prodotti/codyRobyDaTavoloPerClasse.jpeg';
+import codyRobyBaseQR from '~/assets/images/prodotti/codyRobyBaseQR.jpeg';
+import codyRobyGigante from '~/assets/images/prodotti/codyRobyGigante.jpg';
+import codyRobyDaTavolo from '~/assets/images/prodotti/codyRobyDaTavolo.jpeg';
+import codyRobyWordMath from '~/assets/images/prodotti/codyRobyWordMath.jpeg';
+import codyFeetCodyColorTappeto from '~/assets/images/prodotti/codyFeetCodyColorTappeto.jpg';
+import codyRobyBook from '~/assets/images/prodotti/codyRobyBook.png';
+import CodingInYouClassroom from '~/assets/images/prodotti/CodingInYouClassroom.png';
+import diarioDelCoding from '~/assets/images/prodotti/diarioDelCoding.png';
+
+import Hero from '~/components/widgets/Hero.astro';
+import AnimateText from '~/components/ui/AnimateText.astro';
+
+const metadata = {
+  title: 'Pubblicazioni',
+  subtitle: '',
+  tagline: '',
+};
+
+const publications: ProductPublication[] = [
+  {
+    id: '1',
+    image: codyRobyBook,
+    title: 'A scuola con CodyRoby',
+    url: 'https://www.campustore.it/a-scuola-con-codyroby.html',
+    tags: [{ slug: '', title: '' }],
+    content: 'Il coding come il gioco di ruolo, un libro del prof. Alessandro Bogliolo',
+  },
+  {
+    id: '2',
+    image: CodingInYouClassroom,
+    title: 'Coding in Your Classroom, Now!',
+    url: 'https://www.giuntiscuola.it/volumi/coding-in-your-classroom-now-76224u',
+    tags: [{ slug: '', title: '' }],
+    content: 'Per proporre il coding a scuola fin dalla primaria',
+  },
+  {
+    id: '3',
+    image: diarioDelCoding,
+    title: 'Il diario del Coding',
+    url: 'https://www.giuntiscuola.it/volumi/il-diario-del-coding-80132h',
+    tags: [{ slug: '', title: '' }],
+    content:
+      'Il diario del coding è una porta aperta su un mondo fatto di idee, di linguaggi per esprimerle e di strumenti per realizzarle.',
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <Hero tagline={metadata.tagline}>
+    <Fragment slot="title"> {metadata.title} </Fragment>
+    <Fragment slot="subtitle">{metadata.subtitle}</Fragment>
+  </Hero>
+  <div class="prose-page">
+    <AnimateText>
+      <p>
+        Dai metodi ideati dal Professore Alessandro Bogliolo sono stati tratti dei prodotti per consentire alle scuole
+        di avere prodotti validi e durevoli.<br />
+        Qui sotto è presente l'elenco dei pubblicazioni disponibili che rimandano ai vari store:
+      </p>
+    </AnimateText>
+    <div class="mx-auto">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {publications.map((pub) => <ProductItem product={pub} />)}
+      </div>
+    </div>
+  </div>
+</Layout>
