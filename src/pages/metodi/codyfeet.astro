@@ -15,9 +15,9 @@ import start from '~/assets/images/metodi/codyfeet/CodyFeet-WoC-start-150x150.pn
 import stop from '~/assets/images/metodi/codyfeet/CodyFeet-WoC-stop-150x150.png';
 import path from '~/assets/images/metodi/codyfeet/CodyFeet-path.png';
 import braccialetti from '~/assets/images/metodi/codyfeet/codyfeet-braccialetti-e1538470494342-768x484.jpg';
-import freeAhead from '~/assets/images/metodi/codyfeet/CodyFeet-free-ahead-150x150.png';
-import freeStop from '~/assets/images/metodi/codyfeet/CodyFeet-free-stop-150x150.png';
-import freeStart from '~/assets/images/metodi/codyfeet/CodyFeet-free-start-150x150.png';
+import freeAhead from '~/assets/images/metodi/codyfeet/CodyFeet-free-ahead.png';
+import freeStop from '~/assets/images/metodi/codyfeet/CodyFeet-free-stop.png';
+import freeStart from '~/assets/images/metodi/codyfeet/CodyFeet-free-start.png';
 import free from '~/assets/images/metodi/codyfeet/CodyFeet-free-768x384.png';
 
 import free768 from '~/assets/images/metodi/codyfeet/CodyFeet-free-768x384.png';
@@ -116,6 +116,12 @@ const CodyFeetW = [
   { src: wRight, alt: 'wRight', thumbnail: wRight150 },
   { src: wStart, alt: 'wStart', thumbnail: wStart150 },
   { src: wStop, alt: 'wStop', thumbnail: wStop150 },
+];
+
+const CodyFeetFree = [
+  { src: freeAhead, alt: 'freeAhead', thumbnail: freeAhead150 },
+  { src: freeStart, alt: 'freeStart', thumbnail: freeStart150 },
+  { src: freeStop, alt: 'freeStop', thumbnail: freeStop150 },
 ];
 
 const videolezioni = [
@@ -222,8 +228,10 @@ const videolezioni = [
   </div>
 
   <AnimateText>
-    <div class="border border-black mx-4 p-4 rounded-lg bg-slate-100 dark:bg-slate-700">
-      <ButtonSelection buttons={cardsSymbols} client:load />
+    <div class="prose-page">
+      <div class="border border-black p-4 rounded-lg bg-slate-100 dark:bg-slate-700">
+        <ButtonSelection buttons={cardsSymbols} client:load />
+      </div>
     </div>
   </AnimateText>
   <div class="prose-page">
@@ -248,7 +256,7 @@ const videolezioni = [
     </AnimateText>
   </div>
   <AnimateText>
-    <div class="flex flex-col gap-4">
+    <div class="flex flex-col gap-4 mx-4">
       <div class="flex justify-center gap-x-1 max-w-full items-center">
         <p>WoC:</p>
         {
@@ -409,11 +417,21 @@ const videolezioni = [
       </p>
     </AnimateText>
   </div>
-  <div class="mt-6 flex flex-col items-center md:flex-row justify-center gap-6">
-    <Image src={freeAhead} alt="freeAhead" />
-    <Image src={freeStop} alt="freeStop" />
-    <Image src={freeStart} alt="freeStart" />
+  <div class="flex flex-col gap-4 mx-4 my-6">
+    <div class="flex justify-center gap-x-1 max-w-full items-center">
+      {
+        CodyFeetFree.map((el) => {
+          console.log(el.src);
+          return (
+            <a target="_blank" href={el.src.src}>
+              <Image src={el.thumbnail} alt={el.alt} />
+            </a>
+          );
+        })
+      }
+    </div>
   </div>
+
   <div class="prose-page">
     <AnimateText>
       <p>
@@ -435,7 +453,14 @@ const videolezioni = [
     <div class="flex flex-col gap-4 justify-center items-center">
       {
         videolezioni.map((lesson) => (
-          <iframe src={lesson.videoUrl} width="560" height="314" allowfullscreen loading="lazy" />
+          <iframe
+            src={lesson.videoUrl}
+            width="560"
+            height="314"
+            allowfullscreen
+            loading="lazy"
+            class="max-w-[560px] w-full"
+          />
         ))
       }
     </div>

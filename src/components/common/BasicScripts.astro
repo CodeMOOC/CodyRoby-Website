@@ -44,7 +44,8 @@ import { UI } from 'astrowind:config';
     let lastKnownScrollPosition = window.scrollY;
     let ticking = true;
 
-    attachEvent('#header nav', 'click', function () {
+    attachEvent('#speciale', 'click', function () {
+      console.log('Me lo stmpi');
       document.querySelector('[data-aw-toggle-menu]')?.classList.remove('expanded');
       document.body.classList.remove('overflow-hidden');
       document.getElementById('header')?.classList.remove('h-screen');
@@ -108,6 +109,7 @@ import { UI } from 'astrowind:config';
 
     const screenSize = window.matchMedia('(max-width: 767px)');
     screenSize.addEventListener('change', function () {
+      console.log('è questo il cambiamento di cui parli?');
       document.querySelector('[data-aw-toggle-menu]')?.classList.remove('expanded');
       document.body.classList.remove('overflow-hidden');
       document.getElementById('header')?.classList.remove('h-screen');
@@ -143,6 +145,7 @@ import { UI } from 'astrowind:config';
   const onPageShow = function () {
     document.documentElement.classList.add('motion-safe:scroll-smooth');
     const elem = document.querySelector('[data-aw-toggle-menu]');
+    console.log('è questo il cambiamento di cui parli?');
     if (elem) {
       elem.classList.remove('expanded');
     }

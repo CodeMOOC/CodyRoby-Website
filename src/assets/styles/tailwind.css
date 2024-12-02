@@ -128,14 +128,14 @@
   @apply max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4 motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade;
 }
 
-body {
+/* body {
   background: #f3f4f6 url('../images/group.png') no-repeat;
   background-position: top left;
   background-size: contain;
-}
+} */
 
 a {
-  @apply underline hover:text-blue-800 cursor-pointer;
+  @apply hover:text-blue-800 cursor-pointer;
 }
 
 .btn-shadow-box {

@@ -9,6 +9,7 @@ import Button from '~/components/ui/Button.astro';
 import { getHomePermalink } from '~/utils/permalinks';
 import { trimSlash, getAsset } from '~/utils/permalinks';
 import type { CallToAction } from '~/types';
+import MobileMenu from './MobileMenu.tsx';
 
 interface Link {
   text?: string;
@@ -57,7 +58,6 @@ const props = Astro.props;
     text-decoration: none;
   }
 </style>
-
 <header
   class:list={[
     { sticky: isSticky, relative: !isSticky, dark: isDark },
@@ -91,11 +91,127 @@ const props = Astro.props;
       <a class="flex items-center" href={getHomePermalink()}>
         <Logo />
       </a>
-      <div class="flex items-center md:hidden">
+
+      <div class="flex items-center md:hidden overflow-y-auto overflow-x-hidden">
         <ToggleMenu />
       </div>
     </div>
+
+    <!-- Mobile Menu -->
+    <nav class="flex mt-11 w-full items-start text-default" aria-label="Mobile navigation">
+      <MobileMenu links={links} currentPath={''} client:load />
+    </nav>
+
+    <!-- Desktop Menu -->
     <nav
+      class="hidden md:flex items-center w-full md:w-auto md:mx-5 text-default overflow-y-auto overflow-x-hidden md:overflow-y-visible md:overflow-x-auto md:justify-self-center"
+      aria-label="Desktop navigation"
+    >
+      <ul
+        class="flex flex-col md:flex-row md:self-center w-full md:w-auto text-xl md:text-[0.9375rem] tracking-[0.01rem] font-medium md:justify-center"
+      >
+        {
+          links.map(({ text, href, links, target }) => (
+            <li class={links?.length ? 'dropdown' : ''}>
+              {links?.length ? (
+                <>
+                  <button
+                    type="button"
+                    class="hover:text-link dark:hover:text-white px-4 py-3 flex items-center whitespace-nowrap"
+                  >
+                    {text}{' '}
+                    <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden md:inline" />
+                  </button>
+                  <ul class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/90 md:min-w-[200px] drop-shadow-xl">
+                    {links.map(({ text: text2, href: href2, links: links2, target = '' }) => (
+                      <li class={links2?.length ? 'dropdown2' : ''}>
+                        {links2 && links2.length ? (
+                          <div class="relative">
+                            <button
+                              type="button"
+                              class="hover:text-link dark:hover:text-white px-4 py-3 flex items-center whitespace-nowrap"
+                            >
+                              {text2}{' '}
+                              <Icon
+                                name="tabler:chevron-right"
+                                class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden md:inline"
+                              />
+                            </button>
+
+                            <ul class="dropdown2-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute top-0 left-32 pl-4 md:pl-0 md:hidden font-medium md:bg-white md:min-w-[200px] drop-shadow-xl">
+                              {links2.map(({ text: text3, href: href3, target = '' }) => (
+                                <li>
+                                  <a
+                                    class:list={[
+                                      'first:rounded-t last:rounded-b md:hover:bg-gray-200 hover:text-link dark:hover:text-white dark:hover:bg-gray-700 py-2 px-5 block whitespace-no-wrap',
+                                      { 'aw-link-active': href3 === currentPath },
+                                    ]}
+                                    href={href3}
+                                    target={target}
+                                  >
+                                    {text3}
+                                  </a>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ) : (
+                          <a
+                            class:list={[
+                              'flex gap-2 first:rounded-t last:rounded-b md:hover:bg-gray-200 hover:text-link dark:hover:text-white dark:hover:bg-gray-700 py-2 px-5 whitespace-no-wrap items-center',
+                              { 'aw-link-active': href2 === currentPath },
+                            ]}
+                            href={href2}
+                            target={target}
+                          >
+                            {text2}{' '}
+                            {target !== '' && (
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="1em"
+                                height="1em"
+                                viewBox="0 0 24 24"
+                                {...props}
+                              >
+                                <path
+                                  fill="currentColor"
+                                  d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2zM14 3v2h3.59l-9.83 9.83l1.41 1.41L19 6.41V10h2V3z"
+                                />
+                              </svg>
+                            )}
+                          </a>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              ) : (
+                <a
+                  class:list={[
+                    'hover:text-link dark:hover:text-white px-4 py-3 flex items-center whitespace-nowrap gap-2',
+                    { 'aw-link-active': href === currentPath },
+                  ]}
+                  href={href}
+                  target={target}
+                >
+                  {text}
+                  {target && (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" {...props}>
+                      <path
+                        fill="currentColor"
+                        d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2zM14 3v2h3.59l-9.83 9.83l1.41 1.41L19 6.41V10h2V3z"
+                      />
+                    </svg>
+                  )}
+                </a>
+              )}
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <!-- <nav
       class="items-center w-full md:w-auto hidden md:flex md:mx-5 text-default overflow-y-auto overflow-x-hidden md:overflow-y-visible md:overflow-x-auto md:justify-self-center"
       aria-label="Main navigation"
     >
@@ -201,7 +317,8 @@ const props = Astro.props;
           ))
         }
       </ul>
-    </nav>
+    </nav> -->
+    <!-- theme dark and white -->
     <div
       class:list={[
         { 'ml-auto rtl:ml-0 rtl:mr-auto': position === 'left' },
