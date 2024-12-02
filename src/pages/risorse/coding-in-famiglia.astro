@@ -2,6 +2,7 @@
 import Hero from '~/components/widgets/Hero.astro';
 import Layout from '../../layouts/PageLayout.astro';
 import banner from '~/assets/images/coding-in-famiglia/coding-in-famiglia.png';
+import VideoFaqStyle from '~/components/common/VideoFaqStyle.tsx';
 
 const metadata = {
   title: 'Coding in famiglia',
@@ -14,7 +15,7 @@ const videolezioni = [
     title: '1. L’esploratore',
     diretta: '',
     description:
-      'Materiale: scacchiera, tessere con impronte Approfondimento su CodyFeet e gioco da pavimento: http://codemooc.org/codyfeet',
+      'Materiale: scacchiera, tessere con impronte Approfondimento su CodyFeet e gioco da pavimento: <a target="_blank" href="/metodi/codyfeet">CodyFeet</a>',
     videoUrl:
       'https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fcoding4parents%2Fvideos%2F3139601986264232%2F&show_text=false&width=560&t=0',
     questions: [
@@ -83,7 +84,7 @@ const videolezioni = [
     title: '6. Passo a due senza impronte',
     diretta: '',
     description:
-      'Materiale: scacchiera, tessere da colorare, pennarelli (o matite) rosse, gialle, grigie. Approfondimento su CodyColor e gioco da pavimento: https://codemmoc.org/codycolor',
+      'Materiale: scacchiera, tessere da colorare, pennarelli (o matite) rosse, gialle, grigie. Approfondimento su CodyColor e gioco da pavimento: <a target="_blank" href="/metodi/codycolor">CodyColor</a>',
     videoUrl:
       'https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fcoding4parents%2Fvideos%2F195299898391899%2F&show_text=false&width=560&t=0',
     questions: [
@@ -107,7 +108,7 @@ const videolezioni = [
     title: '8. Io Cody e tu Roby',
     diretta: 'Diretta streaming lunedì 9 marzo, ore 16:00 https://youtu.be/3krMvbQdFIY',
     description:
-      'Materiale: scacchiera con etichette, carte vai Avanti, carte girati a Sinistra, carte girati a Destra, pedine qualsiasi da posizionare sulla scacchiera. Approfondimento su CodyRoby e kit completo: http://codemooc.org/codyroby',
+      'Materiale: scacchiera con etichette, carte vai Avanti, carte girati a Sinistra, carte girati a Destra, pedine qualsiasi da posizionare sulla scacchiera. Approfondimento su CodyRoby e kit completo: <a target="_blank" href="/metodi/codyroby">CodyRoby</a>',
     videoUrl:
       'https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fcoding4parents%2Fvideos%2F246551629696173%2F&show_text=false&width=560&t=0',
     questions: [
@@ -352,44 +353,20 @@ const videolezioni = [
       >
     </p>
   </div>
-  <hr />
-  <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
-    <aside class="col-span-1 md:sticky md:top-24 md:h-screen border-r bg-slate-100">
-      <div class="prose-page">
-        <h2>Contenuto</h2>
-      </div>
-      <ul class="pl-6 text-base">
-        {
-          videolezioni.map((lesson) => (
-            <li>
-              <a href={`#${lesson.id}`} class="">
-                {lesson.title}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </aside>
-    <div class="prose-page col-span-4">
-      {
-        videolezioni.map((lesson) => (
-          <div id={lesson.id} class="mb-8">
-            <h3 class="text-2xl font-semibold">{lesson.title}</h3>
-            {lesson.diretta && (
-              <p>
-                <strong>Diretta:</strong> {lesson.diretta}
-              </p>
-            )}
-            <p>{lesson.description}</p>
-            <iframe src={lesson.videoUrl} width="560" height="314" frameborder="0" allowfullscreen loading="lazy" />
-            <ul>
-              {lesson.questions.map((question) => (
-                <li>- {question}</li>
-              ))}
-            </ul>
-          </div>
-        ))
-      }
-    </div>
+
+  <div class="prose-page">
+    {
+      videolezioni.map((lesson) => (
+        <VideoFaqStyle
+          id={lesson.id}
+          title={lesson.title}
+          description={lesson.description}
+          videoUrl={lesson.videoUrl}
+          questions={lesson.questions}
+          diretta={lesson.diretta}
+          client:load
+        />
+      ))
+    }
   </div>
 </Layout>
