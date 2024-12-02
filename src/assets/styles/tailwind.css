@@ -135,7 +135,7 @@
 } */
 
 a {
-  @apply hover:text-blue-800 cursor-pointer;
+  @apply text-orange-500 hover:text-orange-600 cursor-pointer;
 }
 
 .btn-shadow-box {
