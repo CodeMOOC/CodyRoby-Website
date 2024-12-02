@@ -2,12 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { parse } from 'csv-parse/browser/esm';
 import { Icon } from '@iconify/react';
 import IconSelect from './ui/IconSelect';
+import Filter from './ui/Filter.tsx';
 
 export default function DynamicSpreadsheet() {
   type Row = {
+    data: string;
+    nome: string;
+    descrizione: string;
+    url_video: string;
+    nome_immagine: string;
     metodo: string;
-    toolkit: string;
-    [key: string]: any;
+    target: string;
   };
 
   const spreadshettPath = import.meta.env.PUBLIC_SPREADSHEET_URL;
@@ -16,22 +21,22 @@ export default function DynamicSpreadsheet() {
 
   const [filters, setFilters] = useState<{
     metodo: string[];
-    toolkit: string[];
+    target: string[];
   }>({
     metodo: [],
-    toolkit: [],
+    target: [],
   });
 
   const [metodi, setMetodi] = useState([
-    { name: 'CodyRoby', selected: false },
-    { name: 'CodyColor', selected: false },
-    { name: 'CodyFeet', selected: false },
+    { name: 'CodyRoby', selected: false, color: 'yellow' },
+    { name: 'CodyColor', selected: false, color: 'green' },
+    { name: 'CodyFeet', selected: false, color: 'red' },
   ]);
 
-  const [toolkits, setToolkits] = useState([
-    { name: 'Infanzia', selected: false },
-    { name: 'Primaria', selected: false },
-    { name: 'Secondaria', selected: false },
+  const [target, setTarget] = useState([
+    { name: 'Infanzia', selected: false, color: 'yellow' },
+    { name: 'Primaria', selected: false, color: 'green' },
+    { name: 'Secondaria', selected: false, color: 'red' },
   ]);
 
   const handleFilterSelection = ({ filter, value }) => {
@@ -49,8 +54,8 @@ export default function DynamicSpreadsheet() {
       setMetodi((prevMetodi) =>
         prevMetodi.map((item) => (item.name === value ? { ...item, selected: !item.selected } : item))
       );
-    } else if (filter === 'toolkit') {
-      setToolkits((prevTargets) =>
+    } else if (filter === 'target') {
+      setTarget((prevTargets) =>
         prevTargets.map((item) => (item.name === value ? { ...item, selected: !item.selected } : item))
       );
     }
@@ -60,8 +65,8 @@ export default function DynamicSpreadsheet() {
 
   const filteredRows = rows.filter((row: Row) => {
     const metodiMatch = filters.metodo.length === 0 || filters.metodo.includes(row.metodo);
-    const toolkitMatch = filters.toolkit.length === 0 || filters.toolkit.includes(row.toolkit);
-    return metodiMatch && toolkitMatch;
+    const targetMatch = filters.target.length === 0 || filters.target.includes(row.target);
+    return metodiMatch && targetMatch;
   });
 
   useEffect(() => {
@@ -85,6 +90,13 @@ export default function DynamicSpreadsheet() {
     fetchSpreadsheetData();
   }, []);
 
+  // getColor set for each filter
+  const getColor = (category: 'metodo' | 'target', name: string) => {
+    const list = category === 'metodo' ? metodi : target;
+    const item = list.find((item) => item.name === name);
+    return item ? item.color : 'black';
+  };
+
   return (
     <div className="prose-page">
       <div className="flex justify-start items-center gap-4 ">
@@ -97,9 +109,9 @@ export default function DynamicSpreadsheet() {
           onFilterSelection={handleFilterSelection}
         />
         <IconSelect
-          options={toolkits}
+          options={target}
           icon="pepicons-pop:label"
-          filter="toolkit"
+          filter="target"
           onFilterSelection={handleFilterSelection}
         />
       </div>
@@ -122,12 +134,12 @@ export default function DynamicSpreadsheet() {
               </button>
             )
         )}
-        {toolkits.map(
+        {target.map(
           (t) =>
             t.selected && (
               <button
                 key={t.name}
-                onClick={() => handleFilterSelection({ filter: 'toolkit', value: t.name })}
+                onClick={() => handleFilterSelection({ filter: 'target', value: t.name })}
                 className="flex items-center border rounded-full border-black px-2 ease-in-out duration-300 hover:bg-red-100"
               >
                 <Icon
@@ -140,28 +152,33 @@ export default function DynamicSpreadsheet() {
             )
         )}
       </div>
-      <hr className="my-6 not-prose" />
+      <hr className="my-6 " />
       {rows.length > 0 ? (
-        <table>
-          <thead>
-            <tr>
-              {Object.keys(rows[0]).map((header) => (
-                <th key={header}>{header}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {filteredRows.map((row, index) => (
-              <tr key={index}>
-                {Object.values(row).map((value: string, colIndex) => (
-                  <td key={colIndex}>{value}</td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <div className="flex gap-4">
+          {filteredRows.map((row, index) => (
+            <a
+              className="flex flex-col items-center border px-6 py-4 rounded-xl hover:bg-[#f3f0f0c2]"
+              href={row.url_video}
+              key={index}
+              target="_blank"
+            >
+              <img
+                src={`/src/assets/images/attivita-in-diretta/${row.nome_immagine}`}
+                alt=""
+                className="max-w-[200px]"
+              />
+              <h3>{row.nome}</h3>
+              <div className="flex gap-2">
+                <Filter name={row.metodo} color={getColor('metodo', row.metodo)} />
+                <Filter name={row.target} color={getColor('target', row.target)} />
+              </div>
+            </a>
+          ))}
+        </div>
       ) : (
-        <p>Loading...</p>
+        <div className="flex justify-center">
+          <p>Loading...</p>
+        </div>
       )}
     </div>
   );
