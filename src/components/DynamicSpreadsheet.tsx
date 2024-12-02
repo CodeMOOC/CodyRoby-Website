@@ -173,7 +173,7 @@ export default function DynamicSpreadsheet() {
               target="_blank"
             >
               <img
-                src={`/src/assets/images/attivita-in-diretta/${row.nome_immagine}`}
+                src={`/src/assets/images/risorse/attivita-in-diretta/${row.nome_immagine}`}
                 alt=""
                 className="max-w-[200px]"
               />
