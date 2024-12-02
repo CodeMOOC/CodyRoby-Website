@@ -80,7 +80,17 @@ export default function DynamicSpreadsheet() {
             console.error('Error parsing CSV:', err);
             return;
           }
-          setRows(records);
+
+          // Sort records by date
+          const sortedRecords = records.sort((a: Row, b: Row) => {
+            // Convert to "year-month-day"
+            const dateA = new Date(a.data.split('/').reverse().join('-'));
+            const dateB = new Date(b.data.split('/').reverse().join('-'));
+            // Descending order
+            return dateB.getTime() - dateA.getTime();
+          });
+
+          setRows(sortedRecords);
         });
       } catch (error) {
         console.error('Error fetching spreadsheet data:', error);
@@ -154,7 +164,7 @@ export default function DynamicSpreadsheet() {
       </div>
       <hr className="my-6 " />
       {rows.length > 0 ? (
-        <div className="flex gap-4">
+        <div className="flex justify-center  gap-4">
           {filteredRows.map((row, index) => (
             <a
               className="flex flex-col items-center border px-6 py-4 rounded-xl hover:bg-[#f3f0f0c2]"
@@ -167,10 +177,13 @@ export default function DynamicSpreadsheet() {
                 alt=""
                 className="max-w-[200px]"
               />
-              <h3>{row.nome}</h3>
-              <div className="flex gap-2">
-                <Filter name={row.metodo} color={getColor('metodo', row.metodo)} />
-                <Filter name={row.target} color={getColor('target', row.target)} />
+              <div className="not-prose">
+                <h3 className="text-2xl">{row.nome}</h3>
+                {row.descrizione && <p className="text-base text-slate-700 mt-2">{row.descrizione}</p>}
+                <div className="flex gap-2 mt-2">
+                  <Filter name={row.metodo} color={getColor('metodo', row.metodo)} />
+                  <Filter name={row.target} color={getColor('target', row.target)} />
+                </div>
               </div>
             </a>
           ))}
