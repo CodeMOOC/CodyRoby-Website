@@ -1,0 +1,28 @@
+---
+import { Image } from 'astro:assets';
+
+const { pdf, pdfBn, image, imageBn, description } = Astro.props;
+---
+
+<div
+  class="m-auto flex flex-nowrap flex-col items-center gap-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+>
+  <div class="description" set:html={description} />
+
+  <div class="flex w-full sm:w-auto !text-white no-underline">
+    {
+      image && pdf && (
+        <a href={pdf} target="_blank">
+          <Image src={image} alt="Main card image" />
+        </a>
+      )
+    }
+    {
+      imageBn && pdfBn && (
+        <a href={pdfBn} target="_blank">
+          <Image src={imageBn} alt="Black and white card image" />
+        </a>
+      )
+    }
+  </div>
+</div>
