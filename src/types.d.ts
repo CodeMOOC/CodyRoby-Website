@@ -53,6 +53,16 @@ export interface Post {
   readingTime?: number;
 }
 
+export interface ButtonExplanationData {
+  action: string;
+  image: {
+    src: string;
+    width: number;
+    height: number;
+  };
+  text: string;
+}
+
 export interface ProductPublication {
   id: string;
 

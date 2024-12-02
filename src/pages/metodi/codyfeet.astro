@@ -60,6 +60,7 @@ import wocStop150 from '~/assets/images/metodi/codyfeet/CodyFeet-WoC-stop-150x15
 
 import codyFeetGame from '~/../public/codyfeet/codyFeetGame.pdf';
 import CodyFeetCC from '~/../public/codyfeet/CodyFeet-CC.pdf';
+import type { ButtonExplanationData } from '~/types';
 
 const metadata = {
   title: 'CodyFeet',
@@ -67,29 +68,29 @@ const metadata = {
   tagline: 'Metodi',
 };
 
-const cardsSymbols = [
+const cardsSymbols: ButtonExplanationData[] = [
   {
-    color: 'Ahead',
+    action: 'Ahead',
     image: ahead,
     text: '(dritto): colore grigio, punto d’uscita sul lato opposto a quello d’ingresso, impronte lungo la direzione ingresso-uscita.',
   },
   {
-    color: 'Left',
+    action: 'Left',
     image: left,
     text: '(sinistra): colore giallo, punto d’uscita sul lato sinistro della tessera rispetto al punto di ingresso, impronte ruotate di 90 gradi a sinistra rispetto al punto di ingresso.',
   },
   {
-    color: 'Right',
+    action: 'Right',
     image: right,
     text: '(destra): colore rosso, punto d’uscita sul lato destro della tessera rispetto al punto di ingresso, impronte ruotate di 90 gradi a destra rispetto al punto di ingresso.',
   },
   {
-    color: 'Start',
+    action: 'Start',
     image: start,
     text: "(partenza): colore azzurro, nessun punto di ingresso, triangolo al centro orientato verso il lato d'uscita.",
   },
   {
-    color: 'Stop',
+    action: 'Stop',
     image: stop,
     text: '(arrivo): colore azzurro, nessun punto di uscita, cerchietto al centro.',
   },
@@ -228,11 +229,7 @@ const videolezioni = [
   </div>
 
   <AnimateText>
-    <div class="prose-page">
-      <div class="border border-black p-4 rounded-lg bg-slate-100 dark:bg-slate-700">
-        <ButtonSelection buttons={cardsSymbols} client:load />
-      </div>
-    </div>
+    <ButtonSelection buttons={cardsSymbols} client:load />
   </AnimateText>
   <div class="prose-page">
     <AnimateText>

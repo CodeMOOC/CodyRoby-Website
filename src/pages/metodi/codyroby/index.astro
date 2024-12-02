@@ -15,9 +15,10 @@ import Button from '../../../components/ui/Button.astro';
 import og from '~/../public/codyroby/openGraph.jpeg';
 import type { MetaData } from '~/types';
 import merge from 'lodash.merge';
+import type { ButtonExplanationData } from '~/types';
 
-const codyRobyStarter = 'codyRobyStarter.pdf';
-const codyRobyCard = 'CodyRobyCards.pdf';
+const codyRobyStarter = '/codyRobyStarter.pdf';
+const codyRobyCard = '/CodyRobyCards.pdf';
 
 const openGraphImage = og;
 
@@ -42,34 +43,34 @@ const metadata = merge({
 
 const tagline = 'Metodi';
 
-const cardsSymbols = [
+const cardsSymbols: ButtonExplanationData[] = [
   {
-    color: 'Scacchiera',
+    action: 'Scacchiera',
     image: scacchiera,
     text: 'Carta patinata bianca, A4, 250g',
   },
   {
-    color: 'Carte Girati a Sinistra',
+    action: 'Carte Girati a Sinistra',
     image: sinistra,
     text: 'Carta patinata bianca, A4, 250g, lato lungo',
   },
   {
-    color: 'Carte Vai Avanti',
+    action: 'Carte Vai Avanti',
     image: dritto,
     text: 'Carta patinata bianca, A4, 250g, lato lungo',
   },
   {
-    color: 'Carte Girati a Destra',
+    action: 'Carte Girati a Destra',
     image: destra,
     text: 'Carta patinata bianca, A4, 250g, lato lungo',
   },
   {
-    color: 'Speciali',
+    action: 'Speciali',
     image: speciali,
     text: 'Carta patinata bianca, A4, 250g, lato lungo',
   },
   // {
-  //   color: 'target',
+  //   action: 'target',
   //   image: target,
   //   text: 'Target (arrivo): colore azzurro. Tessera da disporre all’esterno della scacchiera, in corrispondenza del punto da cui si prevede (o si chiede) che Roby esca dalla scacchiera dopo averla percorsa. [non è indispensabile, si consiglia di stamparne 2]',
   // },
@@ -120,7 +121,7 @@ const cardsSymbols = [
           class="w-full sm:mb-0"
           variant="primary"
           text="Scarica CodyRoby Starter Kit"
-          href={codyRobyStarter}
+          href={`${codyRobyStarter}`}
           target="_blank"
           icon="tabler:download"
         />
@@ -150,35 +151,33 @@ const cardsSymbols = [
         > e <a href="https://www.slideshare.net/alessandrobogliolo/codyrobyhoc" target="_blank">in queste slide</a>.
       </p>
 
-      <div class="prose-page">
-        <div class="border border-black mx-4 p-4 rounded-lg bg-slate-100 dark:bg-slate-700">
-          <ButtonSelection buttons={cardsSymbols} client:load />
-        </div>
-      </div>
-
-      <p>
-        Premendo il pulsante, <em>Scarica CodyRoby</em>, che permette di scaricare il file pdf sono riportate le opzioni
-        di stampa consigliate.
-      </p>
-      <Hero
-        actions={[
-          {
-            variant: 'primary',
-            text: 'Scarica CodyRoby',
-            href: codyRobyCard,
-            target: '_blank',
-            icon: 'tabler:download',
-          },
-        ]}
-      />
-
-      <p>
-        Nella scuola dell’<strong>infanzia</strong> o nei primi anni della <strong>primaria</strong>, o in ogni
-        situazione in cui si faccia un <strong> uso collettivo </strong> del kit CodyRoby su scacchiere a terra si consiglia
-        di utilizzare il <a href="codyroby/codyroby-gigante">CodyRoby Gigante</a>
-      </p>
+      <ButtonSelection buttons={cardsSymbols} client:load />
     </AnimateText>
-    <!-- <h2>I giochi</h2>
+  </div>
+
+  <p>
+    Premendo il pulsante, <em>Scarica CodyRoby</em>, che permette di scaricare il file pdf sono riportate le opzioni di
+    stampa consigliate.
+  </p>
+  <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Scarica CodyRoby',
+        href: codyRobyCard,
+        target: '_blank',
+        icon: 'tabler:download',
+      },
+    ]}
+  />
+
+  <p>
+    Nella scuola dell’<strong>infanzia</strong> o nei primi anni della <strong>primaria</strong>, o in ogni situazione
+    in cui si faccia un <strong> uso collettivo </strong> del kit CodyRoby su scacchiere a terra si consiglia di utilizzare
+    il <a href={'codyroby/codyroby-gigante'}>CodyRoby Gigante</a>
+  </p>
+</Layout>
+<!-- <h2>I giochi</h2>
     <div class="flex flex-col md:flex-row gap-4 justify-between">
       <Button text="Seguimi" href={'codyroby/giochi/seguimi'} class="self-center" />
       <a
@@ -200,64 +199,62 @@ const cardsSymbols = [
       <Button text="La Turista" href={'codyroby/giochi/la-turista'} class="self-center" />
     </div> -->
 
-    <div class="flex flex-col gap-4">
-      <h2>I video tutorial</h2>
-      <h3>Preparazione del kit base</h3>
-      <div class="flex justify-center mt-11">
-        <iframe
-          width="600"
-          height="400"
-          src="https://www.youtube.com/embed/k-tzLwbTOFg"
-          title="CodyRoby tutorial: Building the Kit"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen></iframe>
-      </div>
-      <h3>The Race: La corsa</h3>
-
-      <div class="flex justify-center mt-11">
-        <iframe
-          width="600"
-          height="400"
-          src="https://www.youtube.com/embed/izpB0Cvl0tk?start=19"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen></iframe>
-      </div>
-
-      <h3>The Duel: Il duello</h3>
-      <div class="flex justify-center mt-11">
-        <iframe
-          width="600"
-          height="400"
-          src="https://www.youtube.com/embed/JiGjrOwOz6Y"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen></iframe>
-      </div>
-
-      <h3>Snake: Il serpente</h3>
-      <div class="flex justify-center mt-11">
-        <iframe
-          width="600"
-          height="400"
-          src="https://www.youtube.com/embed/th0nbgo0PBs"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen></iframe>
-      </div>
-
-      <h3>Full-fill: Riempi-tutto</h3>
-      <div class="flex justify-center mt-11">
-        <iframe
-          width="600"
-          height="400"
-          src="https://www.youtube.com/embed/XqWRDab5GDw?si=N5tyHx-A4sO1yvTy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen></iframe>
-      </div>
-    </div>
+<div class="flex flex-col gap-4">
+  <h2>I video tutorial</h2>
+  <h3>Preparazione del kit base</h3>
+  <div class="flex justify-center mt-11">
+    <iframe
+      width="600"
+      height="400"
+      src="https://www.youtube.com/embed/k-tzLwbTOFg"
+      title="CodyRoby tutorial: Building the Kit"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen></iframe>
   </div>
-</Layout>
+  <h3>The Race: La corsa</h3>
+
+  <div class="flex justify-center mt-11">
+    <iframe
+      width="600"
+      height="400"
+      src="https://www.youtube.com/embed/izpB0Cvl0tk?start=19"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen></iframe>
+  </div>
+
+  <h3>The Duel: Il duello</h3>
+  <div class="flex justify-center mt-11">
+    <iframe
+      width="600"
+      height="400"
+      src="https://www.youtube.com/embed/JiGjrOwOz6Y"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen></iframe>
+  </div>
+
+  <h3>Snake: Il serpente</h3>
+  <div class="flex justify-center mt-11">
+    <iframe
+      width="600"
+      height="400"
+      src="https://www.youtube.com/embed/th0nbgo0PBs"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen></iframe>
+  </div>
+
+  <h3>Full-fill: Riempi-tutto</h3>
+  <div class="flex justify-center mt-11">
+    <iframe
+      width="600"
+      height="400"
+      src="https://www.youtube.com/embed/XqWRDab5GDw?si=N5tyHx-A4sO1yvTy"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen></iframe>
+  </div>
+</div>

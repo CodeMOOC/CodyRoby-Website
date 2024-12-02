@@ -6,12 +6,64 @@ import AnimateText from '~/components/ui/AnimateText.astro';
 
 import dressCodeComponenti from '~/assets/pdf/metodi/altri-metodi/dresscode/dressCode-componenti.pdf';
 import dressCodeGioco from '~/assets/pdf/metodi/altri-metodi/dresscode/dressCode-gioco.pdf';
+import ButtonSelection from '~/components/ui/ButtonsSelection';
+
+import tabellone from '~/assets/images/metodi/altri-metodi/dresscode/dress-code-cards-board-212x300.png';
+import vestiti from '~/assets/images/metodi/altri-metodi/dresscode/dress-code-elements-212x300.png';
+import sequenzaCorretta from '~/assets/images/metodi/altri-metodi/dresscode/dress-code-sequence-212x300.png';
+
+import istruzioniVestirsi from '~/assets/images/metodi/altri-metodi/dresscode/dress-code-cards-in-212x300.png';
+import istruzioniSvestirsi from '~/assets/images/metodi/altri-metodi/dresscode/dress-code-cards-out-212x300.png';
+import istruzioniIncrementali from '~/assets/images/metodi/altri-metodi/dresscode/dress-code-sfide1-212x300.png';
+import istruzioniDistratte from '~/assets/images/metodi/altri-metodi/dresscode/dress-code-sfide2-212x300.png';
+
+import type { ButtonExplanationData } from '~/types';
 
 const metadata = {
   title: 'DressCode',
   tagline: 'Altri Metodi',
   subtitle: '',
 };
+
+const materialCards: ButtonExplanationData[] = [
+  {
+    action: 'Tabellone',
+    image: tabellone,
+    text: '',
+  },
+  {
+    action: 'Vestiti',
+    image: vestiti,
+    text: '',
+  },
+  {
+    action: 'Sequenza corretta',
+    image: sequenzaCorretta,
+    text: '',
+  },
+];
+const challengeCards = [
+  {
+    action: 'Istruzioni per vestirsi ',
+    image: istruzioniVestirsi,
+    text: '',
+  },
+  {
+    action: 'Istruzioni per svestirsi',
+    image: istruzioniSvestirsi,
+    text: '',
+  },
+  {
+    action: 'Sfide incrementali',
+    image: istruzioniIncrementali,
+    text: '',
+  },
+  {
+    action: 'Sfide distratte',
+    image: istruzioniDistratte,
+    text: '',
+  },
+];
 ---
 
 <Layout metadata={metadata}>
@@ -39,6 +91,7 @@ const metadata = {
         disposte in sequenza (da sinistra a destra o dall’alto al basso), per indicare la sequenza di indumenti da
         indossare o da togliere.
       </p>
+
       <div class="video-container">
         <iframe
           width="560"
@@ -51,6 +104,33 @@ const metadata = {
         >
         </iframe>
       </div>
+    </div>
+    <div class="prose-page mt-11 flex flex-col gap-6">
+      <h2>Materiale</h2>
+      <p>
+        Il tabellone e le sagome dei vestiti possono essere usati per verificare la correttezza delle mosse. Possono
+        essere stampati in formato A4 o A3. Il tabellone può essere stampato su cartoncino. È possibile stamparlo due
+        volte per ottenere una base e una sagoma rialzata (in negativo) utile a contenere le sagome dei vestiti
+        mantenendoli nella giusta posizione.
+      </p>
+      <ButtonSelection buttons={materialCards} client:load />
+
+      <div class="download-button-div">
+        <div class="flex w-full sm:w-auto">
+          <Button
+            class="w-full sm:mb-0"
+            variant="primary"
+            text="Scarica il materiale"
+            href={dressCodeComponenti}
+            target="_blank"
+            icon="tabler:download"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="prose-page mt-11 flex flex-col gap-6">
+      <h2>Sfide</h2>
+
       <p>
         Le carte chiamate <strong>SFIDA</strong> non rappresentano istruzioni, ma condizioni iniziali e finali. Le sfide
         rosse rappresentano fasi della vestizione corretta di Babbo Natale. Le sfide color petrolio rappresentano combinazioni
@@ -58,37 +138,18 @@ const metadata = {
         finale. Lo scopo del gioco è programmare la sequenza di azioni che Babbo Natale deve compiere per passare dall’una
         all’altra.
       </p>
-    </div>
-    <div class="download-button-div">
-      <div class="flex w-full sm:w-auto">
-        <Button
-          class="w-full sm:mb-0"
-          variant="primary"
-          text="Scarica le carte sfida"
-          href={dressCodeGioco}
-          target="_blank"
-          icon="tabler:download"
-        />
-      </div>
-    </div>
-    <div class="prose-page">
-      <p>
-        Il tabellone e le sagome dei vestiti possono essere usati per verificare la correttezza delle mosse. Possono
-        essere stampati in formato A4 o A3. Il tabellone può essere stampato su cartoncino. È possibile stamparlo due
-        volte per ottenere una base e una sagoma rialzata (in negativo) utile a contenere le sagome dei vestiti
-        mantenendoli nella giusta posizione.
-      </p>
-    </div>
-    <div class="download-button-div">
-      <div class="flex w-full sm:w-auto">
-        <Button
-          class="w-full sm:mb-0"
-          variant="primary"
-          text="Scarica il materiale"
-          href={dressCodeComponenti}
-          target="_blank"
-          icon="tabler:download"
-        />
+      <ButtonSelection buttons={challengeCards} client:load />
+      <div class="download-button-div">
+        <div class="flex w-full sm:w-auto">
+          <Button
+            class="w-full sm:mb-0"
+            variant="primary"
+            text="Scarica le carte sfida"
+            href={dressCodeGioco}
+            target="_blank"
+            icon="tabler:download"
+          />
+        </div>
       </div>
     </div>
   </AnimateText>

@@ -13,6 +13,7 @@ import red from '~/assets/images/metodi/codycolor/red-150x150.png';
 import grey from '~/assets/images/metodi/codycolor/grey-150x150.png';
 import start from '~/assets/images/metodi/codycolor/start-150x150.png';
 import target from '~/assets/images/metodi/codycolor/target-150x150.png';
+import type { ButtonExplanationData } from '~/types';
 
 const metadata = {
   title: 'CodyColor',
@@ -20,29 +21,29 @@ const metadata = {
   tagline: 'Metodi',
 };
 
-const cardsSymbols = [
+const cardsSymbols: ButtonExplanationData[] = [
   {
-    color: 'grey',
+    action: 'grey',
     image: grey,
     text: 'Ahead (diritto): colore grigio, la tessera viene attraversata da Roby senza alcuna rotazione, uscendo dal lato opposto a quello di ingresso. [stamparne 25 per giocare su una scacchiera 5×5]',
   },
   {
-    color: 'red',
+    action: 'red',
     image: red,
     text: 'Right (destra): colore rosso, impone a Roby una rotazione di 90 gradi in senso orario, così che Roby esce dalla casella sul lato che vede alla propria destra entrando. [stamparne 25 per giocare su una scacchiera 5×5]',
   },
   {
-    color: 'yellow',
+    action: 'yellow',
     image: yellow,
     text: 'Left (sinistra): colore giallo, impone a Roby una rotazione di 90 gradi in senso antiorario, così che Roby esce dalla casella sul lato che vede alla propria sinistra entrando. [stamparne 25 per giocare su una scacchiera 5×5]',
   },
   {
-    color: 'start',
+    action: 'start',
     image: start,
     text: 'Start (partenza): colore azzurro. Tessera da disporre all’esterno della scacchiera, con la freccia rivolta verso una casella del bordo della scacchiera. Indica il punto di ingresso di Roby nella scacchiera. [non è indispensabile, si consiglia di stamparne 2]',
   },
   {
-    color: 'target',
+    action: 'target',
     image: target,
     text: 'Target (arrivo): colore azzurro. Tessera da disporre all’esterno della scacchiera, in corrispondenza del punto da cui si prevede (o si chiede) che Roby esca dalla scacchiera dopo averla percorsa. [non è indispensabile, si consiglia di stamparne 2]',
   },
@@ -129,11 +130,7 @@ const cardsSymbols = [
   </div>
 
   <AnimateText>
-    <div class="prose-page">
-      <div class="border border-black p-4 rounded-lg bg-slate-100 dark:bg-slate-700">
-        <ButtonSelection buttons={cardsSymbols} client:load />
-      </div>
-    </div>
+    <ButtonSelection buttons={cardsSymbols} client:load />
   </AnimateText>
   <div class="prose-page">
     <AnimateText>
