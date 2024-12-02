@@ -52,7 +52,8 @@ const ButtonSelection: React.FC<ButtonSelectionProps> = ({ buttons }) => {
             (button) =>
               active === button.action && (
                 <p key={button.action}>
-                  <strong>{button.action}</strong>: {button.text}
+                  <strong>{button.action}</strong>
+                  {button.text && `: ${button.text}`}
                 </p>
               )
           )}
