@@ -58,7 +58,6 @@ import wocStart150 from '~/assets/images/metodi/codyfeet/CodyFeet-WoC-start-150x
 import wocStop from '~/assets/images/metodi/codyfeet/CodyFeet-WoC-stop.png';
 import wocStop150 from '~/assets/images/metodi/codyfeet/CodyFeet-WoC-stop-150x150.png';
 
-import codyFeetGame from '~/../public/codyfeet/codyFeetGame.pdf';
 import CodyFeetCC from '~/../public/codyfeet/CodyFeet-CC.pdf';
 import type { ButtonExplanationData } from '~/types';
 
@@ -260,7 +259,7 @@ const videolezioni = [
           CodyFeetWoC.map((el) => {
             console.log(el.src);
             return (
-              <a target="_blank" href={el.src.src}>
+              <a target="_blank" href={el.src.src} class="hover:bg-slate-200">
                 <Image src={el.thumbnail} alt={el.alt} />
               </a>
             );
@@ -273,7 +272,7 @@ const videolezioni = [
           CodyFeetCoW.map((el) => {
             console.log(el.src);
             return (
-              <a target="_blank" href={el.src.src}>
+              <a target="_blank" href={el.src.src} class="hover:bg-slate-200">
                 <Image src={el.thumbnail} alt={el.alt} />
               </a>
             );
@@ -286,7 +285,7 @@ const videolezioni = [
           CodyFeetW.map((el) => {
             console.log(el.src);
             return (
-              <a target="_blank" href={el.src.src}>
+              <a target="_blank" href={el.src.src} class="hover:bg-slate-200">
                 <Image src={el.thumbnail} alt={el.alt} />
               </a>
             );
@@ -420,7 +419,7 @@ const videolezioni = [
         CodyFeetFree.map((el) => {
           console.log(el.src);
           return (
-            <a target="_blank" href={el.src.src}>
+            <a target="_blank" href={el.src.src} class="hover:bg-slate-200">
               <Image src={el.thumbnail} alt={el.alt} />
             </a>
           );

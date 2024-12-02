@@ -111,12 +111,12 @@ export const footerData = {
     {
       ariaLabel: 'YouTube',
       icon: 'tabler:brand-youtube',
-      href: 'https://www.youtube.com/channel/UCtcyXCuAy_NHusocxuERuXA',
+      href: 'https://www.youtube.com/@CodeMOOC',
     },
   ],
   footNote: `
     
-    <p>&copy; ${currentYear} CodyRoby. Tutti i diritti riservati.</p>
+    <p>&copy; ${currentYear} Alessandro Bogliolo. Tutti i diritti riservati.</p>
 
   `,
 };
