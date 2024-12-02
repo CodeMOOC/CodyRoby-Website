@@ -4,7 +4,6 @@ export interface Props {
 }
 
 const Filter = (props: Props) => {
-  console.log('props ', props.color);
   return (
     <div
       className="border border-black not-prose rounded-full px-2 py-1"
