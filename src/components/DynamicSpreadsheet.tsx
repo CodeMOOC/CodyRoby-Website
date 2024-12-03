@@ -61,8 +61,6 @@ export default function DynamicSpreadsheet() {
     }
   };
 
-  const isMetodiSelected = metodi.some((m) => m.selected);
-
   const filteredRows = rows.filter((row: Row) => {
     const metodiMatch = filters.metodo.length === 0 || filters.metodo.includes(row.metodo);
     const targetMatch = filters.target.length === 0 || filters.target.includes(row.target);
@@ -164,7 +162,7 @@ export default function DynamicSpreadsheet() {
       </div>
       <hr className="my-6 " />
       {rows.length > 0 ? (
-        <div className="flex justify-center  gap-4">
+        <div className="flex flex-col md:flex-row justify-center  gap-4">
           {filteredRows.map((row, index) => (
             <a
               className="flex flex-col items-center border px-6 py-4 rounded-xl hover:bg-[#f3f0f0c2]"

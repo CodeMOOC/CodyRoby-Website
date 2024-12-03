@@ -14,6 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     env: 
       PUBLIC_SPREADSHEET_URL: ${{ secrets.PUBLIC_SPREADSHEET_URL }}
+      PUBLIC_REPO_BASE: ${{ secrets.PUBLIC_REPO_BASE }}
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
@@ -24,7 +25,8 @@ jobs:
         with:
           package-manager: npm@latest 
         env:
-          PUBLIC_SPREADSHEET_URL: ${{ secrets.PUBLIC_SPREADSHEET_URL }} # Explicitly pass here in case of scoping issues
+          PUBLIC_SPREADSHEET_URL: ${{ secrets.PUBLIC_SPREADSHEET_URL }}
+          PUBLIC_REPO_BASE: ${{ secrets.PUBLIC_REPO_BASE }}
 
       # Additional step to verify build output
       - name: Verify Build Output

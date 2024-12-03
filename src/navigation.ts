@@ -1,6 +1,5 @@
 import { getPermalink, getAsset } from './utils/permalinks';
 
-// const basePath = import.meta.env.REPO_BASE;
 const basePath = '/';
 const metodiPath = `${basePath}/metodi`;
 const appPath = `${basePath}/risorse`;
