@@ -19,27 +19,20 @@ import codyfeet from '~/assets/images/home/metodo-codyfeet-bg.png';
 
 import bogliolo from '~/assets/images/home/Bogliolo.jpeg';
 
-import og from '~/../public/openGraph.jpeg';
 import type { MetaData } from '~/types';
-
-const openGraphImage = og;
 
 const metadata = merge({
   title: 'CodyRoby',
   tagline: 'Metodi',
   ignoreTitleTemplate: true,
   openGraph: {
-    ...(openGraphImage
-      ? {
-          images: [
-            {
-              url: og,
-              width: (openGraphImage as ImageMetadata)?.width,
-              height: (openGraphImage as ImageMetadata)?.height,
-            },
-          ],
-        }
-      : {}),
+    images: [
+      {
+        url: '/openGraph.jpeg',
+        width: 1280,
+        height: 720,
+      },
+    ],
   },
 }) as MetaData;
 
@@ -105,7 +98,6 @@ const toolkit = [
   <Hero image={{ src: banner, alt: 'CodyRoby' }}>
     <Fragment slot="title">
       <span class="text-slate-800 highlight">CodyRoby</span><br />
-      <span class="text-[#477DFD]"></span>
     </Fragment>
 
     <Fragment slot="subtitle">
