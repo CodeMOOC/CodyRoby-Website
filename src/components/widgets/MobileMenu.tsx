@@ -71,7 +71,7 @@ const MobileMenu = ({ links, currentPath }) => {
                                       {subLinks2.map(({ text: text3, href: href3, target: target3 = '' }) => (
                                         <li key={text3}>
                                           <a
-                                            className={`first:rounded-t last:rounded-b md:hover:bg-gray-200 hover:text-link dark:hover:text-white dark:hover:bg-gray-700 py-2 px-5 block whitespace-no-wrap ${
+                                            className={`no-underline text-[rgba(0,0,0,0.788)] hover:text-black first:rounded-t last:rounded-b md:hover:bg-gray-200 hover:text-link dark:hover:text-white dark:hover:bg-gray-700 py-2 px-5 block whitespace-no-wrap ${
                                               href3 === currentPath ? 'aw-link-active' : ''
                                             }`}
                                             href={href3}
@@ -86,7 +86,7 @@ const MobileMenu = ({ links, currentPath }) => {
                                 </div>
                               ) : (
                                 <a
-                                  className={`flex gap-2 first:rounded-t last:rounded-b md:hover:bg-gray-200 hover:text-link dark:hover:text-white dark:hover:bg-gray-700 py-2 px-5 whitespace-no-wrap items-center ${
+                                  className={`no-underline text-[rgba(0,0,0,0.788)] hover:text-black flex gap-2 first:rounded-t last:rounded-b md:hover:bg-gray-200 hover:text-link dark:hover:text-white dark:hover:bg-gray-700 py-2 px-5 whitespace-no-wrap items-center ${
                                     href2 === currentPath ? 'aw-link-active' : ''
                                   }`}
                                   href={href2}
@@ -104,7 +104,7 @@ const MobileMenu = ({ links, currentPath }) => {
                 </>
               ) : (
                 <a
-                  className={`hover:text-link dark:hover:text-white px-4 py-3 flex items-center whitespace-nowrap gap-2 ${
+                  className={`no-underline text-[rgba(0,0,0,0.788)] hover:text-black hover:text-link dark:hover:text-white px-4 py-3 flex items-center whitespace-nowrap gap-2 ${
                     href === currentPath ? 'aw-link-active' : ''
                   }`}
                   href={href}
