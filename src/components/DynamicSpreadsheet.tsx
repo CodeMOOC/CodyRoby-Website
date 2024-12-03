@@ -170,11 +170,7 @@ export default function DynamicSpreadsheet() {
               key={index}
               target="_blank"
             >
-              <img
-                src={`${import.meta.env.PUBLIC_REPO_BASE}/src/assets/images/risorse/attivita-in-diretta/${row.nome_immagine}`}
-                alt=""
-                className="max-w-[200px]"
-              />
+              <img src={`/attivita-in-diretta/${row.nome_immagine}`} alt="" className="max-w-[200px]" />
 
               <div className="not-prose">
                 <h3 className="text-2xl">{row.nome}</h3>
