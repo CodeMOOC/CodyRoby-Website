@@ -104,13 +104,13 @@ const props = Astro.props;
     </div>
 
     <!-- Mobile Menu -->
-    <nav class="hidden mt-11 w-full items-start text-default" aria-label="Mobile navigation">
+    <nav class="hidden mt-11 w-full items-start text-default overflow-y-scroll" aria-label="Mobile navigation">
       <MobileMenu links={links} currentPath={''} client:load />
     </nav>
 
     <!-- Desktop Menu -->
     <nav
-      class="hidden lg:flex items-center w-full lg:w-auto lg:mx-5 text-default overflow-y-auto overflow-x-hidden lg:overflow-y-visible lg:overflow-x-auto lg:justify-self-center"
+      class="hidden lg:flex items-center w-full lg:w-auto lg:mx-5 text-default lg:justify-self-center"
       aria-label="Desktop navigation"
     >
       <ul

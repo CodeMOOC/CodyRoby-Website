@@ -18,7 +18,7 @@ metadata:
   openGraph:
     site_name: CodyRoby
     images:
-      - url: ''
+      - url: '/openGraph.jpeg'
         width: 1200
         height: 630
     type: website
