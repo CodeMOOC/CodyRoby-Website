@@ -30,7 +30,7 @@ Per aggiungere correttamente le immagini da visualizzare nella pagina dinamica *
 1. Vai nella cartella dedicata alle immagini:
 
 ```
-assets > images > risorse > attivita-in-diretta
+public > risorse > attivita-in-diretta
 ```
 
 2. Inserisci l'immagine:
