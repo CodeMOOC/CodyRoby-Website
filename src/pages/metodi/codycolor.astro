@@ -15,10 +15,22 @@ import start from '~/assets/images/metodi/codycolor/start-150x150.png';
 import target from '~/assets/images/metodi/codycolor/target-150x150.png';
 import type { ButtonExplanationData } from '~/types';
 
+const ogImage = '/codycolor/open.jpeg';
+
 const metadata = {
   title: 'CodyColor',
   subtitle: 'Il gioco di coding a colori che sfida la tua logica',
+  description: 'Il gioco di coding a colori che sfida la tua logica',
   tagline: 'Metodi',
+  openGraph: {
+    images: [
+      {
+        url: ogImage,
+        width: 1280,
+        height: 720,
+      },
+    ],
+  },
 };
 
 const cardsSymbols: ButtonExplanationData[] = [

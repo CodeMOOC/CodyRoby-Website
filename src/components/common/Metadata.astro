@@ -9,7 +9,7 @@ import type { MetaData } from '~/types';
 import { getCanonical } from '~/utils/permalinks';
 
 import { adaptOpenGraphImages } from '~/utils/images';
-import defaultImage from '~/assets/images/default.png';
+const defaultImage = '/openGraph.jpg';
 
 export interface Props extends MetaData {
   dontUseTitleTemplate?: boolean;
@@ -66,13 +66,15 @@ const seoProps: AstroSeoProps = merge(
     openGraph: {
       url: canonical,
       ...openGraph,
-      images: openGraph?.images?.length ? openGraph.images : [{ url: defaultImage, width: 1200, height: 630 }],
+      images: openGraph?.images?.length ? openGraph.images : [{ url: defaultImage, width: 1200, height: 675 }],
+      // images: [{ url: defaultImage, width: 1200, height: 675 }],
+      // : [{ url: defaultImage, width: 1200, height: 630 }],
     },
     twitter: twitter,
   }
 );
 
-seoProps.openGraph = await adaptOpenGraphImages(seoProps?.openGraph, Astro.site);
+// seoProps.openGraph = await adaptOpenGraphImages(seoProps?.openGraph, Astro.site);
 ---
 
 <AstroSeo {...seoProps} />

@@ -61,10 +61,22 @@ import wocStop150 from '~/assets/images/metodi/codyfeet/CodyFeet-WoC-stop-150x15
 import CodyFeetCC from '~/../public/codyfeet/CodyFeet-CC.pdf';
 import type { ButtonExplanationData } from '~/types';
 
+const ogImage = '/codyfeet/openGraph.jpg';
+
 const metadata = {
   title: 'CodyFeet',
   subtitle: 'Metodo di Coding Unplugged per l’Età Prescolare',
+  description: 'Metodo di Coding Unplugged per l’Età Prescolare',
   tagline: 'Metodi',
+  openGraph: {
+    images: [
+      {
+        url: ogImage,
+        width: 1280,
+        height: 720,
+      },
+    ],
+  },
 };
 
 const cardsSymbols: ButtonExplanationData[] = [

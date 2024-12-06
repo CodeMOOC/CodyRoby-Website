@@ -100,10 +100,10 @@ export const headerData = {
 };
 
 export const footerData = {
-  secondaryLinks: [
-    { text: 'Terms', href: getPermalink('/terms') },
-    { text: 'Privacy Policy', href: getPermalink('/privacy') },
-  ],
+  // secondaryLinks: [
+  //   { text: 'Terms', href: getPermalink('/terms') },
+  //   { text: 'Privacy Policy', href: getPermalink('/privacy') },
+  // ],
   socialLinks: [
     { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: 'https://www.instagram.com/codemooc/' },
     { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: 'https://www.facebook.com/groups/CodeMOOC/' },

@@ -23,6 +23,8 @@ export interface Props {
 
 const { metadata = {} } = Astro.props;
 const { language, textDirection } = I18N;
+console.log('This are the metadata ', metadata.openGraph?.images);
+console.log('This are the metadata ', metadata);
 ---
 
 <!doctype html>

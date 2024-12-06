@@ -14,7 +14,6 @@ import dritto from '~/assets/images/metodi/codyroby/dritto.png';
 import destra from '~/assets/images/metodi/codyroby/destra.png';
 import speciali from '~/assets/images/metodi/codyroby/speciali.png';
 import Button from '../../../components/ui/Button.astro';
-import og from '~/../public/codyroby/openGraph.jpeg';
 import type { MetaData } from '~/types';
 import merge from 'lodash.merge';
 import type { ButtonExplanationData } from '~/types';
@@ -22,24 +21,21 @@ import type { ButtonExplanationData } from '~/types';
 const codyRobyStarter = '/codyRobyStarter.pdf';
 const codyRobyCard = '/CodyRobyCards.pdf';
 
-const openGraphImage = og;
+const ogImage = '/codyroby/openGraph.jpg';
 
 const metadata = merge({
   title: 'CodyRoby',
-
+  tagline: 'Metodi',
+  description: 'Strumenti e metodi di coding unplugged fai-da-te',
   ignoreTitleTemplate: true,
   openGraph: {
-    ...(openGraphImage
-      ? {
-          images: [
-            {
-              url: og,
-              width: (openGraphImage as ImageMetadata)?.width,
-              height: (openGraphImage as ImageMetadata)?.height,
-            },
-          ],
-        }
-      : {}),
+    images: [
+      {
+        url: ogImage,
+        width: 1280,
+        height: 720,
+      },
+    ],
   },
 }) as MetaData;
 
