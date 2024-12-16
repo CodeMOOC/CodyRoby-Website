@@ -19,7 +19,7 @@ const VideoFaqStyle = ({ id, title, videoUrl, description, questions, diretta })
       </button>
       <div
         id={id}
-        className={`px-6 mb-6 border-b border-r border-l rounded-lg transition-all duration-500 ease-in-out ${isOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}
+        className={`px-6 mb-6 border-b border-r border-l rounded-lg transition-all duration-500 ease-in-out ${isOpen ? 'max-h-fit opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}
       >
         {isOpen && (
           <div id={id} className="mb-8">
@@ -27,8 +27,14 @@ const VideoFaqStyle = ({ id, title, videoUrl, description, questions, diretta })
 
             {description && <div className="description" dangerouslySetInnerHTML={{ __html: description }} />}
 
-            {videoUrl && <iframe src={videoUrl} width="560" height="314" loading="lazy" />}
-            <ul>
+            {videoUrl && (
+              <div className=" mt-6">
+                <div className="video-container">
+                  <iframe src={videoUrl} width="560" height="314" loading="lazy" />
+                </div>
+              </div>
+            )}
+            <ul className="not-prose lg:prose-page mt-6">
               {questions.map((question) => (
                 <li key={question}>{question}</li>
               ))}
