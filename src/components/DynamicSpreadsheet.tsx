@@ -11,8 +11,18 @@ export default function DynamicSpreadsheet() {
     descrizione: string;
     url_video: string;
     nome_immagine: string;
-    metodo: string;
-    target: string;
+    metodi: string[];
+    targets: string[];
+  };
+
+  type TmpRow = {
+    data: string;
+    nome: string;
+    descrizione: string;
+    url_video: string;
+    nome_immagine: string;
+    metodi: string;
+    targets: string;
   };
 
   const spreadshettPath = import.meta.env.PUBLIC_SPREADSHEET_URL;
@@ -28,32 +38,33 @@ export default function DynamicSpreadsheet() {
   });
 
   const [metodi, setMetodi] = useState([
-    { name: 'CodyRoby', selected: false, color: 'yellow' },
-    { name: 'CodyColor', selected: false, color: 'green' },
-    { name: 'CodyFeet', selected: false, color: 'red' },
+    { name: 'CodyRoby', selected: false, color: '#6af32a' },
+    { name: 'CodyColor', selected: false, color: '#f3d52a' },
+    { name: 'CodyFeet', selected: false, color: '#dc2af3' },
   ]);
 
   const [target, setTarget] = useState([
-    { name: 'Infanzia', selected: false, color: 'yellow' },
-    { name: 'Primaria', selected: false, color: 'green' },
-    { name: 'Secondaria', selected: false, color: 'red' },
+    { name: 'Infanzia', selected: false, color: '#2a37f3' },
+    { name: 'Primaria', selected: false, color: '#2af3d2' },
+    { name: 'Secondaria', selected: false, color: '#fd1919' },
   ]);
-
   const handleFilterSelection = ({ filter, value }) => {
     setFilters((prevFilters) => {
       const updatedFilterValues = prevFilters[filter]?.includes(value)
         ? prevFilters[filter].filter((item) => item !== value)
         : [...(prevFilters[filter] || []), value];
 
+      console.log(updatedFilterValues);
       return {
         ...prevFilters,
         [filter]: updatedFilterValues,
       };
     });
+
     if (filter === 'metodo') {
-      setMetodi((prevMetodi) =>
-        prevMetodi.map((item) => (item.name === value ? { ...item, selected: !item.selected } : item))
-      );
+      setMetodi((prevMetodi) => {
+        return prevMetodi.map((item) => (item.name === value ? { ...item, selected: !item.selected } : item));
+      });
     } else if (filter === 'target') {
       setTarget((prevTargets) =>
         prevTargets.map((item) => (item.name === value ? { ...item, selected: !item.selected } : item))
@@ -62,8 +73,9 @@ export default function DynamicSpreadsheet() {
   };
 
   const filteredRows = rows.filter((row: Row) => {
-    const metodiMatch = filters.metodo.length === 0 || filters.metodo.includes(row.metodo);
-    const targetMatch = filters.target.length === 0 || filters.target.includes(row.target);
+    console.log('Entri qua ', row);
+    const metodiMatch = filters.metodo.length === 0 || filters.metodo.some((metodo) => row.metodi.includes(metodo));
+    const targetMatch = filters.target.length === 0 || filters.target.some((target) => row.targets.includes(target));
     return metodiMatch && targetMatch;
   });
 
@@ -88,7 +100,13 @@ export default function DynamicSpreadsheet() {
             return dateB.getTime() - dateA.getTime();
           });
 
-          setRows(sortedRecords);
+          const splittedRecords = sortedRecords.map((tmp: TmpRow) => ({
+            ...tmp,
+            metodi: tmp.metodi.split(',').map((metodo) => metodo.trim()),
+            targets: tmp.targets.split(',').map((target) => target.trim()),
+          }));
+
+          setRows(splittedRecords);
         });
       } catch (error) {
         console.error('Error fetching spreadsheet data:', error);
@@ -107,7 +125,7 @@ export default function DynamicSpreadsheet() {
 
   return (
     <div className="prose-page">
-      <div className="flex justify-start items-center gap-4 ">
+      <div className="flex justify-start items-center gap-4">
         <p className="font-semibold">Filtri:</p>
 
         <IconSelect
@@ -124,7 +142,6 @@ export default function DynamicSpreadsheet() {
         />
       </div>
       <div className="flex gap-4 not-prose">
-        {/* {isMetodiSelected && <p>Metodi: </p>} */}
         {metodi.map(
           (m) =>
             m.selected && (
@@ -170,14 +187,22 @@ export default function DynamicSpreadsheet() {
               key={index}
               target="_blank"
             >
-              <img src={`/risorse/attivita-in-diretta/${row.nome_immagine}`} alt="" className="max-w-[200px]" />
+              <img src={`/risorse/post-e-webinar/${row.nome_immagine}`} alt="" className="max-w-[200px]" />
 
               <div className="not-prose">
                 <h3 className="text-2xl">{row.nome}</h3>
                 {row.descrizione && <p className="text-base text-slate-700 mt-2">{row.descrizione}</p>}
                 <div className="flex gap-2 mt-2">
-                  <Filter name={row.metodo} color={getColor('metodo', row.metodo)} />
-                  <Filter name={row.target} color={getColor('target', row.target)} />
+                  {row.metodi &&
+                    row.metodi.length > 0 &&
+                    row.metodi.map((metodo) => (
+                      <Filter key={`${row.nome}-${metodo}`} name={metodo} color={getColor('metodo', metodo)} />
+                    ))}
+                  {row.targets &&
+                    row.targets.length > 0 &&
+                    row.targets.map((target) => (
+                      <Filter key={`${row.nome}-${target}`} name={target} color={getColor('target', target)} />
+                    ))}
                 </div>
               </div>
             </a>

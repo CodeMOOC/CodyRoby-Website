@@ -77,8 +77,8 @@ export const headerData = {
           href: getPermalink(`${appPath}/videolezioni`),
         },
         {
-          text: 'Attività in diretta',
-          href: getPermalink(`${appPath}/attivita-in-diretta`),
+          text: 'Post e Webinar',
+          href: getPermalink(`${appPath}/post-e-webinar`),
         },
       ],
     },

@@ -23,14 +23,14 @@ src > pages > [path_del_file].astro
 
 ---
 
-## Inserimento Immagini nelle **Attività in Diretta**
+## Inserimento Immagini nelle **APost e Webinar**
 
-Per aggiungere correttamente le immagini da visualizzare nella pagina dinamica **Risorse > Attività in Diretta**, segui queste istruzioni:
+Per aggiungere correttamente le immagini da visualizzare nella pagina dinamica **Risorse > Post e Webinar**, segui queste istruzioni:
 
 1. Vai nella cartella dedicata alle immagini:
 
 ```
-public > risorse > attivita-in-diretta
+public > risorse > post-e-webinar
 ```
 
 2. Inserisci l'immagine:
