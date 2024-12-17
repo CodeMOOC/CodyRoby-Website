@@ -54,7 +54,6 @@ export default function DynamicSpreadsheet() {
         ? prevFilters[filter].filter((item) => item !== value)
         : [...(prevFilters[filter] || []), value];
 
-      console.log(updatedFilterValues);
       return {
         ...prevFilters,
         [filter]: updatedFilterValues,
@@ -73,9 +72,8 @@ export default function DynamicSpreadsheet() {
   };
 
   const filteredRows = rows.filter((row: Row) => {
-    console.log('Entri qua ', row);
-    const metodiMatch = filters.metodo.length === 0 || filters.metodo.some((metodo) => row.metodi.includes(metodo));
-    const targetMatch = filters.target.length === 0 || filters.target.some((target) => row.targets.includes(target));
+    const metodiMatch = filters.metodo.length === 0 || filters.metodo.every((metodo) => row.metodi.includes(metodo));
+    const targetMatch = filters.target.length === 0 || filters.target.every((target) => row.targets.includes(target));
     return metodiMatch && targetMatch;
   });
 
