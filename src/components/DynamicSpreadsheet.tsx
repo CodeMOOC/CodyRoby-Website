@@ -167,7 +167,7 @@ export default function DynamicSpreadsheet() {
           />
           <IconSelect
             options={formati}
-            icon="pepicons-pop:label"
+            icon="mdi:format-list-bulleted"
             filter="formato"
             onFilterSelection={handleFilterSelection}
           />
@@ -239,7 +239,7 @@ export default function DynamicSpreadsheet() {
             >
               <img src={`/risorse/post-e-webinar/${row.nome_immagine}`} alt="" className="max-w-[200px]" />
 
-              <div className="not-prose">
+              <div className="not-prose mt-4">
                 <h3 className="text-2xl">{row.nome}</h3>
                 {row.descrizione && <p className="text-base text-slate-700 mt-2">{row.descrizione}</p>}
                 <div className="flex flex-wrap gap-2 mt-2">
