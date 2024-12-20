@@ -9,7 +9,7 @@ const Filter = (props: Props) => {
       className="border border-black not-prose rounded-full px-2 py-1"
       style={{ border: `1px solid ${props.color}` }}
     >
-      <p className="text-slate-700 text-xs">{props.name}</p>
+      <p className="text-slate-700 text-xs capitalize">{props.name}</p>
     </div>
   );
 };

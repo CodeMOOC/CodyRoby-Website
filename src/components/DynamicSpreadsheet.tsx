@@ -13,6 +13,7 @@ export default function DynamicSpreadsheet() {
     nome_immagine: string;
     metodi: string[];
     targets: string[];
+    formati: string[]
   };
 
   type TmpRow = {
@@ -23,6 +24,7 @@ export default function DynamicSpreadsheet() {
     nome_immagine: string;
     metodi: string;
     targets: string;
+    formati: string
   };
 
   const spreadshettPath = import.meta.env.PUBLIC_SPREADSHEET_URL;
@@ -32,9 +34,11 @@ export default function DynamicSpreadsheet() {
   const [filters, setFilters] = useState<{
     metodo: string[];
     target: string[];
+    formato: string[];
   }>({
     metodo: [],
     target: [],
+    formato: []
   });
 
   const [metodi, setMetodi] = useState([
@@ -48,6 +52,12 @@ export default function DynamicSpreadsheet() {
     { name: 'Primaria', selected: false, color: '#2af3d2' },
     { name: 'Secondaria', selected: false, color: '#fd1919' },
   ]);
+
+  const [formati, setFormati] = useState([
+    { name: 'blog', selected: false, color: '#59f2ba' },
+    { name: 'webinar', selected: false, color: '#d6f259' },
+  ]);
+
   const handleFilterSelection = ({ filter, value }) => {
     setFilters((prevFilters) => {
       const updatedFilterValues = prevFilters[filter]?.includes(value)
@@ -68,13 +78,17 @@ export default function DynamicSpreadsheet() {
       setTarget((prevTargets) =>
         prevTargets.map((item) => (item.name === value ? { ...item, selected: !item.selected } : item))
       );
+    } else if (filter === 'formato') {
+      setFormati((prevFormato) => prevFormato.map(item => (item.name === value ? { ...item, selected: !item.selected } : item)))
     }
   };
 
   const filteredRows = rows.filter((row: Row) => {
     const metodiMatch = filters.metodo.length === 0 || filters.metodo.every((metodo) => row.metodi.includes(metodo));
     const targetMatch = filters.target.length === 0 || filters.target.every((target) => row.targets.includes(target));
-    return metodiMatch && targetMatch;
+    const formatiMatch = filters.formato.length === 0 || filters.formato.every((formato) => row.formati.includes(formato))
+
+    return metodiMatch && targetMatch && formatiMatch;
   });
 
   useEffect(() => {
@@ -102,6 +116,7 @@ export default function DynamicSpreadsheet() {
             ...tmp,
             metodi: tmp.metodi.split(',').map((metodo) => metodo.trim()),
             targets: tmp.targets.split(',').map((target) => target.trim()),
+            formati: tmp.formati ? tmp.formati.split(',').map((formato) => formato.trim()) : [],
           }));
 
           setRows(splittedRecords);
@@ -115,18 +130,29 @@ export default function DynamicSpreadsheet() {
   }, []);
 
   // getColor set for each filter
-  const getColor = (category: 'metodo' | 'target', name: string) => {
-    const list = category === 'metodo' ? metodi : target;
+  const getColor = (category: 'metodo' | 'target' | 'formato', name: string) => {
+    let list;
+
+    if (category === 'metodo') {
+      list = metodi;
+    } else if (category === 'target') {
+      list = target;
+    } else if (category === 'formato') {
+      list = formati;
+    } else {
+      return 'black';
+    }
+
     const item = list.find((item) => item.name === name);
     return item ? item.color : 'black';
   };
+
 
   return (
     <div className="">
       <div className='prose-page'>
         <div className="flex justify-start items-center gap-4">
           <p className="font-semibold">Filtri:</p>
-
           <IconSelect
             options={metodi}
             icon="codicon:symbol-method"
@@ -137,6 +163,12 @@ export default function DynamicSpreadsheet() {
             options={target}
             icon="pepicons-pop:label"
             filter="target"
+            onFilterSelection={handleFilterSelection}
+          />
+          <IconSelect
+            options={formati}
+            icon="pepicons-pop:label"
+            filter="formato"
             onFilterSelection={handleFilterSelection}
           />
         </div>
@@ -175,11 +207,29 @@ export default function DynamicSpreadsheet() {
                 </button>
               )
           )}
+          {formati.map(
+            (f) =>
+              f.selected && (
+                <button
+                  key={f.name}
+                  onClick={() => handleFilterSelection({ filter: 'formato', value: f.name })}
+                  className="flex items-center border rounded-full border-black px-2 ease-in-out duration-300 capitalize hover:bg-red-100"
+                >
+                  <Icon
+                    icon="material-symbols:close"
+                    className="text-red-500 hover:text-red-600 duration-300 transition-colors"
+                  />
+                  {f.name}
+                </button>
+              )
+          )}
         </div>
       </div>
+
       <hr className="my-6 " />
       {rows.length > 0 ? (
         <div className="flex flex-col md:flex-row flex-wrap justify-center items-center md:items-stretch gap-4">
+
           {filteredRows.map((row, index) => (
             <a
               className="flex flex-col items-center border px-6 py-4 rounded-xl hover:bg-[#f3f0f0c2] max-w-[300px]"
@@ -202,6 +252,11 @@ export default function DynamicSpreadsheet() {
                     row.targets.length > 0 &&
                     row.targets.map((target) => (
                       <Filter key={`${row.nome}-${target}`} name={target} color={getColor('target', target)} />
+                    ))}
+                  {row.formati &&
+                    row.formati.length > 0 &&
+                    row.formati.map((formato) => (
+                      <Filter key={`${row.nome}-${formato}`} name={formato} color={getColor('formato', formato)} />
                     ))}
                 </div>
               </div>
