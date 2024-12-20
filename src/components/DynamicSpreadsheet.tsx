@@ -179,7 +179,7 @@ export default function DynamicSpreadsheet() {
       </div>
       <hr className="my-6 " />
       {rows.length > 0 ? (
-        <div className="flex flex-col md:flex-row flex-wrap justify-center  gap-4">
+        <div className="flex flex-col md:flex-row flex-wrap justify-center items-center md:items-stretch gap-4">
           {filteredRows.map((row, index) => (
             <a
               className="flex flex-col items-center border px-6 py-4 rounded-xl hover:bg-[#f3f0f0c2] max-w-[300px]"
