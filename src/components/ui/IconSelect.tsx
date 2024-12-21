@@ -1,11 +1,21 @@
 import React, { useState } from 'react';
 import { Icon } from '@iconify/react';
 
-export default function IconSelect({ options, icon, filter, onFilterSelection }) {
+export default function IconSelect({ options, icon, filter, onFilterSelection, onSelectOpen }) {
   const [selected, setSelected] = useState('');
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleDropdown = () => setIsOpen((prev) => !prev);
+const toggleDropdown = () => {
+  onSelectOpen(filter);
+  setIsOpen((prev) => !prev)
+};
+
+// console.log('options ', options);
+// console.log('icon ', icon);
+// console.log('filter ', filter);
+// console.log('onFilterSelection ', onFilterSelection);
+// console.log('onSelectOpen ', onSelectOpen);
+// console.log('selected ', selected);
 
   const handleSelect = (selection) => {
     setSelected(selection);
@@ -14,7 +24,7 @@ export default function IconSelect({ options, icon, filter, onFilterSelection })
   };
 
   const isAnyOptionSelected = options.some((option) => option.selected);
-
+  
   return (
     <div className="relative not-prose">
       <button
@@ -29,7 +39,7 @@ export default function IconSelect({ options, icon, filter, onFilterSelection })
       </button>
 
       {isOpen && (
-        <ul className="absolute bg-white border rounded mt-2 shadow w-full max-w-[200px]">
+        <ul className="absolute bg-white border rounded mt-2 shadow w-full max-w-[200px] z-30">
           {options.map((option) =>
             option.selected ? (
               <li

@@ -58,6 +58,11 @@ export default function DynamicSpreadsheet() {
     { name: 'webinar', selected: false, color: '#d6f259' },
   ]);
 
+  const [filterSelectDialog, setFilterSelectDialog] = useState([
+    {name: 'metodoSelect', isOpen: false},
+    {name: 'targetSelect', isOpen: false},
+    {name: 'formatoSelect', isOpen: false},
+  ])
   const handleFilterSelection = ({ filter, value }) => {
     setFilters((prevFilters) => {
       const updatedFilterValues = prevFilters[filter]?.includes(value)
@@ -147,32 +152,46 @@ export default function DynamicSpreadsheet() {
     return item ? item.color : 'black';
   };
 
+const filterSelectOpened = (name) => {
 
+    setFilterSelectDialog((prev) => {
+      
+      return prev.map((item) => 
+        item.name === `${name}Select` ? { ...item, isOpen: !item.isOpen } : { ...item, isOpen: false }
+      );
+    });
+}
+  
   return (
     <div className="">
       <div className='prose-page'>
-        <div className="flex justify-start items-center gap-4">
+        <div className="flex flex-col md:flex-row justify-start gap-4 md:items-center">
           <p className="font-semibold">Filtri:</p>
+          <div className='flex flex-wrap md:flex-row gap-4'>
           <IconSelect
             options={metodi}
             icon="codicon:symbol-method"
             filter="metodo"
             onFilterSelection={handleFilterSelection}
+            onSelectOpen={filterSelectOpened}
           />
           <IconSelect
             options={target}
             icon="pepicons-pop:label"
             filter="target"
             onFilterSelection={handleFilterSelection}
+            onSelectOpen={filterSelectOpened}
           />
           <IconSelect
             options={formati}
             icon="mdi:format-list-bulleted"
             filter="formato"
             onFilterSelection={handleFilterSelection}
+            onSelectOpen={filterSelectOpened}
           />
+          </div>
         </div>
-        <div className="flex gap-4 not-prose">
+        <div className="flex gap-4 not-prose mt-4">
           {metodi.map(
             (m) =>
               m.selected && (
