@@ -33,6 +33,15 @@ export const headerData = {
           text: 'Altri metodi',
           links: [
             {
+              text: 'CodyMaze',
+              href: getPermalink(`${metodiPath}${otherMethods}/codymaze`),
+            },
+            {
+              text: 'CodeHunting Games',
+              href: 'https://codehunting.games/it/introduzione',
+              target: '_blank',
+            },
+            {
               text: 'CodyWay',
               href: getPermalink(`${metodiPath}${otherMethods}/codyway`),
             },
@@ -47,15 +56,6 @@ export const headerData = {
     {
       text: 'Risorse',
       links: [
-        {
-          text: 'CodyMaze',
-          href: getPermalink(`${appPath}/codymaze`),
-        },
-        {
-          text: 'CodeHunting Games',
-          href: 'https://codehunting.games/it/introduzione',
-          target: '_blank',
-        },
         {
           text: 'CodyColor Game',
           href: getPermalink(`${appPath}/codycolor-game`),

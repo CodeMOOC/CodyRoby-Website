@@ -17,7 +17,7 @@ const {
 } = Astro.props;
 ---
 
-<section class="relative md:-mt-[76px] not-prose mb-16" {...id ? { id } : {}}>
+<section class="relative md:-mt-[76px] not-prose" {...id ? { id } : {}}>
   <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
     <slot name="bg">
       {bg ? <Fragment set:html={bg} /> : null}
@@ -26,7 +26,7 @@ const {
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
     <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
     <div class="pt-12">
-      <div class="text-center md:pb-4 max-w-5xl mx-auto">
+      <div class="text-center pb-4 max-w-5xl mx-auto">
         {
           tagline &&
             (taglineLink ? (
