@@ -18,7 +18,6 @@ export interface SiteConfig {
   site?: string;
   base?: string;
   trailingSlash?: boolean;
-  googleSiteVerificationId?: string;
 }
 export interface MetaDataConfig extends Omit<MetaData, 'title'> {
   title?: {
@@ -90,8 +89,6 @@ const getSite = (config: Config) => {
     site: undefined,
     base: '/',
     trailingSlash: false,
-
-    googleSiteVerificationId: '',
   };
 
   return merge({}, _default, config?.site ?? {}) as SiteConfig;

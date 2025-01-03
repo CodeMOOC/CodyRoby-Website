@@ -45,8 +45,6 @@ export interface Post {
   /**  */
   draft?: boolean;
 
-  /**  */
-  Content?: AstroComponentFactory;
   content?: string;
 
   /**  */
@@ -227,27 +225,12 @@ export interface CallToAction extends Omit<HTMLAttributes<'a'>, 'slot'> {
   type?: 'button' | 'submit' | 'reset';
 }
 
-export interface ItemGrid {
-  items?: Array<Item>;
-  columns?: number;
-  defaultIcon?: string;
-  classes?: Record<string, string>;
-}
-
 export interface Collapse {
   iconUp?: string;
   iconDown?: string;
   items?: Array<Item>;
   columns?: number;
   classes?: Record<string, string>;
-}
-
-export interface Form {
-  inputs?: Array<Input>;
-  textarea?: Textarea;
-  disclaimer?: Disclaimer;
-  button?: string;
-  description?: string;
 }
 
 // WIDGETS
@@ -259,19 +242,6 @@ export interface Hero extends Omit<Headline, 'classes'>, Omit<Widget, 'isDark' |
 
 export interface Team extends Omit<Headline, 'classes'>, Widget {
   team?: Array<TeamMember>;
-}
-
-export interface Stats extends Omit<Headline, 'classes'>, Widget {
-  stats?: Array<Stat>;
-}
-
-export interface Pricing extends Omit<Headline, 'classes'>, Widget {
-  prices?: Array<Price>;
-}
-
-export interface Testimonials extends Omit<Headline, 'classes'>, Widget {
-  testimonials?: Array<Testimonial>;
-  callToAction?: CallToAction;
 }
 
 export interface Brands extends Omit<Headline, 'classes'>, Widget {
@@ -299,18 +269,6 @@ export interface Faqs extends Omit<Headline, 'classes'>, Widget {
   columns?: number;
 }
 
-export interface Steps extends Omit<Headline, 'classes'>, Widget {
-  items: Array<{
-    title: string;
-    description?: string;
-    icon?: string;
-    classes?: Record<string, string>;
-  }>;
-  callToAction?: string | CallToAction;
-  image?: string | Image;
-  isReversed?: boolean;
-}
-
 export interface Content extends Omit<Headline, 'classes'>, Widget {
   content?: string;
   image?: string | unknown;
@@ -320,5 +278,3 @@ export interface Content extends Omit<Headline, 'classes'>, Widget {
   isAfterContent?: boolean;
   callToAction?: CallToAction;
 }
-
-export interface Contact extends Omit<Headline, 'classes'>, Form, Widget {}
