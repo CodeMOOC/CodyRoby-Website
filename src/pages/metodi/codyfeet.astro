@@ -249,10 +249,50 @@ const videolezioni = [
         Le tessere possono essere liberamente scaricate da questa pagina, stampate e ritagliate. Ne vengono fornite tre
         versioni: CodyFeet-WoC, con simboli bianchi su sfondo colorato; CodyFeet-CoW, con simboli colorati su sfondo
         bianco; CodyFeet-W, senza colorazione, per risparmiare inchiostro in fase di stampa e permettere la
-        personalizzazione dei colori. Di seguito è possibile scaricare il file <a href={CodyFeetCC}>pdf vettoriale</a> con
+        personalizzazione dei colori. Di seguito è possibile scaricare il file <a target="_blank" href={CodyFeetCC}>pdf vettoriale</a> con
         tutte le tessere, o le singole tessere ad una ad una.
+        Clicca sulla singola tessere per aprire il file PDF corrispondente:
       </p>
-
+      <AnimateText>
+        <div class="flex flex-col gap-4 mx-4">
+          <div class="flex justify-center gap-x-1 max-w-full items-center">
+            <p>WoC:</p>
+            {
+              CodyFeetWoC.map((el) => {
+                return (
+                  <a target="_blank" href={el.src.src} class="hover:bg-slate-200">
+                    <Image src={el.thumbnail} alt={el.alt} />
+                  </a>
+                );
+              })
+            }
+          </div>
+          <div class="flex justify-center gap-x-1 max-w-full items-center">
+            <p>CoW:</p>
+            {
+              CodyFeetCoW.map((el) => {
+                return (
+                  <a target="_blank" href={el.src.src} class="hover:bg-slate-200">
+                    <Image src={el.thumbnail} alt={el.alt} />
+                  </a>
+                );
+              })
+            }
+          </div>
+          <div class="flex justify-center gap-x-1 max-w-full items-center">
+            <p>W:</p>
+            {
+              CodyFeetW.map((el) => {
+                return (
+                  <a target="_blank" href={el.src.src} class="hover:bg-slate-200">
+                    <Image src={el.thumbnail} alt={el.alt} />
+                  </a>
+                );
+              })
+            }
+          </div>
+        </div>
+      </AnimateText>
       <p>
         Le tessere hanno un bordo che serve a far rientrate in una forma quadrata la protuberanza necessari a agli
         incastri. Se decidete di ritagliare le tessere in modo da mantenere il bordo avete due vantaggi: tutte le
@@ -263,60 +303,7 @@ const videolezioni = [
       </p>
     </AnimateText>
   </div>
-  <AnimateText>
-    <div class="flex flex-col gap-4 mx-4">
-      <div class="flex justify-center gap-x-1 max-w-full items-center">
-        <p>WoC:</p>
-        {
-          CodyFeetWoC.map((el) => {
-            return (
-              <a target="_blank" href={el.src.src} class="hover:bg-slate-200">
-                <Image src={el.thumbnail} alt={el.alt} />
-              </a>
-            );
-          })
-        }
-      </div>
-      <div class="flex justify-center gap-x-1 max-w-full items-center">
-        <p>CoW:</p>
-        {
-          CodyFeetCoW.map((el) => {
-            return (
-              <a target="_blank" href={el.src.src} class="hover:bg-slate-200">
-                <Image src={el.thumbnail} alt={el.alt} />
-              </a>
-            );
-          })
-        }
-      </div>
-      <div class="flex justify-center gap-x-1 max-w-full items-center">
-        <p>W:</p>
-        {
-          CodyFeetW.map((el) => {
-            return (
-              <a target="_blank" href={el.src.src} class="hover:bg-slate-200">
-                <Image src={el.thumbnail} alt={el.alt} />
-              </a>
-            );
-          })
-        }
-      </div>
-    </div>
-  </AnimateText>
-  <!-- <div
-    class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
-  >
-    <div class="flex w-full sm:w-auto text-white no-underline">
-      <Button
-        class="w-full sm:mb-0"
-        variant="primary"
-        text="Scarica ora"
-        href={codyFeetGame}
-        target="_blank"
-        icon="tabler:download"
-      />
-    </div>
-  </div> -->
+ 
   <div class="prose-page">
     <AnimateText>
       <h2>Modalità di gioco</h2>
