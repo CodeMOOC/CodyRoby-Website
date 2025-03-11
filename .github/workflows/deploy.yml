@@ -32,16 +32,8 @@ jobs:
       - name: Verify Build Output
         run: |
           echo "Inspecting build directory..."
-          ls -la dist/client
-          grep -r PUBLIC_SPREADSHEET_URL dist/client || echo "PUBLIC_SPREADSHEET_URL not found in build output"
-      
-      # Upload artifact per il deploy
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist/client 
-          name: github-pages-${{ github.run_id }}
-
+          ls -la dist
+          grep -r PUBLIC_SPREADSHEET_URL dist || echo "PUBLIC_SPREADSHEET_URL not found in build output"
   deploy:
     needs: build
     runs-on: ubuntu-latest
