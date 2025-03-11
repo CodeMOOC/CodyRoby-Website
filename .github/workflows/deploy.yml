@@ -32,8 +32,14 @@ jobs:
       - name: Verify Build Output
         run: |
           echo "Inspecting build directory..."
-          ls -la dist
-          grep -r PUBLIC_SPREADSHEET_URL dist || echo "PUBLIC_SPREADSHEET_URL not found in build output"
+          ls -la dist/client
+          grep -r PUBLIC_SPREADSHEET_URL dist/client || echo "PUBLIC_SPREADSHEET_URL not found in build output"
+      
+      # Upload artifact per il deploy
+       - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: dist/client 
 
   deploy:
     needs: build
