@@ -36,7 +36,7 @@ jobs:
           grep -r PUBLIC_SPREADSHEET_URL dist/client || echo "PUBLIC_SPREADSHEET_URL not found in build output"
       
       # Upload artifact per il deploy
-       - name: Upload artifact
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
           path: dist/client 
