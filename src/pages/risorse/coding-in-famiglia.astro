@@ -3,6 +3,7 @@ import Hero from '~/components/widgets/Hero.astro';
 import Layout from '../../layouts/PageLayout.astro';
 import banner from '~/assets/images/risorse/coding-in-famiglia/coding-in-famiglia.png';
 import VideoFaqStyle from '~/components/common/VideoFaqStyle.tsx';
+import ExternalLink from '~/components/common/ExternalLink.astro';
 
 const metadata = {
   title: 'Coding in famiglia',
@@ -313,10 +314,10 @@ const videolezioni = [
       <strong>Brevi video</strong>, <strong>materiali fai da te</strong>, <strong>enigmi</strong>, <strong
         >giochi</strong
       > e <strong>sfide di coding</strong> proposti online per creare nuove occasioni di contatto tra casa e scuola, tra
-      alunni e insegnanti, al di fuori degli orari e degli spazi scolastici. <a
+      alunni e insegnanti, al di fuori degli orari e degli spazi scolastici. <ExternalLink
         href="https://www.raicultura.it/speciali/codinginfamiglia"
-        target="_blank">– SPECIALE DI RAI CULTURA –</a
-      >
+        text="– SPECIALE DI RAI CULTURA –"
+      />
     </p>
 
     <div class="coding-in-famiglia-video">
@@ -348,9 +349,10 @@ const videolezioni = [
     </div>
     <p>
       Chi volesse conoscere il contesto, potrebbe seguire “Coding per genitori“, dieci video da 2 minuti che raccontano
-      cos’è il coding e perchè viene praticato a scuola: <a target="_blank" href="http://codemooc.org/codyparentsmooc"
-        >http://codemooc.org/codyparentsmooc</a
-      >
+      cos’è il coding e perchè viene praticato a scuola: <ExternalLink
+        href="http://codemooc.org/codyparentsmooc"
+        text="http://codemooc.org/codyparentsmooc"
+      />
     </p>
   </div>
 

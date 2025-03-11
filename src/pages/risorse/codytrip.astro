@@ -2,7 +2,8 @@
 import Hero from '~/components/widgets/Hero.astro';
 import Layout from '../../layouts/PageLayout.astro';
 
-import banner from '~/assets/images/risorse/codytrip/banner.jpg';
+import banner from '~/assets/images/risorse/codytrip/banner.webp';
+import ExternalLink from '~/components/common/ExternalLink.astro';
 
 const metadata = {
   title: 'CodyTrip',
@@ -22,30 +23,150 @@ const metadata = {
     <Fragment slot="subtitle"> </Fragment>
   </Hero>
   <div class="prose-page">
-    <h1>CodyTrip</h1>
     <p>
-      <strong>CodyTrip</strong> è un’avventura coinvolgente, un’esperienza formativa da vivere con la propria classe e la
-      propria famiglia alla scoperta di luoghi, tradizioni, persone e saperi. CodyTrip usa in modo originale e semplicissimo
-      le tecnologie digitali e l’immaginazione per colmare le distanze e permettere a tutti di partecipare attivamente, interagendo
-      in diretta con i propri compagni di viaggio e con il prof. Alessandro Bogliolo, che guida le attività e la gita.
-    </p>
-
-    <h2>CodyTrip 2023/24</h2>
-    <p>
-      È organizzata da <strong>DIGIT srl</strong>, in collaborazione con l’<strong>Università di Urbino</strong>, con <strong
-        >Giunti Scuola</strong
-      > e con <strong>CampuStore</strong>, con il patrocinio di <strong>Save the Children</strong>, <strong
-        >Fondazione Mondo Digitale</strong
-      >, <strong>Grey Panthers</strong>, <strong>Telefono Azzurro</strong> e <strong>DiCultHer</strong>.
+      CodyTrip è a tutti gli effetti una gita scolastica, un viaggio di istruzione, che si avvale di tecnologie digitali
+      di uso comune per colmare le distanze fisiche senza mobilità. CodyTrip non sostituisce i viaggi tradizionali, ma
+      ne costituisce un’efficace anticipazione, consentendo di
+      <strong>conoscere e apprezzare online luoghi e territori da tornare a visitare</strong>
+      per riconoscerli, viverli e trovarli familiari.
     </p>
 
     <p>
-      I patrocini concessi esprimono il senso e le diverse finalità dell’iniziativa, che è stata riconosciuta utile a
-      contrastare la povertà educativa, ad educare alla cittadinanza digitale, a favorire il dialogo intergenerazionale
-      e a promuovere la presa in carico del patrimonio culturale.
+      Tecnologia e immaginazione consentono di spingere CodyTrip
+      <strong> oltre i limiti di una tradizionale gita scolastica,</strong>
+      estendendone la durata, offrendo esperienze esclusive, permettendo di interagire con migliaia di ragazzi di altre città,
+      avendo a disposizione materiali originali e guide d’eccezione, annullando costi di partecipazione e tempi di viaggio
+      e coinvolgendo le famiglie.
+    </p>
+    <p>
+      I partecipanti sono accompagnati dal prof. Alessandro Bogliolo e da guide speciali in un’esperienza che coinvolge
+      anche le famiglie, creando un’opportunità unica di apprendimento collettivo.
+    </p>
+    <p>
+      CodyTrip è un'iniziativa dell'<strong>Università di Urbino</strong>, realizzata attraverso il suo spin-off <strong
+        >Digit srl</strong
+      >, in collaborazione con <strong>Giunti Scuola</strong> e
+      <strong>CampuStore</strong>. L’iniziativa è patrocinata da
+      <strong>Save the Children</strong>,
+      <strong>Fondazione Mondo Digitale</strong>, <strong>Grey Panthers</strong>,
+      <strong>Telefono Azzurro</strong> e <strong>DiCultHer</strong>. Il suo obiettivo è contrastare la povertà
+      educativa, promuovere la cittadinanza digitale, favorire il dialogo intergenerazionale e valorizzare il patrimonio
+      culturale.
     </p>
 
-    <h3>I precedenti</h3>
+    <p>
+      <strong>CodyTrip offre esperienze formative esclusive di massa.</strong>
+    </p>
+    <h2>A chi è rivolto</h2>
+    <p>
+      <strong>ALUNNI</strong> – L'iniziativa è rivolta
+      <strong>principalmente alle scuole</strong>, con particolare riferimento alle classi comprese tra la seconda <strong
+        >primaria</strong
+      > e la terza
+      <strong>secondaria di primo grado</strong> (7-14 anni). Le attività proposte, i temi trattati, il linguaggio e gli
+      strumenti utilizzati sono scelti e sviluppati per agevolare la partecipazione dei più piccoli e stimolare la curiosità
+      dei più grandi. La partecipazione degli alunni è mediata dagli insegnanti, che possono decidere, in base agli obiettivi
+      formativi, all’età dei propri alunni e al tempo a disposizione: l’intensità della partecipazione (a quali delle attività
+      proposte partecipare attivamente), le modalità di partecipazione (grado di autonomia degli alunni e modalità di coordinamento
+      locale) e le attività preparatorie e successive (eventualmente collegate alla programmazione didattica). Per ogni edizione
+      viene predisposta una lettera di invito ai dirigenti scolastici disponibile nella pagina della gita.
+    </p>
+
+    <p>
+      <strong>INSEGNANTI</strong> – Sono gli insegnanti a fare di CodyTrip un’esperienza didattica coinvolgente e a rendere
+      possibile la partecipazione dei propri alunni. Senza la loro disponibilità e il loro impegno la classe non potrebbe
+      partecipare, senza il loro entusiasmo gli alunni non si lascerebbero coinvolgere e senza il loro lavoro preparatorio
+      gran parte del potenziale di CodyTrip resterebbe inespresso. Agli insegnanti sono dedicati webinar preparatori e incontri
+      tecnici nei giorni precedenti alle gite. La partecipazione a CodyTrip può essere inoltre riconosciuta agli insegnanti
+      come formazione in servizio, secondo un innovativo modello di formazione sul campo accreditata.
+    </p>
+
+    <p>
+      <strong>FAMIGLIE</strong> – Sono destinatari di CodyTrip anche i
+      <strong>familiari degli alunni</strong>
+      partecipanti, che sono chiamati ad agevolare la partecipazione online di bambine e bambini alle attività previste in
+      orario extra scolastico, in base alla propria disponibilità, e possono partecipare a loro volta. Nelle precedenti edizioni
+      la partecipazione dei familiari è stata molto elevata e ha accresciuto il valore dell’iniziativa.
+    </p>
+
+    <p class="">
+      <strong>TUTTI</strong> – CodyTrip è aperto anche alla partecipazione di
+      <strong> chiunque ne condivida lo spirito </strong> e intenda approfittarne per vivere gratuitamente
+      <strong> un’esperienza non convenzionale di turismo culturale </strong>.
+    </p>
+
+    <p>
+      CodyTrip è un'avventura coinvolgente che utilizza tecnologie digitali per permettere a studenti e famiglie di
+      esplorare luoghi, tradizioni e culture a distanza. Dal 2020 ad oggi, CodyTrip ha coinvolto più di 400.000 alunne e
+      alunni con insegnanti e genitori, per un totale di più di 1 milione di persone da più di 5.000 diverse città.
+    </p>
+
+    <h2>Come si Partecipa</h2>
+    <p>
+      La partecipazione inizia con la
+      <strong>registrazione gratuita su EventBrite</strong> fatta da un’insegnante per la propria classe. All’indirizzo e-mail
+      comunicato all’atto della registrazione l’insegnante riceve l’invito a collegarsi al
+      <ExternalLink href="https://t.me/codytrip" text="Canale Telegram di CodyTrip" />, utilizzato per ogni
+      comunicazione e per la trasmissione di materiali didattici e informazioni di dettaglio.
+    </p>
+
+    <p>
+      Con almeno 30 giorni di anticipo rispetto alla data di svolgimento della gita, vengono forniti agli organizzatori
+      <strong>materiali didattici preparatori</strong>, suggerimenti per la simulazione degli aspetti logistici,
+      cartoline digitali e ricette di piatti tipici consigliati nei giorni della gita.
+    </p>
+
+    <p>
+      Ad almeno una settimana dalla gita vengono forniti agli insegnanti registrati tutti i <strong
+        >dettagli tecnici</strong
+      > per la partecipazione alla gita.
+    </p>
+
+    <p>
+      Nel corso della settimana precedente viene organizzato un
+      <strong> webinar preparatorio </strong> e vengono sperimentate le soluzioni tecniche adottate.
+    </p>
+
+    <p>
+      Durante la gita, gli insegnanti mantengono il contatto con Alessandro Bogliolo sul <ExternalLink
+        href="https://t.me/codytrip"
+        text="canale Telegram"
+      /> e sul gruppo Telegram di CodyTrip.
+    </p>
+
+    <p><strong>La partecipazione a CodyTrip è libera e gratuita!</strong></p>
+
+    <p>La formazione per insegnanti associata alle gite è offerta gratuitamente.</p>
+    <h2>Requisiti tecnici</h2>
+    <p>
+      Per la piena fruizione di CodyTrip è sufficiente un qualsiasi dispositivo (smartphone, tablet, PC, …) collegato ad
+      Internet. DIGIT srl ha sviluppato una soluzione tecnica che rende tutto fruibile attraverso una pagine web, nella
+      quale compaiono i collegamenti in diretta, i contenuti multimediali e i pulsanti per rispondere alle domande e
+      interagire. Il link alla pagina web si può aprire in un qualsiasi browser e non richiede l’installazione di
+      software specifico. Per ridurre al minimo i requisiti di banda, lo streaming in diretta è gestito da YouTube, che
+      adatta la qualità del video alla banda disponibile.
+    </p>
+
+    <p>
+      Per le attività che verranno seguite da scuola, si consiglia di utilizzare un solo dispositivo da cui seguire la
+      diretta ed impostare voti e risposte decisi coralmente da tutta la classe. A discrezione dell’insegnante e in base
+      all’età degli alunni e alla disponibilità di dispositivi, la classe potrebbe essere organizzata in gruppetti,
+      ciascuno con il proprio dispositivo.
+    </p>
+
+    <p>
+      Per le attività seguite da casa, è opportuno che gli insegnanti siano comunque in contatto con i propri alunni,
+      utilizzando gli strumenti abituali di didattica digitale integrata o di comunicazione con le famiglie.
+    </p>
+
+    <p>
+      Negli anni, alcuni insegnanti dei primi anni della primaria avevano deciso di utilizzare strumenti di didattica a
+      distanza per seguire le dirette con i propri alunni, condividendo il proprio schermo. Questa soluzione ha
+      l’inconveniente di peggiorare la qualità del video, a fronte di un maggior controllo da parte dell’insegnante e di
+      una minore autonomia degli alunni.
+    </p>
+
+    <h2>Esperimento pilota</h2>
     <p>
       Il 26 e 27 maggio 2020, è stato condotto un esperimento pilota per offrire alle scuole un viaggio di istruzione
       online di due giorni a Urbino, permettendo a più di 7.000 ragazzi tra i 7 e i 14 anni di condividere una gita
@@ -60,98 +181,22 @@ const metadata = {
     <p>
       I riscontri dei partecipanti, l’efficacia, l’accessibilità e la scalabilità delle soluzioni tecniche adottate e le
       sinergie che l’iniziativa ha innescato a livello territoriale, ne hanno dimostrato il valore socio-culturale e le
-      potenzialità, anche al di fuori di emergenze sanitarie, motivando <strong>DIGIT srl</strong> a continuare lo sviluppo
-      del format e della tecnologia abilitante, chiamata <strong>ActiveViewer</strong>.
+      potenzialità, anche al di fuori di emergenze sanitarie, motivando DIGIT srl a continuare lo sviluppo del format e
+      della tecnologia abilitante, chiamata ActiveViewer.
     </p>
-
-    <p>
-      Nell’Anno Scolastico 2020/21 sono state organizzate 5 gite a Urbino, al <strong
-        >Museo Marino Marini di Firenze</strong
-      >, a Torino, in Puglia e a Napoli, offerte gratuitamente alle scuole grazie al contributo di <strong
-        >DIGIT srl</strong
-      >, di <strong>Alpitour</strong>, del <strong>Museo Marino Marini di Firenze</strong> e di <strong
-        >Giunti Scuola</strong
-      >. Nell’Anno Scolastico 2021/22 sono state organizzate altre 5 gite al <strong>Salone del Libro di Torino</strong
-      >, a Pisa alle origini di Internet e dell’Universo, a Firenze dietro le quinte dei libri di testo, a Gubbio e a
-      Urbino per i 600 anni di Federico da Montefeltro, a Matera e al centro spaziale ASI, offerte con i contributi di <strong
-        >DIGIT srl</strong
-      >, di <strong>Giunti Scuola</strong> e del progetto <strong>Neoconnessi</strong>.
-    </p>
-
-    <p>
-      Hanno partecipato alle gite più di 200.000 bambini e bambine (pari a circa l’8% della popolazione studentesca
-      italiana di primaria e secondaria di primo grado) con insegnanti e genitori, per un totale di più di 250.000
-      persone. Sono state coinvolte più di 5.000 classi da più di 2.000 città. CodyTrip ha offerto più di 100 ore di
-      attività interattiva in diretta, collaborando con le amministrazioni comunali, con le guide turistiche e con i
-      soggetti pubblici e privati dei territori coinvolti, tra i quali alcuni dei principali musei italiani e importanti
-      laboratori e centri di ricerca: la <strong>Galleria Nazionale delle Marche</strong>, il <strong
-        >Museo Egizio di Torino</strong
-      >, il <strong>Museo Nazionale del Cinema di Torino</strong>, la <strong>Direzione Regionale Musei Piemonte</strong
-      >, il <strong>Museo Marino Marini di Firenze</strong>, il <strong>Museo Archeologico Nazionale di Napoli</strong>,
-      il <strong>Museo Archeologico di Taranto</strong>, il <strong>Museo della Cappella Sansevero di Napoli</strong>,
-      il <strong>Parco Archeologico del Pausilypon</strong>, il <strong>Salone del Libro di Torino</strong>, l’<strong
-        >Opera Primaziale Pisana</strong
-      >, <strong>Palazzo Blu a Pisa</strong>, <strong>Osservatorio Gravitazionale Europeo</strong> a Cascina, il <strong
-        >Centro Spaziale ASI</strong
-      > di Matera.
-    </p>
-
-    <p>All’edizione 2020/21 è dedicato questo video-clip.</p>
-
-    <h3>Di che cosa si tratta</h3>
-    <p>
-      <strong>CodyTrip</strong> è a tutti gli effetti una gita scolastica, un viaggio di istruzione, che si avvale di tecnologie
-      digitali di uso comune per colmare le distanze fisiche senza mobilità. CodyTrip non sostituisce i viaggi tradizionali,
-      ma ne costituisce un’efficace anticipazione, consentendo di conoscere e apprezzare online luoghi e territori da tornare
-      a visitare per riconoscerli, viverli e trovarli familiari.
-    </p>
-
-    <p>
-      Tecnologia e immaginazione consentono di spingere CodyTrip oltre i limiti di una tradizionale gita scolastica,
-      estendendone la durata, offrendo esperienze esclusive, permettendo di interagire con migliaia di ragazzi di altre
-      città, avendo a disposizione materiali originali e guide d’eccezione, annullando costi di partecipazione e tempi
-      di viaggio e coinvolgendo le famiglie.
-    </p>
-
-    <p><strong>CodyTrip</strong> offre esperienze formative esclusive di massa.</p>
-
-    <h3>A chi è rivolto</h3>
-    <h4>ALUNNI</h4>
-    <p>
-      L’iniziativa è rivolta principalmente alle scuole, con particolare riferimento alle classi comprese tra la seconda
-      primaria e la terza secondaria di primo grado (7-14 anni). Le attività proposte, i temi trattati, il linguaggio e
-      gli strumenti utilizzati sono scelti e sviluppati per agevolare la partecipazione dei più piccoli e stimolare la
-      curiosità dei più grandi. La partecipazione degli alunni è mediata dagli insegnanti, che possono decidere, in base
-      agli obiettivi formativi, all’età dei propri alunni e al tempo a disposizione: l’intensità della partecipazione (a
-      quali delle attività proposte partecipare attivamente), le modalità di partecipazione (grado di autonomia degli
-      alunni e modalità di coordinamento locale) e le attività preparatorie e successive (eventualmente collegate alla
-      programmazione didattica). Per ogni edizione viene predisposta una lettera di invito ai dirigenti scolastici
-      disponibile nella pagina della gita.
-    </p>
-
-    <h4>INSEGNANTI</h4>
-    <p>
-      Sono gli insegnanti a fare di CodyTrip un’esperienza didattica coinvolgente e a rendere possibile la
-      partecipazione dei propri alunni. Senza la loro disponibilità e il loro impegno la classe non potrebbe
-      partecipare, senza il loro entusiasmo gli alunni non si lascerebbero coinvolgere e senza il loro lavoro
-      preparatorio gran parte del potenziale di CodyTrip resterebbe inespresso. Agli insegnanti sono dedicati webinar
-      preparatori e incontri tecnici nei giorni precedenti alle gite. La partecipazione a CodyTrip può essere inoltre
-      riconosciuta agli insegnanti come formazione in servizio, secondo un innovativo modello di formazione sul campo
-      accreditata.
-    </p>
-
-    <h4>FAMIGLIE</h4>
-    <p>
-      Sono destinatari di CodyTrip anche i familiari degli alunni partecipanti, che sono chiamati ad agevolare la
-      partecipazione online di bambine e bambini alle attività previste in orario extra scolastico, in base alla propria
-      disponibilità, e possono partecipare a loro volta. Nelle precedenti edizioni la partecipazione dei familiari è
-      stata molto elevata e ha accresciuto il valore dell’iniziativa.
-    </p>
-
-    <h4>TUTTI</h4>
-    <p>
-      <strong>CodyTrip</strong> è aperto anche alla partecipazione di chiunque ne condivida lo spirito e intenda approfittarne
-      per vivere gratuitamente un’esperienza non convenzionale di turismo culturale.
-    </p>
+    <div class="flex justify-center">
+      <a
+        target="_blank"
+        href="https://codytrip.it/"
+        class="border border-black text-black px-4 py-2 rounded-full flex items-center gap-2"
+        >Per saperne di più
+        <svg xmlns="http://www.w3.org/2000/svg" width="0.7em" height="0.7em" viewBox="0 0 24 24">
+          <path
+            fill="currentColor"
+            d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2zM14 3v2h3.59l-9.83 9.83l1.41 1.41L19 6.41V10h2V3z"
+          ></path>
+        </svg>
+      </a>
+    </div>
   </div>
 </Layout>

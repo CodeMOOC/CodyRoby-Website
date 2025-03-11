@@ -3,6 +3,7 @@ import Hero from '~/components/widgets/Hero.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
 import banner from '~/assets/images/home/toolkit-infanzia-b.png';
+import ExternalLink from '~/components/common/ExternalLink.astro';
 const metadata = {
   title: 'Infanzia',
   tagline: 'Toolkit',
@@ -11,12 +12,6 @@ const metadata = {
 
 const refCodingInFamiglia = '/risorse/coding-in-famiglia';
 ---
-
-<style>
-  a {
-    font-weight: 600;
-  }
-</style>
 
 <Layout metadata={metadata}>
   <Hero
@@ -70,14 +65,12 @@ const refCodingInFamiglia = '/risorse/coding-in-famiglia';
     <h2>Esempi di attività</h2>
     <p>
       Per farsi un’idea operativa delle potenzialità di CodyFeet e CodyColor si consiglia di seguire i primi 6
-      video-tutorial della serie <a target="_blank" href=`${refCodingInFamiglia}`>Coding in Famiglia</a>. <a
-        target="_blank"
+      video-tutorial della serie <a href=`${refCodingInFamiglia}`>Coding in Famiglia</a>. <a
         href=`${refCodingInFamiglia}#lesson-1`>L’esploratore</a
-      >, <a target="_blank" href=`${refCodingInFamiglia}#lesson-2`>Destra e sinistra</a>,
-      <a target="_blank" href=`${refCodingInFamiglia}#lesson-3`>Passo a due</a> e <a
-        target="_blank"
-        href=`${refCodingInFamiglia}#lesson-4`>Tiro alla fune</a
-      > utilizzano CodyFeet; <a target="_blank" href=`${refCodingInFamiglia}#lesson-5`>L’esploratrice senza impronte</a>
+      >, <a href=`${refCodingInFamiglia}#lesson-2`>Destra e sinistra</a>,
+      <a href=`${refCodingInFamiglia}#lesson-3`>Passo a due</a> e <a href=`${refCodingInFamiglia}#lesson-4`
+        >Tiro alla fune</a
+      > utilizzano CodyFeet; <a href=`${refCodingInFamiglia}#lesson-5`>L’esploratrice senza impronte</a>
       e <a target="_blank" href=`${refCodingInFamiglia}#lesson-6`>Passo a due senza impronte</a> mostrano le varianti realizzate
       con CodyColor di due delle attività precedentemente proposte con CodyFeet, permettendo di apprezzare le differenze.
     </p>
@@ -99,46 +92,51 @@ const refCodingInFamiglia = '/risorse/coding-in-famiglia';
       CodyColor. Quelli ufficiali sono: i <a href="/risorse/videolezioni/mooc">MOOC dell’Università di Urbino</a>, le <a
         href="/risorse/videolezioni/registrazioni-summer-school">Summer School dell’Università di Urbino</a
       > e i
-      <a href="https://academy.codyroby.it/">Corsi certificati della CodyRoby Academy</a>.
+      <ExternalLink text="Corsi certificati della CodyRoby Academy" href="https://academy.codyroby.it/" />.
     </p>
     <p>
       Per una breve presentazione comparativa degli strumenti e dei metodi di coding unplugged della famiglia CodyRoby,
       si consiglia la registrazione della lezione 3.2 del <strong></strong>MOOC Coding in biblioteca
-    </p> (<a href="https://www.youtube.com/watch?v=snNVgUFe8r8">BIBMOOC3.2</a>) e della Lezione 0 della Summer School <strong
-      >Teoria e pratica del coding unplugged</strong
-    > (<a href="https://www.youtube.com/watch?v=Y5kpHmOwwis">Lezione 0</a>).
+    </p> (<ExternalLink text="BIBMOOC3.2" href="https://www.youtube.com/watch?v=snNVgUFe8r8" />) e della Lezione 0 della
+    Summer School <strong>Teoria e pratica del coding unplugged</strong> (<ExternalLink
+      text="Lezione 0"
+      href="https://www.youtube.com/watch?v=Y5kpHmOwwis"
+    />).
+    <p>
+      Per approfondimenti sulle modalità di utilizzo in classe di CodyFeet e CodyColor si consigliano le registrazioni
+      della prima lezione e del primo laboratorio della Summer School dell’Università di Urbino dedicata alla
+      <strong>Teoria e pratica del coding unplugged</strong> (
+      <ExternalLink text="Lezione 1" href="https://www.youtube.com/watch?v=yG7m9GIxqnM" />
+      e
+      <ExternalLink text="Laboratorio 1" href="https://www.youtube.com/watch?v=LR836n8RNhM" />).
+    </p>
+    <p>
+      Per formazione certificata si rimanda ai corsi e ai laboratori di formazione sul campo per infanzia e primaria
+      della <ExternalLink text="CodyRoby Academy" href="https://academy.codyroby.it/" />.
+    </p>
+    <p>
+      Il testo di riferimento è <ExternalLink
+        text="A Scuola con CodyRoby"
+        href="https://www.campustore.it/a-scuola-con-codyroby.html"
+      />, scritto da Alessandro Bogliolo per Giunti Scuola, 2020. A CodyFeet e CodyColor sono dedicate la <strong
+        >Parte II</strong
+      > e la <strong>Parte III</strong>.
+    </p>
+
+    <h2>Prodotti</h2>
+    <p>
+      Dai metodi fai-da-te sono derivati prodotti per rispondere all’esigenza delle scuole di avere materiali di
+      qualità, durevoli e certificati. Per la scuola dell’infanzia è particolarmente indicato il <a
+        href="http://localhost:4321/prodotti-e-pubblicazioni/prodotti#3">Tappeto di CodyRoby in EVA</a
+      >, con tasselli che ne prevedono l’utilizzo per attività basate su CodyFeet e CodyColor.
+    </p>
+
+    <h2>Comunità di pratica</h2>
+    <p>
+      Per un confronto costante con la comunità di pratica si consiglia di seguire il gruppo Facebook <ExternalLink
+        text="Coding in Your Classroom, Now!"
+        href="https://www.facebook.com/groups/CodeMOOC/"
+      />
+    </p>
   </div>
-  <p>
-    Per approfondimenti sulle modalità di utilizzo in classe di CodyFeet e CodyColor si consigliano le registrazioni
-    della prima lezione e del primo laboratorio della Summer School dell’Università di Urbino dedicata alla
-    <strong>Teoria e pratica del coding unplugged</strong> (<a href="https://www.youtube.com/watch?v=yG7m9GIxqnM"
-      >Lezione 1</a
-    > e
-    <a href="https://www.youtube.com/watch?v=LR836n8RNhM">Laboratorio 1</a>).
-  </p>
-  <p>
-    Per formazione certificata si rimanda ai corsi e ai laboratori di formazione sul campo per infanzia e primaria della <a
-      href="https://academy.codyroby.it/">CodyRoby Academy</a
-    >.
-  </p>
-  <p>
-    Il testo di riferimento è <a href="https://www.campustore.it/a-scuola-con-codyroby.html">A Scuola con CodyRoby</a>,
-    scritto da Alessandro Bogliolo per Giunti Scuola, 2020. A CodyFeet e CodyColor sono dedicate la <strong
-      >Parte II</strong
-    > e la <strong>Parte III</strong>.
-  </p>
-
-  <h2>Prodotti</h2>
-  <p>
-    Dai metodi fai-da-te sono derivati prodotti per rispondere all’esigenza delle scuole di avere materiali di qualità,
-    durevoli e certificati. Per la scuola dell’infanzia è particolarmente indicato il <a
-      href="http://localhost:4321/prodotti-e-pubblicazioni#3">Tappeto di CodyRoby in EVA</a
-    >, con tasselli che ne prevedono l’utilizzo per attività basate su CodyFeet e CodyColor.
-  </p>
-
-  <h2>Comunità di pratica</h2>
-  <p>
-    Per un confronto costante con la comunità di pratica si consiglia di seguire il gruppo Facebook
-    <a href="https://www.facebook.com/groups/CodeMOOC/">Coding in Your Classroom, Now!</a>
-  </p>
 </Layout>

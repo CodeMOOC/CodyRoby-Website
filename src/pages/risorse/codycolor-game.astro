@@ -4,6 +4,7 @@ import Layout from '../../layouts/PageLayout.astro';
 import AnimateText from '~/components/ui/AnimateText.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
+import ExternalLink from '~/components/common/ExternalLink.astro';
 
 const metadata = {
   title: 'CodyColor Game',
@@ -20,10 +21,10 @@ const metadata = {
   <AnimateText>
     <div class="prose-page">
       <p>
-        <a href="https://codycolor.codemooc.net/#!/" target="_blank"><strong>CodyColor MultiPlayer</strong></a> è l'implementazione
-        online del metodo di coding unplugged CodyColor. Esso permette agli utenti collegati di sfidarsi a coppie, lasciando
-        che il gioco stesso selezioni in maniera casuale il proprio avversario, o creando delle partite custom alle quali
-        è possibile invitare i propri amici.
+        <ExternalLink href="https://codycolor.codemooc.net/#!/" text="CodyColor MultiPlayer" /> è l'implementazione online
+        del metodo di coding unplugged CodyColor. Esso permette agli utenti collegati di sfidarsi a coppie, lasciando che
+        il gioco stesso selezioni in maniera casuale il proprio avversario, o creando delle partite custom alle quali è possibile
+        invitare i propri amici.
       </p>
     </div>
     <div class="flex justify-center">

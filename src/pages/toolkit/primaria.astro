@@ -3,6 +3,7 @@ import Hero from '~/components/widgets/Hero.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
 import banner from '~/assets/images/home/toolkit-primaria-b.png';
+import ExternalLink from '~/components/common/ExternalLink.astro';
 
 const metadata = {
   title: 'Priamaria',
@@ -10,12 +11,6 @@ const metadata = {
   subtitle: '',
 };
 ---
-
-<style>
-  a {
-    font-weight: 600;
-  }
-</style>
 
 <Layout metadata={metadata}>
   <div class="prose-page">
@@ -87,35 +82,41 @@ const metadata = {
       CodyColor. Quelli ufficiali sono: i <a href="/risorse/videolezioni/mooc">MOOC dell’Università di Urbino</a>, le <a
         href="/risorse/videolezioni/registrazioni-summer-school">Summer School dell’Università di Urbino</a
       > e i
-      <a href="https://academy.codyroby.it/">Corsi certificati della CodyRoby Academy</a>.
+      <ExternalLink text="Corsi certificati della CodyRoby Academy" href="https://academy.codyroby.it/" />.
     </p>
     <p>
       Per una breve presentazione comparativa degli strumenti e dei metodi di coding unplugged della famiglia CodyRoby,
-      si consiglia la registrazione della lezione 3.2 del <strong>MOOC Coding in biblioteca</strong> (<a
-        href="https://www.youtube.com/watch?v=snNVgUFe8r8">BIBMOOC3.2</a
-      >) e della Lezione 0 della Summer School <strong>Teoria e pratica del coding unplugged</strong> (<a
-        href="https://www.youtube.com/watch?v=Y5kpHmOwwis">Lezione 0</a
-      >).
+      si consiglia la registrazione della lezione 3.2 del <strong>MOOC Coding in biblioteca</strong> (<ExternalLink
+        text="BIBMOOC3.2"
+        href="https://www.youtube.com/watch?v=snNVgUFe8r8"
+      />) e della Lezione 0 della Summer School <strong>Teoria e pratica del coding unplugged</strong> (<ExternalLink
+        text="Lezione 0"
+        href="https://www.youtube.com/watch?v=Y5kpHmOwwis"
+      />).
     </p>
     <p>
       Per approfondimenti sulle modalità di utilizzo in classe di CodyRoby e CodyColor si consigliano le registrazioni
       delle prime due lezioni e dei primi due laboratori della Summer School dell’Università di Urbino dedicata alla
-      <strong>Teoria e pratica del coding unplugged</strong> (<a href="https://www.youtube.com/watch?v=yG7m9GIxqnM"
-        >Lezione 1</a
-      > e
-      <a href="https://www.youtube.com/watch?v=LR836n8RNhM">Laboratorio 1</a>, <a href="https://youtu.be/Pkco_fpvrvg"
-        >Lezione 2</a
-      >, <a href="https://youtu.be/oPtQQOpksfM">Laboratorio 2</a>).
+      <strong>Teoria e pratica del coding unplugged</strong> (<ExternalLink
+        text="Lezione 1"
+        href="https://www.youtube.com/watch?v=yG7m9GIxqnM"
+      />,
+      <ExternalLink text="Laboratorio 1" href="https://www.youtube.com/watch?v=LR836n8RNhM" />, <ExternalLink
+        text="Lezione 2"
+        href="https://youtu.be/Pkco_fpvrvg"
+      /> e <ExternalLink text="Laboratorio 2" href="https://youtu.be/oPtQQOpksfM" />).
     </p>
     <p>
       <a href="">Lezione 0</a>
       Per formazione certificata si rimanda ai corsi e ai laboratori di formazione sul campo per infanzia e primaria (adatto
       ai primi due anni della primaria) o per primaria e secondaria (adatto ad attività dalla terza primaria in su) della
-      <a href="https://academy.codyroby.it/">CodyRoby Academy</a>.
+      <ExternalLink text="CodyRoby Academy" href="https://academy.codyroby.it/" />.
     </p>
     <p>
-      Il testo di riferimento è <a href="https://www.campustore.it/a-scuola-con-codyroby.html">A Scuola con CodyRoby</a
-      >, scritto da Alessandro Bogliolo per Giunti Scuola, 2020. A CodyColor e a CodyRoby sono dedicate la Parte III e
+      Il testo di riferimento è <ExternalLink
+        text="A Scuola con CodyRoby"
+        href="https://www.campustore.it/a-scuola-con-codyroby.html"
+      />, scritto da Alessandro Bogliolo per Giunti Scuola, 2020. A CodyColor e a CodyRoby sono dedicate la Parte III e
       la Parte IV.
     </p>
 
@@ -130,9 +131,10 @@ const metadata = {
 
     <h2>Comunità di pratica</h2>
     <p>
-      Per un confronto costante con la comunità di pratica si consiglia di seguire il gruppo Facebook <a
-        href="https://www.facebook.com/groups/CodeMOOC/">Coding in Your Classroom, Now!</a
-      >
+      Per un confronto costante con la comunità di pratica si consiglia di seguire il gruppo Facebook <ExternalLink
+        text="Coding in Your Classroom, Now!"
+        href="https://www.facebook.com/groups/CodeMOOC/"
+      />
     </p>
   </div>
 </Layout>

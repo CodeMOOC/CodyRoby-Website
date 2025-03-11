@@ -68,21 +68,21 @@ export const headerData = {
           text: 'Coding in famiglia',
           href: getPermalink(`${appPath}/coding-in-famiglia`),
         },
-        {
-          text: 'Progetti Scratch',
-          href: getPermalink(`${appPath}/progetti-scratch`),
-        },
-        {
-          text: 'Videolezioni',
-          href: getPermalink(`${appPath}/videolezioni`),
-        },
+        // {
+        //   text: 'Progetti Scratch',
+        //   href: getPermalink(`${appPath}/progetti-scratch`),
+        // },
+        // {
+        //   text: 'Videolezioni',
+        //   href: getPermalink(`${appPath}/videolezioni`),
+        // },
         {
           text: 'Post e Webinar',
           href: getPermalink(`${appPath}/post-e-webinar`),
         },
       ],
     },
-    { text: 'Community', href: getPermalink(`${basePath}/community`) },
+    // { text: 'Community', href: getPermalink(`${basePath}/community`) },
     {
       text: 'Academy',
       href: 'https://academy.codyroby.it/',
@@ -96,7 +96,6 @@ export const headerData = {
       ],
     },
   ],
-  /*actions: [{text: 'Download', href: 'https://github.com/onwidget/astrowind', target: '_blank'}],*/
 };
 
 export const footerData = {
