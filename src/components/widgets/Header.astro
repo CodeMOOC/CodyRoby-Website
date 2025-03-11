@@ -123,19 +123,19 @@ const props = Astro.props;
                 <>
                   <button
                     type="button"
-                    class="hover:text-link dark:hover:text-white px-4 py-3 flex items-center whitespace-nowrap"
+                    class="hover:text-link dark:text-gray-400 dark:hover:text-white px-4 py-3 flex items-center whitespace-nowrap"
                   >
                     {text}{' '}
                     <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden lg:inline" />
                   </button>
-                  <ul class="dropdown-menu lg:backdrop-blur-lg dark:lg:bg-dark rounded lg:absolute pl-4 lg:pl-0 lg:hidden font-medium lg:bg-white/90 lg:min-w-[200px] drop-shadow-xl">
+                  <ul class="dropdown-menu  lg:backdrop-blur-lg dark:lg:bg-dark rounded lg:absolute pl-4 lg:pl-0 lg:hidden font-medium lg:bg-white/90 lg:min-w-[200px] drop-shadow-xl">
                     {links.map(({ text: text2, href: href2, links: links2, target = '' }) => (
                       <li class={links2?.length ? 'dropdown2' : ''}>
                         {links2 && links2.length ? (
                           <div class="relative">
                             <button
                               type="button"
-                              class="hover:text-link dark:hover:text-white px-4 py-3 flex items-center whitespace-nowrap"
+                              class="hover:text-link  dark:text-gray-400 dark:hover:text-white px-4 py-3 flex items-center whitespace-nowrap"
                             >
                               {text2}{' '}
                               <Icon
@@ -149,7 +149,7 @@ const props = Astro.props;
                                 <li>
                                   <a
                                     class:list={[
-                                      'flex gap-2 items-center first:rounded-t last:rounded-b lg:hover:bg-gray-200 hover:text-link dark:hover:text-white dark:hover:bg-gray-700 py-2 px-5 whitespace-no-wrap',
+                                      'flex gap-2 items-center first:rounded-t last:rounded-b lg:hover:bg-gray-200 hover:text-link  dark:text-gray-400 dark:hover:text-white  dark:hover:bg-gray-700 py-2 px-5 whitespace-no-wrap',
                                       { 'aw-link-active': href3 === currentPath },
                                     ]}
                                     href={href3}
@@ -178,7 +178,7 @@ const props = Astro.props;
                         ) : (
                           <a
                             class:list={[
-                              'flex gap-2 first:rounded-t last:rounded-b lg:hover:bg-gray-200 hover:text-link dark:hover:text-white dark:hover:bg-gray-700 py-2 px-5 whitespace-no-wrap items-center',
+                              'flex gap-2 first:rounded-t last:rounded-b lg:hover:bg-gray-200 hover:text-link  dark:text-gray-400 dark:hover:text-white  dark:hover:bg-gray-700 py-2 px-5 whitespace-no-wrap items-center',
                               { 'aw-link-active': href2 === currentPath },
                             ]}
                             href={href2}
@@ -208,7 +208,7 @@ const props = Astro.props;
               ) : (
                 <a
                   class:list={[
-                    'hover:text-link dark:hover:text-white px-4 py-3 flex items-center whitespace-nowrap gap-2',
+                    'hover:text-link  dark:text-gray-400 dark:hover:text-white px-4 py-3 flex items-center whitespace-nowrap gap-2',
                     { 'aw-link-active': href === currentPath },
                   ]}
                   href={href}
@@ -347,14 +347,14 @@ const props = Astro.props;
     >
       <div class="items-center flex justify-between w-full lg:w-auto">
         <div class="flex">
-          <!-- {
+          {
             showToggleTheme && (
               <ToggleTheme
                 iconClass="w-6 h-6 lg:w-5 lg:h-5 lg:inline-block"
                 iconName={isDark ? 'tabler:sun' : 'tabler:moon'}
               />
             )
-          } -->
+          }
           {
             showRssFeed && (
               <a
