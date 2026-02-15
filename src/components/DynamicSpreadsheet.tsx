@@ -13,7 +13,7 @@ export default function DynamicSpreadsheet() {
     nome_immagine: string;
     metodi: string[];
     targets: string[];
-    formati: string[]
+    formati: string[];
   };
 
   type TmpRow = {
@@ -24,12 +24,13 @@ export default function DynamicSpreadsheet() {
     nome_immagine: string;
     metodi: string;
     targets: string;
-    formati: string
+    formati: string;
   };
 
   const spreadshettPath = import.meta.env.PUBLIC_SPREADSHEET_URL;
 
   const [rows, setRows] = useState<Row[]>([]);
+  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
 
   const [filters, setFilters] = useState<{
     metodo: string[];
@@ -38,7 +39,7 @@ export default function DynamicSpreadsheet() {
   }>({
     metodo: [],
     target: [],
-    formato: []
+    formato: [],
   });
 
   const [metodi, setMetodi] = useState([
@@ -59,10 +60,17 @@ export default function DynamicSpreadsheet() {
   ]);
 
   const [filterSelectDialog, setFilterSelectDialog] = useState([
-    {name: 'metodoSelect', isOpen: false},
-    {name: 'targetSelect', isOpen: false},
-    {name: 'formatoSelect', isOpen: false},
-  ])
+    { name: 'metodoSelect', isOpen: false },
+    { name: 'targetSelect', isOpen: false },
+    { name: 'formatoSelect', isOpen: false },
+  ]);
+
+  const parseDate = (dateString: string) => {
+    // format date: dd/mm/yyyy
+    const [day, month, year] = dateString.split('/');
+    return new Date(`${year}-${month}-${day}`);
+  };
+
   const handleFilterSelection = ({ filter, value }) => {
     setFilters((prevFilters) => {
       const updatedFilterValues = prevFilters[filter]?.includes(value)
@@ -84,17 +92,27 @@ export default function DynamicSpreadsheet() {
         prevTargets.map((item) => (item.name === value ? { ...item, selected: !item.selected } : item))
       );
     } else if (filter === 'formato') {
-      setFormati((prevFormato) => prevFormato.map(item => (item.name === value ? { ...item, selected: !item.selected } : item)))
+      setFormati((prevFormato) =>
+        prevFormato.map((item) => (item.name === value ? { ...item, selected: !item.selected } : item))
+      );
     }
   };
 
-  const filteredRows = rows.filter((row: Row) => {
-    const metodiMatch = filters.metodo.length === 0 || filters.metodo.every((metodo) => row.metodi.includes(metodo));
-    const targetMatch = filters.target.length === 0 || filters.target.every((target) => row.targets.includes(target));
-    const formatiMatch = filters.formato.length === 0 || filters.formato.every((formato) => row.formati.includes(formato))
+  const filteredRows = rows
+    .filter((row: Row) => {
+      const metodiMatch = filters.metodo.length === 0 || filters.metodo.every((metodo) => row.metodi.includes(metodo));
+      const targetMatch = filters.target.length === 0 || filters.target.every((target) => row.targets.includes(target));
+      const formatiMatch =
+        filters.formato.length === 0 || filters.formato.every((formato) => row.formati.includes(formato));
 
-    return metodiMatch && targetMatch && formatiMatch;
-  });
+      return metodiMatch && targetMatch && formatiMatch;
+    })
+    .sort((a, b) => {
+      const dateA = parseDate(a.data).getTime();
+      const dateB = parseDate(b.data).getTime();
+
+      return sortOrder === 'desc' ? dateB - dateA : dateA - dateB;
+    });
 
   useEffect(() => {
     async function fetchSpreadsheetData() {
@@ -152,44 +170,54 @@ export default function DynamicSpreadsheet() {
     return item ? item.color : 'black';
   };
 
-const filterSelectOpened = (name) => {
-
+  const filterSelectOpened = (name) => {
     setFilterSelectDialog((prev) => {
-      
-      return prev.map((item) => 
+      return prev.map((item) =>
         item.name === `${name}Select` ? { ...item, isOpen: !item.isOpen } : { ...item, isOpen: false }
       );
     });
-}
-  
+  };
+
   return (
     <div className="">
-      <div className='prose-page'>
+      <div className="prose-page">
         <div className="flex flex-col md:flex-row justify-start gap-4 md:items-center">
           <p className="font-semibold">Filtri:</p>
-          <div className='flex flex-wrap md:flex-row gap-4'>
-          <IconSelect
-            options={metodi}
-            icon="codicon:symbol-method"
-            filter="metodo"
-            onFilterSelection={handleFilterSelection}
-            onSelectOpen={filterSelectOpened}
-          />
-          <IconSelect
-            options={target}
-            icon="pepicons-pop:label"
-            filter="target"
-            onFilterSelection={handleFilterSelection}
-            onSelectOpen={filterSelectOpened}
-          />
-          <IconSelect
-            options={formati}
-            icon="mdi:format-list-bulleted"
-            filter="formato"
-            onFilterSelection={handleFilterSelection}
-            onSelectOpen={filterSelectOpened}
-          />
+          <div className="flex flex-wrap md:flex-row gap-4">
+            <IconSelect
+              options={metodi}
+              icon="codicon:symbol-method"
+              filter="metodo"
+              onFilterSelection={handleFilterSelection}
+              onSelectOpen={filterSelectOpened}
+            />
+            <IconSelect
+              options={target}
+              icon="pepicons-pop:label"
+              filter="target"
+              onFilterSelection={handleFilterSelection}
+              onSelectOpen={filterSelectOpened}
+            />
+            <IconSelect
+              options={formati}
+              icon="mdi:format-list-bulleted"
+              filter="formato"
+              onFilterSelection={handleFilterSelection}
+              onSelectOpen={filterSelectOpened}
+            />
           </div>
+        </div>
+        <div className="flex flex-col md:flex-row justify-start gap-4 md:items-center">
+          <button
+            onClick={() => setSortOrder((prev) => (prev === 'desc' ? 'asc' : 'desc'))}
+            className="text-white px-4 py-2 bg-slate-400 border-slate-400 capitalize flex items-center gap-2 rounded-lg transition-colors duration-300"
+          >
+            <Icon
+              icon={sortOrder === 'desc' ? 'material-symbols:arrow-downward' : 'material-symbols:arrow-upward'}
+              className="text-lg"
+            />
+            Ordina per data: {sortOrder === 'desc' ? 'Più recenti' : 'Meno recenti'}
+          </button>
         </div>
         <div className="flex gap-4 not-prose mt-4">
           {metodi.map(
@@ -248,10 +276,9 @@ const filterSelectOpened = (name) => {
       <hr className="my-6 " />
       {rows.length > 0 ? (
         <div className="flex flex-col md:flex-row flex-wrap justify-center items-center md:items-stretch gap-4">
-
           {filteredRows.map((row, index) => (
             <a
-              className="flex flex-col items-center border px-6 py-4 rounded-xl hover:bg-[#f3f0f0c2] max-w-[300px]"
+              className="flex flex-col border px-6 py-4 rounded-xl hover:bg-[#f3f0f0c2] max-w-[300px] items-end"
               href={row.url_video}
               key={index}
               target="_blank"
@@ -279,6 +306,7 @@ const filterSelectOpened = (name) => {
                     ))}
                 </div>
               </div>
+              <div className="mt-auto pt-3 text-xs text-slate-500 text-right">{row.data}</div>
             </a>
           ))}
         </div>

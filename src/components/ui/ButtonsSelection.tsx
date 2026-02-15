@@ -33,6 +33,7 @@ const ButtonSelection: React.FC<ButtonSelectionProps> = ({ buttons }) => {
               key={button.action}
               className={buttonClass(button.action)}
               onClick={() => changeTextToView(button.action)}
+              onMouseEnter={() => changeTextToView(button.action)}
             >
               <div className="not-prose">
                 <img
