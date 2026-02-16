@@ -3,6 +3,7 @@ import { parse } from 'csv-parse/browser/esm';
 import { Icon } from '@iconify/react';
 import IconSelect from './ui/IconSelect';
 import Filter from './ui/Filter.tsx';
+import defaultImage from '~/assets/images/codyroby-cover.png';
 
 export default function DynamicSpreadsheet() {
   type Row = {
@@ -35,11 +36,11 @@ export default function DynamicSpreadsheet() {
   const [filters, setFilters] = useState<{
     metodo: string[];
     target: string[];
-    formato: string[];
+    formato: string | null;
   }>({
     metodo: [],
     target: [],
-    formato: [],
+    formato: null,
   });
 
   const [metodi, setMetodi] = useState([
@@ -72,38 +73,47 @@ export default function DynamicSpreadsheet() {
   };
 
   const handleFilterSelection = ({ filter, value }) => {
-    setFilters((prevFilters) => {
-      const updatedFilterValues = prevFilters[filter]?.includes(value)
-        ? prevFilters[filter].filter((item) => item !== value)
-        : [...(prevFilters[filter] || []), value];
+    if (filter === 'formato') {
+      setFilters((prev) => ({
+        ...prev,
+        formato: prev.formato === value ? null : value,
+      }));
+
+      setFormati((prev) =>
+        prev.map((item) => ({
+          ...item,
+          selected: item.name === value && filters.formato !== value,
+        }))
+      );
+
+      return;
+    }
+
+    // Multi select logic
+    setFilters((prev) => {
+      const updated = prev[filter]?.includes(value)
+        ? prev[filter].filter((item) => item !== value)
+        : [...(prev[filter] || []), value];
 
       return {
-        ...prevFilters,
-        [filter]: updatedFilterValues,
+        ...prev,
+        [filter]: updated,
       };
     });
 
     if (filter === 'metodo') {
-      setMetodi((prevMetodi) => {
-        return prevMetodi.map((item) => (item.name === value ? { ...item, selected: !item.selected } : item));
-      });
-    } else if (filter === 'target') {
-      setTarget((prevTargets) =>
-        prevTargets.map((item) => (item.name === value ? { ...item, selected: !item.selected } : item))
-      );
-    } else if (filter === 'formato') {
-      setFormati((prevFormato) =>
-        prevFormato.map((item) => (item.name === value ? { ...item, selected: !item.selected } : item))
-      );
+      setMetodi((prev) => prev.map((item) => (item.name === value ? { ...item, selected: !item.selected } : item)));
+    }
+
+    if (filter === 'target') {
+      setTarget((prev) => prev.map((item) => (item.name === value ? { ...item, selected: !item.selected } : item)));
     }
   };
-
   const filteredRows = rows
     .filter((row: Row) => {
       const metodiMatch = filters.metodo.length === 0 || filters.metodo.every((metodo) => row.metodi.includes(metodo));
       const targetMatch = filters.target.length === 0 || filters.target.every((target) => row.targets.includes(target));
-      const formatiMatch =
-        filters.formato.length === 0 || filters.formato.every((formato) => row.formati.includes(formato));
+      const formatiMatch = !filters.formato || row.formati.includes(filters.formato);
 
       return metodiMatch && targetMatch && formatiMatch;
     })
@@ -178,6 +188,9 @@ export default function DynamicSpreadsheet() {
     });
   };
 
+  const keepDescriptionShort = (description: string, maxLength: number = 100): string => {
+    return description.length > maxLength ? description.slice(0, maxLength) + '...' : description;
+  };
   return (
     <div className="">
       <div className="prose-page">
@@ -278,35 +291,45 @@ export default function DynamicSpreadsheet() {
         <div className="flex flex-col md:flex-row flex-wrap justify-center items-center md:items-stretch gap-4">
           {filteredRows.map((row, index) => (
             <a
-              className="flex flex-col border px-6 py-4 rounded-xl hover:bg-[#f3f0f0c2] max-w-[300px] items-end"
+              className="flex flex-col border px-6 py-4 rounded-xl hover:bg-[#f3f0f0c2] max-w-[300px] items-center flex-1"
               href={row.url_video}
               key={index}
               target="_blank"
             >
-              <img src={`/risorse/post-e-webinar/${row.nome_immagine}`} alt="" className="max-w-[200px]" />
+              <img
+                src={
+                  row.nome_immagine && row.nome_immagine.trim() !== ''
+                    ? `/risorse/post-e-webinar/${row.nome_immagine.trim()}`
+                    : typeof defaultImage === 'string'
+                      ? defaultImage
+                      : defaultImage.src
+                }
+                alt={`image-${index}`}
+                className="max-w-[200px]"
+              />
 
               <div className="not-prose mt-4">
                 <h3 className="text-2xl">{row.nome}</h3>
-                {row.descrizione && <p className="text-base text-slate-700 mt-2">{row.descrizione}</p>}
-                <div className="flex flex-wrap gap-2 mt-2">
-                  {row.metodi &&
-                    row.metodi.length > 0 &&
-                    row.metodi.map((metodo) => (
-                      <Filter key={`${row.nome}-${metodo}`} name={metodo} color={getColor('metodo', metodo)} />
-                    ))}
-                  {row.targets &&
-                    row.targets.length > 0 &&
-                    row.targets.map((target) => (
-                      <Filter key={`${row.nome}-${target}`} name={target} color={getColor('target', target)} />
-                    ))}
-                  {row.formati &&
-                    row.formati.length > 0 &&
-                    row.formati.map((formato) => (
-                      <Filter key={`${row.nome}-${formato}`} name={formato} color={getColor('formato', formato)} />
-                    ))}
-                </div>
+                {row.descrizione && <p className="text-base text-slate-700 mt-2 line-clamp-3">{row.descrizione}</p>}
               </div>
-              <div className="mt-auto pt-3 text-xs text-slate-500 text-right">{row.data}</div>
+              <div className="mt-auto pt-3 w-full text-right flex flex-wrap gap-2">
+                {row.metodi &&
+                  row.metodi.length > 0 &&
+                  row.metodi.map((metodo) => (
+                    <Filter key={`${row.nome}-${metodo}`} name={metodo} color={getColor('metodo', metodo)} />
+                  ))}
+                {row.targets &&
+                  row.targets.length > 0 &&
+                  row.targets.map((target) => (
+                    <Filter key={`${row.nome}-${target}`} name={target} color={getColor('target', target)} />
+                  ))}
+                {row.formati &&
+                  row.formati.length > 0 &&
+                  row.formati.map((formato) => (
+                    <Filter key={`${row.nome}-${formato}`} name={formato} color={getColor('formato', formato)} />
+                  ))}
+              </div>
+              <div className="pt-3 text-xs text-slate-500 w-full text-right">{row.data}</div>
             </a>
           ))}
         </div>
