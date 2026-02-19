@@ -47,6 +47,7 @@ export default function DynamicSpreadsheet() {
     { name: 'CodyRoby', selected: false, color: '#6af32a' },
     { name: 'CodyColor', selected: false, color: '#f3d52a' },
     { name: 'CodyFeet', selected: false, color: '#dc2af3' },
+    { name: 'CodyTrip', selected: false, color: '#ea7100' },
   ]);
 
   const [target, setTarget] = useState([
@@ -284,60 +285,60 @@ export default function DynamicSpreadsheet() {
               )
           )}
         </div>
+
+        <hr className="my-6 " />
+        {rows.length > 0 ? (
+          <div className="flex flex-col md:flex-row flex-wrap justify-center items-center md:items-stretch gap-4">
+            {filteredRows.map((row, index) => (
+              <a
+                className="flex flex-col border px-6 py-4 rounded-xl hover:bg-[#f3f0f0c2] max-w-[300px] items-center flex-1"
+                href={row.url_video}
+                key={index}
+                target="_blank"
+              >
+                <img
+                  src={
+                    row.nome_immagine && row.nome_immagine.trim() !== ''
+                      ? `/risorse/post-e-webinar/${row.nome_immagine.trim()}`
+                      : typeof defaultImage === 'string'
+                        ? defaultImage
+                        : defaultImage.src
+                  }
+                  alt={`image-${index}`}
+                  className="max-w-[200px]"
+                />
+
+                <div className="not-prose mt-4">
+                  <h3 className="text-2xl">{row.nome}</h3>
+                  {row.descrizione && <p className="text-base text-slate-700 mt-2 line-clamp-3">{row.descrizione}</p>}
+                </div>
+                <div className="mt-auto pt-3 w-full text-right flex flex-wrap gap-2">
+                  {row.metodi &&
+                    row.metodi.length > 0 &&
+                    row.metodi.map((metodo) => (
+                      <Filter key={`${row.nome}-${metodo}`} name={metodo} color={getColor('metodo', metodo)} />
+                    ))}
+                  {row.targets &&
+                    row.targets.length > 0 &&
+                    row.targets.map((target) => (
+                      <Filter key={`${row.nome}-${target}`} name={target} color={getColor('target', target)} />
+                    ))}
+                  {row.formati &&
+                    row.formati.length > 0 &&
+                    row.formati.map((formato) => (
+                      <Filter key={`${row.nome}-${formato}`} name={formato} color={getColor('formato', formato)} />
+                    ))}
+                </div>
+                <div className="pt-3 text-xs text-slate-500 w-full text-right">{row.data}</div>
+              </a>
+            ))}
+          </div>
+        ) : (
+          <div className="flex justify-center">
+            <p>Loading...</p>
+          </div>
+        )}
       </div>
-
-      <hr className="my-6 " />
-      {rows.length > 0 ? (
-        <div className="flex flex-col md:flex-row flex-wrap justify-center items-center md:items-stretch gap-4">
-          {filteredRows.map((row, index) => (
-            <a
-              className="flex flex-col border px-6 py-4 rounded-xl hover:bg-[#f3f0f0c2] max-w-[300px] items-center flex-1"
-              href={row.url_video}
-              key={index}
-              target="_blank"
-            >
-              <img
-                src={
-                  row.nome_immagine && row.nome_immagine.trim() !== ''
-                    ? `/risorse/post-e-webinar/${row.nome_immagine.trim()}`
-                    : typeof defaultImage === 'string'
-                      ? defaultImage
-                      : defaultImage.src
-                }
-                alt={`image-${index}`}
-                className="max-w-[200px]"
-              />
-
-              <div className="not-prose mt-4">
-                <h3 className="text-2xl">{row.nome}</h3>
-                {row.descrizione && <p className="text-base text-slate-700 mt-2 line-clamp-3">{row.descrizione}</p>}
-              </div>
-              <div className="mt-auto pt-3 w-full text-right flex flex-wrap gap-2">
-                {row.metodi &&
-                  row.metodi.length > 0 &&
-                  row.metodi.map((metodo) => (
-                    <Filter key={`${row.nome}-${metodo}`} name={metodo} color={getColor('metodo', metodo)} />
-                  ))}
-                {row.targets &&
-                  row.targets.length > 0 &&
-                  row.targets.map((target) => (
-                    <Filter key={`${row.nome}-${target}`} name={target} color={getColor('target', target)} />
-                  ))}
-                {row.formati &&
-                  row.formati.length > 0 &&
-                  row.formati.map((formato) => (
-                    <Filter key={`${row.nome}-${formato}`} name={formato} color={getColor('formato', formato)} />
-                  ))}
-              </div>
-              <div className="pt-3 text-xs text-slate-500 w-full text-right">{row.data}</div>
-            </a>
-          ))}
-        </div>
-      ) : (
-        <div className="flex justify-center">
-          <p>Loading...</p>
-        </div>
-      )}
     </div>
   );
 }
