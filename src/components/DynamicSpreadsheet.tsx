@@ -32,7 +32,6 @@ export default function DynamicSpreadsheet() {
 
   const [rows, setRows] = useState<Row[]>([]);
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
-
   const [filters, setFilters] = useState<{
     metodo: string[];
     target: string[];
@@ -42,6 +41,7 @@ export default function DynamicSpreadsheet() {
     target: [],
     formato: null,
   });
+  const [searchTerm, setSearchTerm] = useState('');
 
   const [metodi, setMetodi] = useState([
     { name: 'CodyRoby', selected: false, color: '#6af32a' },
@@ -116,7 +116,11 @@ export default function DynamicSpreadsheet() {
       const targetMatch = filters.target.length === 0 || filters.target.every((target) => row.targets.includes(target));
       const formatiMatch = !filters.formato || row.formati.includes(filters.formato);
 
-      return metodiMatch && targetMatch && formatiMatch;
+      const normalizedSearch = searchTerm.trim().toLowerCase();
+      const titleMatch =
+        normalizedSearch.trim() === '' || row.nome.toLowerCase().includes(normalizedSearch.toLowerCase());
+
+      return metodiMatch && targetMatch && formatiMatch && titleMatch;
     })
     .sort((a, b) => {
       const dateA = parseDate(a.data).getTime();
@@ -189,38 +193,69 @@ export default function DynamicSpreadsheet() {
     });
   };
 
-  const keepDescriptionShort = (description: string, maxLength: number = 100): string => {
-    return description.length > maxLength ? description.slice(0, maxLength) + '...' : description;
+  const searchElementByTitle = (title: string) => {
+    const element = document.querySelector(`[title="${title}"]`);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
   };
+
   return (
     <div className="">
       <div className="prose-page">
-        <div className="flex flex-col md:flex-row justify-start gap-4 md:items-center">
-          <p className="font-semibold">Filtri:</p>
-          <div className="flex flex-wrap md:flex-row gap-4">
-            <IconSelect
-              options={metodi}
-              icon="codicon:symbol-method"
-              filter="metodo"
-              onFilterSelection={handleFilterSelection}
-              onSelectOpen={filterSelectOpened}
-            />
-            <IconSelect
-              options={target}
-              icon="pepicons-pop:label"
-              filter="target"
-              onFilterSelection={handleFilterSelection}
-              onSelectOpen={filterSelectOpened}
-            />
-            <IconSelect
-              options={formati}
-              icon="mdi:format-list-bulleted"
-              filter="formato"
-              onFilterSelection={handleFilterSelection}
-              onSelectOpen={filterSelectOpened}
-            />
+        <div className="flex justify-between">
+          <div className="flex flex-col md:flex-row justify-start gap-4 md:items-center">
+            <p className="font-semibold">Filtri:</p>
+            <div className="flex flex-wrap md:flex-row gap-4">
+              <IconSelect
+                options={metodi}
+                icon="codicon:symbol-method"
+                filter="metodo"
+                onFilterSelection={handleFilterSelection}
+                onSelectOpen={filterSelectOpened}
+              />
+              <IconSelect
+                options={target}
+                icon="pepicons-pop:label"
+                filter="target"
+                onFilterSelection={handleFilterSelection}
+                onSelectOpen={filterSelectOpened}
+              />
+              <IconSelect
+                options={formati}
+                icon="mdi:format-list-bulleted"
+                filter="formato"
+                onFilterSelection={handleFilterSelection}
+                onSelectOpen={filterSelectOpened}
+              />
+            </div>
+          </div>
+          <div className="flex flex-col md:flex-row gap-4 md:items-center">
+            <div className="relative w-full md:w-80">
+              <Icon
+                icon="mdi:magnify"
+                className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg pointer-events-none"
+              />
+
+              <input
+                type="text"
+                placeholder="Cerca nel titolo..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="border pl-10 pr-10 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-400"
+              />
+
+              {searchTerm && (
+                <Icon
+                  icon="material-symbols:close"
+                  onClick={() => setSearchTerm('')}
+                  className="absolute right-10 top-1/2 -translate-y-1/2 text-red-300 cursor-pointer hover:text-red-500"
+                />
+              )}
+            </div>
           </div>
         </div>
+
         <div className="flex flex-col md:flex-row justify-start gap-4 md:items-center">
           <button
             onClick={() => setSortOrder((prev) => (prev === 'desc' ? 'asc' : 'desc'))}
@@ -233,6 +268,7 @@ export default function DynamicSpreadsheet() {
             Ordina per data: {sortOrder === 'desc' ? 'Più recenti' : 'Meno recenti'}
           </button>
         </div>
+
         <div className="flex gap-4 not-prose mt-4">
           {metodi.map(
             (m) =>
