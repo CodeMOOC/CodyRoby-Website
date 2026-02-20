@@ -193,13 +193,6 @@ export default function DynamicSpreadsheet() {
     });
   };
 
-  const searchElementByTitle = (title: string) => {
-    const element = document.querySelector(`[title="${title}"]`);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-  };
-
   return (
     <div className="">
       <div className="prose-page">
